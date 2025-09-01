@@ -17,3 +17,12 @@ GPL-3.0-only
 Доступна только на русском языке в папке z_Docmentation/RU.
 ## Лицензия
 GPL-3.0-only
+
+# Screenshots
+![img_01](/z_Documentation\Screenshots\01.png)
+![img_02](/z_Documentation\Screenshots\02.png)
+![img_03](/z_Documentation\Screenshots\03.png)
+![img_04](/z_Documentation\Screenshots\04.png)
+![img_05](/z_Documentation\Screenshots\05.png)
+![img_06](/z_Documentation\Screenshots\06.png)
+![img_07](/z_Documentation\Screenshots\07.png)

@@ -1,6 +1,8 @@
 class_name Level_loader
 extends Node
 
+## FOR MODS ONLY
+
 @onready var transition := $Transition
 @onready var enemy_loader: Node = $Enemy_loader
 @onready var player_loader: Node = $Player_loader

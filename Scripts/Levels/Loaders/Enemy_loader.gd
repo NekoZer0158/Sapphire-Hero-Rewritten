@@ -1,5 +1,7 @@
 extends Node
 
+## FOR MODS ONLY
+
 func spawn_enemies(level:Node) -> void:
 	const DEFAULT_TURRET = preload("res://Scenes/Enemies/Static/Default_turret.tscn")
 	const TURRET_THREE_SHOT = preload("res://Scenes/Enemies/Static/Turret_three_shot.tscn")

@@ -1,5 +1,7 @@
 extends Node
 
+## FOR MODS ONLY
+
 func spawn_player(level : Node,cur_checkpoint:int) -> void:
 	var player_marker : Marker2D = level.get_node("Checkpoints").get_child(cur_checkpoint)
 	var player : Player

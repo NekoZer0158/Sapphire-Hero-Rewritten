@@ -4,7 +4,7 @@ extends Node2D
 @export_color_no_alpha var active_color : Color
 @export var boss_container : HBoxContainer
 @export var transition_time : float = 0.7
-@export var dimension_colors : Dictionary[int,Color]
+@export var dimension_colors : Dictionary[int,Color] ## triangle color in the top right corner of the boss
 
 @onready var black_baron := $Black_Baron
 @onready var boss_name_label : Label = $Boss_name
@@ -18,7 +18,7 @@ extends Node2D
 var intro := preload("res://Scenes/Story/Intro.tscn")
 var before_final_boss := preload("res://Scenes/Story/Before_final_boss.tscn")
 var the_end := preload("res://Scenes/Story/The_end.tscn")
-var first_time : bool = true
+var first_time : bool = true ## only for the new game
 var cur_level : int = 0
 var can_control : bool = false
 var ready_for_final_level : bool = false

@@ -1,5 +1,7 @@
 extends Node
 
+## FOR MODS ONLY
+
 func spawn_bosses(level : Node) -> void:
 	var bosses_node := level.get_node_or_null("Bosses")
 	if bosses_node != null:
