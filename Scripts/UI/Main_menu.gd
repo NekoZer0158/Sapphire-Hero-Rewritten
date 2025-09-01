@@ -46,6 +46,7 @@ func _ready():
 	else:
 		end_point = EXIT
 	if OS.has_feature("mobile"):
+		$License.hide()
 		for i in menu_options_labels:
 			i.self_modulate = Color.WHITE
 		mobile_node.show()
