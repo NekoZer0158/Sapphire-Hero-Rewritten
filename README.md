@@ -5,6 +5,8 @@ Get a weapon from the boss, after defeating it.
 A world, where a civil war going on in a colony, where living only robots.
 ## Documentation
 It's only available in Russian in z_Docmentation/RU folder.
+## License
+GPL-3.0-only
 
 # Sapphire Hero Rewritten (RU)
 2D экшен-платформер. Является ремейком моей первой игры на Godot.
@@ -13,3 +15,5 @@ It's only available in Russian in z_Docmentation/RU folder.
 Мир, где колония, в которой живут только роботы, находится в состоянии гражданской войны.
 ## Документация
 Доступна только на русском языке в папке z_Docmentation/RU.
+## Лицензия
+GPL-3.0-only
