@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://duw2pphrlxcwu"]
+
+[ext_resource type="Script" uid="uid://qmmkjbttnevu" path="res://Scripts/Bodies/Flying/Flying_shield_body.gd" id="1_wjqqp"]
+[ext_resource type="Texture2D" uid="uid://b87vwt80dmvp" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_attack_shield.png" id="2_4s5sg"]
+[ext_resource type="Texture2D" uid="uid://b0i74fm0anvnr" path="res://Sprites/Effects/Flying_robot_flame_dark_blue.png" id="3_bqkk4"]
+[ext_resource type="Animation" uid="uid://di6juh3ydw685" path="res://Resources/Animations/Enemies/Flying/flying_robot_flame.res" id="4_sudhp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtxo"]
+size = Vector2(22, 22)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcx82"]
+_data = {
+&"flying_robot_flame": ExtResource("4_sudhp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhtwe"]
+size = Vector2(32, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_biv5x"]
+size = Vector2(22, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suvil"]
+size = Vector2(1, 22)
+
+[node name="Flying_robot_shield" type="CharacterBody2D" node_paths=PackedStringArray("attacking_area", "animation_player", "body_sprite", "death_effect_marker", "timer_reload") groups=["Flying_enemy_body"]]
+z_index = 5
+collision_layer = 2
+collision_mask = 72
+script = ExtResource("1_wjqqp")
+time_for_shield = 7.0
+attacking_area = NodePath("Attack_area")
+atk = 1
+animation_player = NodePath("AnimationPlayer")
+hp = 6
+speed = 225.0
+reload_time = 0.5
+body_sprite = NodePath("Sprite2D")
+death_effect_marker = NodePath("Death_effect_marker")
+timer_reload = NodePath("Timer_reload")
+mirror_sprite = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4s5sg")
+hframes = 2
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-12, 10)
+texture = ExtResource("3_bqkk4")
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(13, 10)
+texture = ExtResource("3_bqkk4")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8fjfx")
+debug_color = Color(0, 0.596078, 0.701961, 0)
+metadata/_edit_lock_ = true
+
+[node name="Attack_area" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_area"]
+shape = SubResource("RectangleShape2D_hqtxo")
+debug_color = Color(0, 0.596078, 0.701961, 0)
+metadata/_edit_lock_ = true
+
+[node name="Timer_reload" type="Timer" parent="."]
+
+[node name="Timer_shield" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vcx82")
+}
+
+[node name="Death_effect_marker" type="Marker2D" parent="."]
+
+[node name="Shield" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Shield"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_xhtwe")
+disabled = true
+debug_color = Color(0.701961, 0, 0.678431, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Shield"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_biv5x")
+disabled = true
+debug_color = Color(0.701961, 0, 0.678431, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Shield"]
+position = Vector2(-15.5, -1)
+shape = SubResource("RectangleShape2D_suvil")
+disabled = true
+debug_color = Color(0.701961, 0, 0.678431, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Shield"]
+position = Vector2(15.5, -1)
+shape = SubResource("RectangleShape2D_suvil")
+disabled = true
+debug_color = Color(0.701961, 0, 0.678431, 0.419608)
+
+[connection signal="body_entered" from="Attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="Attack_area" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
+[connection signal="timeout" from="Timer_shield" to="." method="_on_timer_shield_timeout"]

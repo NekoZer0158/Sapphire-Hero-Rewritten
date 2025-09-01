@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxscygo6sxg7l"]
+
+[ext_resource type="Theme" uid="uid://bn3aep0v41ydw" path="res://Resources/Themes/button_progress_mobile.tres" id="1_qmsmu"]
+[ext_resource type="Texture2D" uid="uid://mn7pi8tuget5" path="res://Sprites/Other/Mobile/Pause_UI/Restart.png" id="2_hcyyq"]
+[ext_resource type="Texture2D" uid="uid://ujrl0tsmj8jx" path="res://Sprites/Other/Mobile/Pause_UI/Restart_activated.png" id="3_vccpy"]
+[ext_resource type="Texture2D" uid="uid://dg6l2036eihtb" path="res://Sprites/Other/Mobile/Shoot.png" id="4_1ctdh"]
+[ext_resource type="Texture2D" uid="uid://dlkt2junqe58e" path="res://Sprites/Other/Mobile/Shoot_activated.png" id="5_pr141"]
+[ext_resource type="Texture2D" uid="uid://dgr3j34vpm4vr" path="res://Sprites/Other/Mobile/Pause_UI/Btm.png" id="6_xao2r"]
+[ext_resource type="Texture2D" uid="uid://neejfurc7th3" path="res://Sprites/Other/Mobile/Pause_UI/Btm_activated.png" id="7_vtc05"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mx3k3"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plg5n"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_er7i2"]
+radius = 22.0
+
+[node name="Mobile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar_restart" type="ProgressBar" parent="." groups=["M_hide_settings"]]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 224.0
+offset_right = 896.0
+offset_bottom = 288.0
+mouse_filter = 2
+theme = ExtResource("1_qmsmu")
+max_value = 50.0
+step = 1.0
+show_percentage = false
+
+[node name="ProgressBar_btm" type="ProgressBar" parent="." groups=["M_hide_settings"]]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 608.0
+offset_right = 896.0
+offset_bottom = 672.0
+mouse_filter = 2
+theme = ExtResource("1_qmsmu")
+max_value = 50.0
+step = 1.0
+show_percentage = false
+
+[node name="TSB_restart" type="TouchScreenButton" parent="." groups=["M_hide_settings"]]
+modulate = Color(1, 1, 1, 0.33)
+position = Vector2(960, 192)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_hcyyq")
+texture_pressed = ExtResource("3_vccpy")
+shape = SubResource("CircleShape2D_mx3k3")
+action = "Restart"
+visibility_mode = 1
+
+[node name="TSB_settings" type="TouchScreenButton" parent="." groups=["M_hide_settings"]]
+modulate = Color(1, 1, 1, 0.329412)
+position = Vector2(960, 384)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_1ctdh")
+texture_pressed = ExtResource("5_pr141")
+shape = SubResource("CircleShape2D_plg5n")
+action = "Settings"
+visibility_mode = 1
+
+[node name="TSB_back_to_menu" type="TouchScreenButton" parent="." groups=["M_hide_settings"]]
+modulate = Color(1, 1, 1, 0.329412)
+position = Vector2(960, 576)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("6_xao2r")
+texture_pressed = ExtResource("7_vtc05")
+shape = SubResource("CircleShape2D_er7i2")
+action = "Back_to_menu"
+visibility_mode = 1
+
+[node name="Settings" type="Label" parent="." groups=["M_hide_settings"]]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 384.0
+offset_right = 1856.0
+offset_bottom = 512.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1

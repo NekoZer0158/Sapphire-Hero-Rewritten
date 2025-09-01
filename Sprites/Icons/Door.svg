@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16mm"
+   height="16mm"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg848"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="Door.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title5848">Level</title>
+  <sodipodi:namedview
+     id="namedview850"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="12.215376"
+     inkscape:cx="23.863367"
+     inkscape:cy="25.050396"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g5571" />
+  <defs
+     id="defs845" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g5571"
+       transform="translate(0,-0.01867635)">
+      <path
+         id="rect963-2"
+         style="fill:#8da5f3;fill-opacity:1;stroke-width:0.511074;stroke-dashoffset:28.7769"
+         d="M 1.4805298 8.5272009 L 1.4805298 14.881335 L 14.519527 14.881335 L 14.519527 8.5272009 L 12.383223 8.5272009 A 4.5 4.5 0 0 1 8.0940796 12.009159 A 4.5 4.5 0 0 1 3.6189006 8.5272009 L 1.4805298 8.5272009 z " />
+      <path
+         id="rect963"
+         style="display:inline;fill:#8da5f3;fill-opacity:1;stroke-width:0.511074;stroke-dashoffset:28.7769"
+         d="M 1.4805298 1.1555579 L 1.4805298 7.509692 L 3.5026286 7.509692 A 4.5 4.5 0 0 1 7.9059774 3.0107418 A 4.5 4.5 0 0 1 12.498979 7.4161576 A 4.5 4.5 0 0 1 12.500012 7.509692 L 14.519527 7.509692 L 14.519527 1.1555579 L 1.4805298 1.1555579 z " />
+      <path
+         style="display:inline;fill:#8da5f3;fill-opacity:1;stroke-width:0.246856;stroke-dashoffset:28.7769"
+         id="path4721"
+         sodipodi:type="arc"
+         sodipodi:cx="8"
+         sodipodi:cy="7.5098934"
+         sodipodi:rx="3.3464484"
+         sodipodi:ry="3.3464484"
+         sodipodi:start="6.2623216"
+         sodipodi:end="6.2622982"
+         sodipodi:open="true"
+         sodipodi:arc-type="arc"
+         d="M 11.34572,7.4400792 A 3.3464484,3.3464484 0 0 1 8.0698338,10.855613 3.3464484,3.3464484 0 0 1 4.6542807,7.5797468 3.3464484,3.3464484 0 0 1 7.930127,4.1641745 3.3464484,3.3464484 0 0 1 11.345718,7.4400009" />
+    </g>
+  </g>
+  <metadata
+     id="metadata5846">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Level</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

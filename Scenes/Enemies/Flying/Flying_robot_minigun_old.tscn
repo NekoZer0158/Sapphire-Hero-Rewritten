@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg7ovlq7cto31"]
+
+[ext_resource type="Script" uid="uid://cchdbt4x0vfxe" path="res://Scripts/AI/Enemies/Flying/Flying_robot_minigun_AI.gd" id="1_mpafv"]
+[ext_resource type="PackedScene" uid="uid://bxw2reqw8i658" path="res://Scenes/Bodies/Enemies/Flying/Flying_robot_minigun_old.tscn" id="2_cm1eq"]
+[ext_resource type="Texture2D" uid="uid://cnkhhiac2tyvt" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_machinegun_reload.png" id="3_l2yng"]
+
+[node name="Flying_robot_minigun" type="Node2D"]
+script = ExtResource("1_mpafv")
+time_between = 1.8
+
+[node name="Robot_body" parent="." instance=ExtResource("2_cm1eq")]
+z_index = 10
+
+[node name="RayCast_left" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(-20, 0)
+collision_mask = 72
+
+[node name="RayCast_right" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(20, 0)
+collision_mask = 72
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Robot_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(19.15, 11.65)
+enable_node_path = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Sprite_reload" type="Sprite2D" parent="Robot_body"]
+position = Vector2(1, 0)
+texture = ExtResource("3_l2yng")
+hframes = 7
+
+[node name="Timer_one_shoot" type="Timer" parent="."]
+
+[node name="Timer_change_frame" type="Timer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer_one_shoot" to="." method="_on_timer_one_shoot_timeout"]
+[connection signal="timeout" from="Timer_change_frame" to="." method="_on_timer_change_frame_timeout"]

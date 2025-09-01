@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://cthj60koov6p5"]
+
+[ext_resource type="Script" uid="uid://dc1rry04ngatv" path="res://Scripts/UI/Achievements.gd" id="1_t87t6"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_7cfun"]
+[ext_resource type="PackedScene" uid="uid://bx45fs3jswigl" path="res://Scenes/UI/Achievement.tscn" id="2_ak8bh"]
+[ext_resource type="PackedScene" uid="uid://43qw6uochrvh" path="res://Scenes/UI/Mobile/Mobile_achievements.tscn" id="4_2y43j"]
+
+[node name="Achievements" type="Control" node_paths=PackedStringArray("options")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_t87t6")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+options = [NodePath("Achievements/Achievement"), NodePath("Achievements/Achievement2"), NodePath("Achievements/Achievement3"), NodePath("Achievements/Achievement4"), NodePath("Achievements/Achievement5"), NodePath("Achievements/Achievement6"), NodePath("Achievements/Achievement7"), NodePath("Achievements/Achievement8"), NodePath("Achievements/Achievement9"), NodePath("VBoxContainer/Back")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -7
+layout_mode = 0
+offset_left = -2235.0
+offset_top = 351.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Achievement_text" type="Label" parent="."]
+layout_mode = 2
+offset_top = 840.0
+offset_right = 1920.0
+offset_bottom = 1024.0
+theme = ExtResource("2_7cfun")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_top = 1024.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+alignment = 1
+
+[node name="Back" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7cfun")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Achievements" type="Node2D" parent="."]
+
+[node name="Achievement" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(64, 384)
+Name = "Elevator_no_damage"
+Desc = "Elevator_no_damage_desc"
+
+[node name="Achievement2" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(704, 384)
+Name = "Unknown_head"
+Desc = "Unknown_head_desc"
+
+[node name="Achievement3" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(1344, 384)
+Name = "No_turrets"
+Desc = "No_turrets_desc"
+
+[node name="Achievement4" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(64, 536)
+Name = "Spikes"
+Desc = "Spikes_desc"
+
+[node name="Achievement5" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(704, 536)
+Name = "Fastest"
+Desc = "Fastest_desc"
+
+[node name="Achievement6" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(1344, 536)
+Name = "Moon_achievement"
+Desc = "Moon_achievement_desc"
+
+[node name="Achievement7" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(64, 688)
+Name = "HP_refills_master"
+Desc = "HP_refills_master_desc"
+
+[node name="Achievement8" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(704, 688)
+Name = "FASTER_FASTER_FASTER"
+Desc = "FASTER_FASTER_FASTER_desc"
+
+[node name="Achievement9" parent="Achievements" instance=ExtResource("2_ak8bh")]
+position = Vector2(1344, 688)
+Name = "Black_baron_achievement"
+Desc = "Black_baron_achievement_desc"
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("parent_node") instance=ExtResource("4_2y43j")]
+layout_mode = 1
+parent_node = NodePath("..")

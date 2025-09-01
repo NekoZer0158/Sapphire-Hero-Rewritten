@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4is227kbaes6"]
+
+[ext_resource type="Shader" uid="uid://dgyjjjc7u05dd" path="res://Resources/Shaders/color_change.gdshader" id="3_o10gr"]
+[ext_resource type="Texture2D" uid="uid://bs514jh5bemd7" path="res://Sprites/Player/Default/Body.png" id="4_mkn5r"]
+[ext_resource type="Texture2D" uid="uid://dt07lpdtms7dg" path="res://Sprites/Player/Default/Head.png" id="5_xguh2"]
+[ext_resource type="Texture2D" uid="uid://bgcv6erhecssr" path="res://Sprites/Player/Default/Arm.png" id="6_obf5k"]
+[ext_resource type="Texture2D" uid="uid://bukr0lk4esu3d" path="res://Sprites/Player/Default/Hand.png" id="7_nyvgu"]
+[ext_resource type="Texture2D" uid="uid://cs8ym84rdpna5" path="res://Sprites/Player/Default/Hand_shoot.png" id="7_u4qpw"]
+[ext_resource type="Texture2D" uid="uid://dshnv8flpn4do" path="res://Sprites/Player/Default/Arm_left.png" id="8_frvyk"]
+[ext_resource type="Texture2D" uid="uid://bmbwt70ag4u0s" path="res://Sprites/Player/Default/Leg_up.png" id="9_ht6tw"]
+[ext_resource type="Texture2D" uid="uid://c8yix5uwu07tl" path="res://Sprites/Player/Default/Leg_down.png" id="10_66y7h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2k0n"]
+shader = ExtResource("3_o10gr")
+shader_parameter/color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_only_with_this_color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_this_color = Color(0.624, 0.7098, 0.78, 1)
+shader_parameter/change_to_this = Color(0, 0, 0, 1)
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="Scientist" type="Sprite2D" parent="."]
+z_index = 90
+material = SubResource("ShaderMaterial_c2k0n")
+scale = Vector2(2, 2)
+texture = ExtResource("4_mkn5r")
+
+[node name="Head" type="Sprite2D" parent="Scientist"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_xguh2")
+
+[node name="Arm_right" type="Sprite2D" parent="Scientist"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_obf5k")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Scientist/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_nyvgu")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Scientist"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_frvyk")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Scientist/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_u4qpw")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Scientist"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_ht6tw")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Scientist/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_66y7h")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Scientist"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_ht6tw")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Scientist/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_66y7h")
+offset = Vector2(0, 3)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 48.0
+color = Color(0.109804, 0.109804, 0.109804, 1)

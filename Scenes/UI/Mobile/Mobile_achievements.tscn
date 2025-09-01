@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://43qw6uochrvh"]
+
+[ext_resource type="Script" uid="uid://cu2awlo73evgl" path="res://Scripts/Other/Mobile/Mobile_achievements.gd" id="1_cr6tr"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_3p78n"]
+
+[node name="Mobile" type="Control" node_paths=PackedStringArray("parent_node")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cr6tr")
+parent_node = NodePath("")
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="."]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 0
+offset_top = 1016.0
+offset_right = 1920.0
+offset_bottom = 1076.0
+focus_mode = 0
+theme = ExtResource("2_3p78n")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

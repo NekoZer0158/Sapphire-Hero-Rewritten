@@ -1,0 +1,38 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://3rpq1k3t0w8o"]
+
+[ext_resource type="Texture2D" uid="uid://bh66qjcyn2o4e" path="res://Sprites/Tilesets/Test/test.png" id="1_x0xxt"]
+[ext_resource type="Texture2D" uid="uid://cjsfhqgpljdf8" path="res://Sprites/Tilesets/Minigame_planes/default.png" id="2_agebj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fn1ny"]
+texture = ExtResource("1_x0xxt")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rc8x2"]
+texture = ExtResource("2_agebj")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1024
+physics_layer_0/collision_mask = 768
+sources/1 = SubResource("TileSetAtlasSource_rc8x2")
+sources/0 = SubResource("TileSetAtlasSource_fn1ny")

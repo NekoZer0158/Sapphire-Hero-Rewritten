@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=3 uid="uid://5tac1lcwsxgn"]
+
+[ext_resource type="Script" uid="uid://b5mguqcjmpuup" path="res://Scripts/UI/Level_selection.gd" id="1_kg1rl"]
+[ext_resource type="PackedScene" uid="uid://beocvknn737l1" path="res://Scenes/UI/Boss_selection_slot.tscn" id="1_mijn3"]
+[ext_resource type="PackedScene" uid="uid://dhxijh84orh8w" path="res://Scenes/Bodies/Boss/Kostyanoy.tscn" id="2_aa1ep"]
+[ext_resource type="PackedScene" uid="uid://dgnh52xu5n71t" path="res://Scenes/Bodies/Boss/Ledyanoy.tscn" id="3_qqw4r"]
+[ext_resource type="PackedScene" uid="uid://2kwu6f0vstta" path="res://Scenes/UI/Level_previews/LP_Kostyanoy.tscn" id="5_77r5x"]
+[ext_resource type="PackedScene" uid="uid://jxg1somlly0o" path="res://Scenes/Bodies/Boss/Unknown.tscn" id="6_1p67f"]
+[ext_resource type="PackedScene" uid="uid://tmxyd5lllbba" path="res://Scenes/Bodies/Boss/Zeppelin.tscn" id="8_asfvq"]
+[ext_resource type="PackedScene" uid="uid://c2mb5nm51okux" path="res://Scenes/UI/Level_previews/LP_Ledyanoy.tscn" id="8_dmcjy"]
+[ext_resource type="PackedScene" uid="uid://nar7v4x18v33" path="res://Scenes/Bodies/Boss/Voronoy.tscn" id="9_jidii"]
+[ext_resource type="PackedScene" uid="uid://dnhuh0vg1q0y1" path="res://Scenes/UI/Level_previews/LP_Unknown.tscn" id="10_057u4"]
+[ext_resource type="PackedScene" uid="uid://c0x4g3jowoxfm" path="res://Scenes/Bodies/Boss/Black_Baron_phase_3_normal_head.tscn" id="11_rfssx"]
+[ext_resource type="PackedScene" uid="uid://dnh8ql8ur6ncr" path="res://Scenes/UI/Level_previews/LP_Black_Baron.tscn" id="12_i5svg"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="13_1j0l2"]
+[ext_resource type="PackedScene" uid="uid://bobuo8vmmml1e" path="res://Scenes/UI/Level_previews/LP_Zeppelin.tscn" id="14_v2jky"]
+[ext_resource type="PackedScene" uid="uid://b528nm25kojan" path="res://Scenes/UI/Mobile/Mobile_level_select.tscn" id="15_jidii"]
+
+[node name="Level_selection" type="Node2D" node_paths=PackedStringArray("boss_container")]
+scale = Vector2(4, 4)
+script = ExtResource("1_kg1rl")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+boss_container = NodePath("Boss_container")
+transition_time = 0.5
+dimension_colors = Dictionary[int, Color]({
+1: Color(0.176471, 0.282353, 0.419608, 1),
+2: Color(0.278431, 0.490196, 0.231373, 1),
+3: Color(0.498039, 0.223529, 0.223529, 1)
+})
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -350.0
+offset_top = -10.0
+offset_right = 794.0
+offset_bottom = 276.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 320
+offset_left = -350.0
+offset_top = -10.0
+offset_right = 794.0
+offset_bottom = 276.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Boss_container" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/separation = 50
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Kostyanoy" parent="Boss_container" node_paths=PackedStringArray("level_preview_pos") instance=ExtResource("1_mijn3")]
+layout_mode = 2
+boss_body = ExtResource("2_aa1ep")
+level_path = "res://Scenes/Levels/Level_Kostyanoy.tscn"
+level_preview = ExtResource("5_77r5x")
+level_preview_pos = NodePath("../../Level_preview_pos")
+boss_name = "Kostyanoy"
+path_for_other_dimensions = Dictionary[int, String]({
+2: "res://Scenes/Levels/A1/Level_Kostyanoy_A1.tscn"
+})
+
+[node name="Ledyanoy" parent="Boss_container" node_paths=PackedStringArray("level_preview_pos") instance=ExtResource("1_mijn3")]
+layout_mode = 2
+boss_body = ExtResource("3_qqw4r")
+level_path = "res://Scenes/Levels/Level_Ledyanoy.tscn"
+level_preview = ExtResource("8_dmcjy")
+level_preview_pos = NodePath("../../Level_preview_pos")
+boss_name = "Ledyanoy"
+
+[node name="Unknown" parent="Boss_container" node_paths=PackedStringArray("level_preview_pos") instance=ExtResource("1_mijn3")]
+layout_mode = 2
+boss_body = ExtResource("6_1p67f")
+level_path = "res://Scenes/Levels/Level_unknown.tscn"
+level_preview = ExtResource("10_057u4")
+level_preview_pos = NodePath("../../Level_preview_pos")
+boss_name = "Unknown"
+path_for_other_dimensions = Dictionary[int, String]({
+2: "res://Scenes/Levels/A1/Level_Voronoy.tscn"
+})
+other_boss_name = Dictionary[int, String]({
+2: "Voronoy"
+})
+other_boss_body = Dictionary[int, PackedScene]({
+2: ExtResource("9_jidii")
+})
+
+[node name="Zeppelin" parent="Boss_container" node_paths=PackedStringArray("level_preview_pos") instance=ExtResource("1_mijn3")]
+layout_mode = 2
+boss_body = ExtResource("8_asfvq")
+level_path = "res://Scenes/Levels/Level_Zeppelin.tscn"
+level_preview = ExtResource("14_v2jky")
+level_preview_pos = NodePath("../../Level_preview_pos")
+boss_name = "Zeppelin"
+
+[node name="Boss_name" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 336.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 8
+text = "boss:"
+vertical_alignment = 1
+
+[node name="Level_desc" type="Label" parent="."]
+offset_top = 224.0
+offset_right = 480.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Boss_info_left" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 111.0
+offset_right = 128.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 8
+text = "boss_info"
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Boss_info_right" type="Label" parent="."]
+offset_left = 348.0
+offset_top = 112.0
+offset_right = 473.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 8
+text = "boss_info"
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Black_Baron" parent="." node_paths=PackedStringArray("level_preview_pos") instance=ExtResource("1_mijn3")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 368.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 270.0
+grow_horizontal = 1
+grow_vertical = 1
+boss_body = ExtResource("11_rfssx")
+level_path = "res://Scenes/Levels/Level_Black_Baron.tscn"
+level_preview = ExtResource("12_i5svg")
+level_preview_pos = NodePath("../Level_preview_pos")
+boss_name = "Black_Baron"
+hide_boss_look = true
+
+[node name="Level_preview_pos" type="Marker2D" parent="."]
+position = Vector2(240, 160)
+
+[node name="Back" type="Label" parent="."]
+offset_top = 254.0
+offset_right = 1921.0
+offset_bottom = 311.0
+scale = Vector2(0.25, 0.25)
+theme = ExtResource("13_1j0l2")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 0)
+limit_top = 0
+limit_bottom = 1080
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("level_selection") instance=ExtResource("15_jidii")]
+level_selection = NodePath("..")

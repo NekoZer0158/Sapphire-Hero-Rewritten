@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhwgfpjp1j2jk"]
+
+[ext_resource type="Texture2D" uid="uid://pshmuep7yse3" path="res://Sprites/Effects/Boom/Enemy_boom_small.png" id="1_1hcji"]
+[ext_resource type="Script" uid="uid://d2pbb1qc4kean" path="res://Scripts/Effects/Enemy_boom.gd" id="1_55e7v"]
+[ext_resource type="Texture2D" uid="uid://bo87o1kf6rll6" path="res://Sprites/Effects/Boom/Enemy_boom_medium.png" id="2_tx80q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miovs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1hcji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tx80q")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Enemy_boom" type="Node2D"]
+z_index = 100
+script = ExtResource("1_55e7v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_miovs")
+speed_scale = 1.4
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

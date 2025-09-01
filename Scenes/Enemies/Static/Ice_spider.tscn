@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://0tykwk4fvjh2"]
+
+[ext_resource type="Script" uid="uid://bqr1axc88en2a" path="res://Scripts/AI/Enemies/Static/Ice_spider.gd" id="1_ga4sv"]
+[ext_resource type="Texture2D" uid="uid://fhdlbq042fod" path="res://Sprites/Enemies/Static/Ice_spider.png" id="2_v6mo5"]
+[ext_resource type="PackedScene" uid="uid://dbvdq5a2k37ly" path="res://Scenes/Projectiles/Ice_spike.tscn" id="3_423ao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrqs8"]
+size = Vector2(16, 16)
+
+[node name="Ice_spider" type="StaticBody2D"]
+script = ExtResource("1_ga4sv")
+hp = 1
+type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("2_v6mo5")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -125
+position = Vector2(-1.14032, 77)
+rotation = 3.14159
+scale = Vector2(4.21377, -8.51421)
+
+[node name="Ice_spike" parent="." instance=ExtResource("3_423ao")]
+position = Vector2(0, 20)
+scale = Vector2(0.25, 0.25)
+activated = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_lrqs8")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 300)
+collision_mask = 2

@@ -1,0 +1,329 @@
+[gd_scene load_steps=8 format=3 uid="uid://lilthkvo02c1"]
+
+[ext_resource type="Script" uid="uid://c7g48rxo8xoj8" path="res://Scripts/UI/Customization/Customization_UI.gd" id="1_1vdoo"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="1_p4p6o"]
+[ext_resource type="PackedScene" uid="uid://ckktoxwxptn77" path="res://Scenes/UI/Customization/Customization_single.tscn" id="2_vc2nb"]
+[ext_resource type="Material" uid="uid://dwwc1bscpnk3j" path="res://Resources/ShaderMaterials/Customization_UI.tres" id="4_6xckb"]
+[ext_resource type="PackedScene" uid="uid://c1tj7xxter0s2" path="res://Scenes/UI/Customization/Customization_progress_bar.tscn" id="4_a331x"]
+[ext_resource type="PackedScene" uid="uid://bki3cc64hl2tg" path="res://Scenes/UI/Customization/CS_plane.tscn" id="6_3php8"]
+[ext_resource type="PackedScene" uid="uid://0ykc11bd4any" path="res://Scenes/UI/Mobile/Mobile_customization.tscn" id="7_kjwyd"]
+
+[node name="Customization_UI" type="Control" node_paths=PackedStringArray("options")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("1_1vdoo")
+options = [NodePath("Options_container/Cur_customization"), NodePath("Options_container/TabContainer"), NodePath("Options_container/Back")]
+color = Color(0.254902, 0.545098, 0.819608, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -7
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Options_container" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_top = 0.385185
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/separation = 235
+alignment = 1
+
+[node name="Cur_customization" type="Label" parent="Options_container"]
+layout_mode = 2
+theme = ExtResource("1_p4p6o")
+text = "Head"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Options_container"]
+layout_mode = 2
+mouse_filter = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="Head" type="HBoxContainer" parent="Options_container/TabContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 150
+alignment = 1
+metadata/_tab_index = 0
+
+[node name="Customization_head" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "Default"
+text = Array[String](["NMR-05"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head2" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "NMR_4"
+text = Array[String](["NMR-04"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head3" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "NMR_3"
+text = Array[String](["NMR-03"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head4" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "NMR_2"
+text = Array[String](["NMR-02"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head5" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "NMR_1"
+text = Array[String](["NMR-01"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head6" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "Prototype"
+text = Array[String](["Prototype"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head8" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "Dog_from_hell"
+text = Array[String](["Dog_from_hell"])
+files_path = "res://Sprites/Player/"
+
+[node name="Customization_head7" parent="Options_container/TabContainer/Head" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+use_this_shader = ExtResource("4_6xckb")
+names = Array[String](["Head"])
+folder_name = "NMR_7"
+text = Array[String](["NMR-08"])
+files_path = "res://Sprites/Player/"
+unlocked = false
+how_to_unlock_text = "Play_sequel"
+
+[node name="HP_refill" type="HBoxContainer" parent="Options_container/TabContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 150
+alignment = 1
+metadata/_tab_index = 1
+
+[node name="Customization_single" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Default"
+text = Array[String](["Default"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single2" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Pale"
+text = Array[String](["Pale"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single3" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Neon"
+text = Array[String](["Neon"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single4" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Gray"
+text = Array[String](["Gray"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single5" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Sequel"
+text = Array[String](["Sequel"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single6" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Halloween"
+text = Array[String](["Halloween"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single7" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "New_year"
+text = Array[String](["New_year"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single9" parent="Options_container/TabContainer/HP_refill" instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Phantom"
+text = Array[String](["Phantom"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single8" parent="Options_container/TabContainer/HP_refill" groups=["Spanish_UI"] instance=ExtResource("2_vc2nb")]
+layout_mode = 2
+names = Array[String](["HP_refill"])
+folder_name = "Spanish"
+text = Array[String](["Spanish"])
+files_path = "res://Sprites/UI/Player/"
+unlocked = false
+how_to_unlock_text = "Spanish_desc"
+
+[node name="Progress_bar" type="HBoxContainer" parent="Options_container/TabContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 150
+alignment = 1
+metadata/_tab_index = 2
+
+[node name="Customization_single" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Default"
+text = Array[String](["Default"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single2" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Pale"
+text = Array[String](["Pale"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single3" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Neon"
+text = Array[String](["Neon"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single4" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Gray"
+text = Array[String](["Gray"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single5" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Sequel"
+text = Array[String](["Sequel"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single6" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Halloween"
+text = Array[String](["Halloween"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single7" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "New_year"
+text = Array[String](["New_year"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single9" parent="Options_container/TabContainer/Progress_bar" instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Phantom"
+text = Array[String](["Phantom"])
+files_path = "res://Sprites/UI/Player/"
+
+[node name="Customization_single8" parent="Options_container/TabContainer/Progress_bar" groups=["Spanish_UI"] instance=ExtResource("4_a331x")]
+layout_mode = 2
+names = Array[String](["Progress_bar"])
+folder_name = "Spanish"
+text = Array[String](["Spanish"])
+files_path = "res://Sprites/UI/Player/"
+unlocked = false
+how_to_unlock_text = "Spanish_desc"
+
+[node name="Plane" type="HBoxContainer" parent="Options_container/TabContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 225
+alignment = 1
+metadata/_tab_index = 3
+
+[node name="Customization_single2" parent="Options_container/TabContainer/Plane" instance=ExtResource("6_3php8")]
+layout_mode = 2
+custom_name = "Plane"
+names = Array[String](["Showcase"])
+folder_name = "Default"
+text = Array[String](["Default"])
+files_path = "res://Sprites/Minigames/Hack_planes/Player/"
+
+[node name="Customization_single3" parent="Options_container/TabContainer/Plane" instance=ExtResource("6_3php8")]
+layout_mode = 2
+custom_name = "Plane"
+names = Array[String](["Showcase"])
+folder_name = "Sequel_unlock"
+text = Array[String](["Sequel"])
+files_path = "res://Sprites/Minigames/Hack_planes/Player/"
+unlocked = false
+how_to_unlock_text = "Play_sequel"
+
+[node name="Customization_single" parent="Options_container/TabContainer/Plane" instance=ExtResource("6_3php8")]
+layout_mode = 2
+custom_name = "Plane"
+names = Array[String](["Showcase"])
+folder_name = "BTSTSD"
+text = Array[String](["Spanish"])
+files_path = "res://Sprites/Minigames/Hack_planes/Player/"
+unlocked = false
+how_to_unlock_text = "Spanish_desc"
+
+[node name="Back" type="Label" parent="Options_container"]
+layout_mode = 2
+theme = ExtResource("1_p4p6o")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Custom_text" type="Label" parent="."]
+layout_mode = 0
+anchor_top = 0.511111
+anchor_right = 1.0
+anchor_bottom = 0.577778
+offset_top = -6.10352e-05
+theme = ExtResource("1_p4p6o")
+text = "custom_text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("customization_node") instance=ExtResource("7_kjwyd")]
+layout_mode = 1
+customization_node = NodePath("..")

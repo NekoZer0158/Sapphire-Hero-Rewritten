@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwbx4nut4j5ct"]
+
+[ext_resource type="Script" uid="uid://bwd0jmorrkb5i" path="res://Scripts/Other/Clouds_remover.gd" id="1_ng4nn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5w0pj"]
+size = Vector2(20, 842)
+
+[node name="CloudsRemover" type="Area2D"]
+collision_mask = 128
+script = ExtResource("1_ng4nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 411)
+shape = SubResource("RectangleShape2D_5w0pj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwofdilre6dlf"]
+
+[ext_resource type="Script" uid="uid://c6y5cih45odnr" path="res://Scripts/AI/Enemies/Flying/Flying_robot_bomber_AI.gd" id="1_65gkh"]
+[ext_resource type="PackedScene" uid="uid://bw0a2lw1d65cv" path="res://Scenes/Bodies/Enemies/Flying/Flying_robot_bomber.tscn" id="2_3c851"]
+
+[node name="Flying_robot_bomber" type="Node2D"]
+script = ExtResource("1_65gkh")
+
+[node name="Robot_body" parent="." instance=ExtResource("2_3c851")]
+
+[node name="RayCast_left" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(-20, 0)
+collision_mask = 72
+
+[node name="RayCast_right" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(20, 0)
+collision_mask = 72
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Robot_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(19.15, 11.65)
+enable_node_path = NodePath("../..")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="now_dead" from="Robot_body" to="." method="_on_flying_robot_bomber_now_dead"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

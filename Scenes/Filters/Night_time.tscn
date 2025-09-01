@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ugjyjmc8dro"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3bewl"]
+
+[node name="NightTime" type="Sprite2D"]
+modulate = Color(0, 0.0352941, 0.109804, 0.592157)
+z_index = 100
+position = Vector2(443.75, 107.75)
+scale = Vector2(888.5, 216.5)
+texture = SubResource("CanvasTexture_3bewl")

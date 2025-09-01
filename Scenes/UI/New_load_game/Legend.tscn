@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://s6fegk6yk4yw"]
+
+[node name="Legend" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelLegend" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 960.0
+offset_right = 512.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 32
+text = "L - legend"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Legend" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Description" type="Label" parent="Legend"]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 320.0
+offset_right = 1920.0
+offset_bottom = 960.0
+text = "legend_description"
+autowrap_mode = 2
+clip_text = true

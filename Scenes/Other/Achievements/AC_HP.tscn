@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3dtb1d0wfdic"]
+
+[ext_resource type="Script" uid="uid://bmvcb5vhtxbag" path="res://Scripts/Other/Achievements/AC_HP.gd" id="1_xfhrj"]
+
+[node name="AchievementChecker_HP" type="Node2D"]
+script = ExtResource("1_xfhrj")

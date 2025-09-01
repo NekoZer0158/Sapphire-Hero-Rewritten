@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjwqebcl7hcnv"]
+
+[ext_resource type="Script" uid="uid://volivxxtbfhf" path="res://Scripts/AI/Boss/Black_Baron_phase_2.gd" id="1_ix4wp"]
+[ext_resource type="PackedScene" uid="uid://dpp0lrx73ihr6" path="res://Scenes/Bodies/Boss/Black_Baron_phase_2.tscn" id="2_tqgug"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_j88ff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al2wf"]
+size = Vector2(12, 40)
+
+[node name="Black_Baron_phase_2" type="Node2D"]
+script = ExtResource("1_ix4wp")
+amount_of_direction_change_before_state_change = 7
+
+[node name="Boss_body" parent="." instance=ExtResource("2_tqgug")]
+reload_time = 0.6
+
+[node name="Attack_area" type="Area2D" parent="Boss_body"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_body/Attack_area"]
+position = Vector2(4, -20)
+shape = SubResource("RectangleShape2D_al2wf")
+disabled = true
+
+[node name="RayCast2D_check_wall" type="RayCast2D" parent="Boss_body"]
+position = Vector2(0, -25)
+target_position = Vector2(30, 0)
+collision_mask = 8
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Boss_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(32.4, 14.6)
+enable_node_path = NodePath("../..")
+
+[node name="Timer_change_direction" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_start" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Timer_stop_shooting" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_shoot" type="Timer" parent="."]
+one_shot = true
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Boss_UI" parent="Boss_UI" instance=ExtResource("3_j88ff")]
+visible = false
+use_boss_UI = false
+
+[connection signal="now_dead" from="Boss_body" to="." method="_boss_death"]
+[connection signal="body_entered" from="Boss_body/Attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="Timer_change_direction" to="." method="_on_timer_change_direction_timeout"]
+[connection signal="timeout" from="Timer_start" to="." method="_on_timer_start_timeout"]
+[connection signal="timeout" from="Timer_stop_shooting" to="." method="_on_timer_stop_shooting_timeout"]
+[connection signal="timeout" from="Timer_shoot" to="." method="_on_timer_shoot_timeout"]

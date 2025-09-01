@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceop12rbcnfjy"]
+
+[ext_resource type="Script" uid="uid://cxpa7ccxxroj" path="res://Scripts/Bodies/Static_Robot_body.gd" id="1_6et34"]
+[ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="2_bjehj"]
+[ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="3_mhw4m"]
+[ext_resource type="Resource" uid="uid://cpvr3kco8adp5" path="res://Resources/Weapons/Default_enemy_weapon.tres" id="3_trt28"]
+[ext_resource type="Texture2D" uid="uid://c78td34q7y4rt" path="res://Sprites/Enemies/Static/Turret_three_shot.png" id="5_nc2xr"]
+
+[sub_resource type="Resource" id="Resource_h4edx"]
+script = ExtResource("2_bjehj")
+weapons = Array[ExtResource("3_mhw4m")]([ExtResource("3_trt28")])
+module_name = "No_name"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh35r"]
+size = Vector2(28, 26)
+
+[node name="Turret_three_shot" type="StaticBody2D" node_paths=PackedStringArray("markers", "timer_reload", "death_effect_marker") groups=["Turret_body", "Turret_three_shot"]]
+z_index = 15
+collision_layer = 2
+script = ExtResource("1_6et34")
+hp = 5
+reload_time = 0.4
+shooting_module = SubResource("Resource_h4edx")
+markers = [NodePath("Marker2D")]
+timer_reload = NodePath("Timer_reload")
+death_effect_marker = NodePath("Death_effect_marker")
+type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -13)
+shape = SubResource("RectangleShape2D_qh35r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("5_nc2xr")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(15, -19)
+
+[node name="Timer_reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="Death_effect_marker" type="Marker2D" parent="."]
+position = Vector2(0, -19)
+
+[connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ykc11bd4any"]
+
+[ext_resource type="Script" uid="uid://bv7uubo7jwo8y" path="res://Scripts/Other/Mobile/Mobile_customization.gd" id="1_g6r8r"]
+[ext_resource type="Texture2D" uid="uid://dsftn6u81cus0" path="res://Sprites/Other/Mobile/Customization/Left_and_right.png" id="2_m6eq0"]
+[ext_resource type="Texture2D" uid="uid://62aywls08cyj" path="res://Sprites/Other/Mobile/Customization/Left_and_right_activated.png" id="3_cfrf6"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="4_th1uw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_peduu"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bk1bs"]
+radius = 30.0
+
+[node name="Mobile" type="Control" node_paths=PackedStringArray("customization_node")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g6r8r")
+color = Color(0.254902, 0.545098, 0.819608, 1)
+customization_node = NodePath("")
+metadata/_edit_use_anchors_ = true
+
+[node name="TSB_left" type="TouchScreenButton" parent="."]
+position = Vector2(320, 432)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("2_m6eq0")
+texture_pressed = ExtResource("3_cfrf6")
+shape = SubResource("CircleShape2D_peduu")
+action = "Customization_left"
+visibility_mode = 1
+
+[node name="TSB_right" type="TouchScreenButton" parent="."]
+position = Vector2(1600, 432)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_m6eq0")
+texture_pressed = ExtResource("3_cfrf6")
+shape = SubResource("CircleShape2D_bk1bs")
+action = "Customization_right"
+visibility_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -2235.0
+offset_top = 864.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_top = 979.0
+offset_right = 1920.0
+offset_bottom = 1027.0
+focus_mode = 0
+theme = ExtResource("4_th1uw")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

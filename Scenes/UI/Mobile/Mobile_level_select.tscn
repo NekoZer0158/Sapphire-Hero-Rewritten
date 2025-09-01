@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b528nm25kojan"]
+
+[ext_resource type="Script" uid="uid://c0wad7p6itnct" path="res://Scripts/Other/Mobile/Mobile_level_selection.gd" id="1_smqjc"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_yhx2l"]
+
+[node name="Mobile" type="Node2D" node_paths=PackedStringArray("level_selection")]
+visible = false
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_smqjc")
+level_selection = NodePath("")
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_top = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 645
+alignment = 1
+
+[node name="Play" type="Button" parent="Container"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_yhx2l")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Play"
+flat = true
+
+[node name="Back" type="Button" parent="Container"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_yhx2l")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Container/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

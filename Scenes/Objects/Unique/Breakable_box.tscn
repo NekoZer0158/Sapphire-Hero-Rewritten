@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt6sk4f7ykb6e"]
+
+[ext_resource type="Script" uid="uid://caym453h5yrcu" path="res://Scripts/Objects/Breakable_box.gd" id="1_eh2qk"]
+[ext_resource type="Texture2D" uid="uid://c3ybyydqcj5l3" path="res://Sprites/Objects/Box.png" id="1_xa4r7"]
+[ext_resource type="PackedScene" uid="uid://btacyncqvreot" path="res://Scenes/Effects/Ledyanoy_boom.tscn" id="2_ycdht"]
+[ext_resource type="Texture2D" uid="uid://0dhrseoo70w0" path="res://Sprites/Objects/Box_background.png" id="4_fm3pl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83m12"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv0yg"]
+size = Vector2(26, 9)
+
+[node name="BreakableBox" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 4
+script = ExtResource("1_eh2qk")
+boom = ExtResource("2_ycdht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_83m12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_xa4r7")
+hframes = 2
+vframes = 4
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -34)
+texture = ExtResource("4_fm3pl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 64
+priority = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_jv0yg")
+disabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

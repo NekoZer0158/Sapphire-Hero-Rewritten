@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7w1btci8iw5h"]
+
+[ext_resource type="Script" uid="uid://eeryx442uh8f" path="res://Scripts/Other/Final_boss_activation.gd" id="1_t3mm7"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="2_bqnqy"]
+[ext_resource type="Texture2D" uid="uid://biyv4pkg24af2" path="res://Sprites/UI/Black_Baron/Phases.png" id="3_bj38t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwtaa"]
+size = Vector2(464, 205)
+
+[node name="Boss_activation" type="Node2D"]
+script = ExtResource("1_t3mm7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(264, 96)
+shape = SubResource("RectangleShape2D_fwtaa")
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+
+[node name="Boss_UI" parent="Boss_UI" instance=ExtResource("2_bqnqy")]
+boss_HP_color = Color(0.988235, 0.972549, 0.447059, 1)
+
+[node name="Phase" type="Sprite2D" parent="Boss_UI/Boss_UI"]
+position = Vector2(552, 160)
+scale = Vector2(4, 4)
+texture = ExtResource("3_bj38t")
+hframes = 3
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

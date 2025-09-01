@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=4 uid="uid://c2mb5nm51okux"]
+
+[ext_resource type="Script" uid="uid://c2ol41wnvt2mj" path="res://Scripts/UI/Level_preview.gd" id="1_7a2p5"]
+[ext_resource type="TileSet" uid="uid://cgabhig3rju3w" path="res://Resources/Tilesets/Ledyanoy.tres" id="2_jk4kj"]
+[ext_resource type="Texture2D" uid="uid://b6xbkwngom0r3" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_ground_hit.png" id="5_d8cv2"]
+[ext_resource type="Texture2D" uid="uid://bu7lseowvm2ct" path="res://Sprites/Effects/Flying_robot_flame_blue.png" id="6_cvga0"]
+[ext_resource type="Texture2D" uid="uid://c78td34q7y4rt" path="res://Sprites/Enemies/Static/Turret_three_shot.png" id="7_8hsl6"]
+[ext_resource type="Texture2D" uid="uid://fhdlbq042fod" path="res://Sprites/Enemies/Static/Ice_spider.png" id="7_513t8"]
+[ext_resource type="Texture2D" uid="uid://buukgaxu0svbs" path="res://Sprites/Projectiles/ice_spike.png" id="7_ct6jm"]
+
+[node name="Level_preview" type="Node2D"]
+z_index = 90
+script = ExtResource("1_7a2p5")
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+process_mode = 4
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAIAAQAIAAAAAAAAAAMAAQAEAAEAAAABAAIAAQAJAAAAAAABAAMAAQAFAAEAAAACAAIAAQAGAAAAAAACAAMAAQACAAEAAAADAAIAAQAHAAAAAAADAAMAAQADAAEAAAAEAAIAAQAIAAAAAAAEAAMAAQAEAAEAAAAFAAIAAQAJAAAAAAAFAAMAAQAFAAEAAAAAAPz/AQAEAAIAAAABAPz/AQAFAAIAAAACAPz/AQACAAIAAAADAPz/AQADAAIAAAAEAPz/AQAEAAIAAAAFAPz/AQAFAAIAAAD6//z/AQACAAIAAAD7//z/AQADAAIAAAD8//z/AQAEAAIAAAD9//z/AQAFAAIAAAD+//z/AQACAAIAAAD///z/AQADAAIAAAD6/wIAAQAGAAAAAAD6/wMAAQACAAEAAAD7/wIAAQAHAAAAAAD7/wMAAQADAAEAAAD8/wIAAQAIAAAAAAD8/wMAAQAEAAEAAAD9/wIAAQAJAAAAAAD9/wMAAQAFAAEAAAD+/wIAAQAGAAAAAAD+/wMAAQACAAEAAAD//wIAAQAHAAAAAAD//wMAAQADAAEAAAA=")
+tile_set = ExtResource("2_jk4kj")
+
+[node name="Background" type="TileMapLayer" parent="TileMap"]
+z_index = -25
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD6//3/AAAAAAAAAAD6//7/AAAAAAEAAAD6////AAAAAAIAAAD7//3/AAABAAAAAAD7//7/AAABAAEAAAD7////AAABAAIAAAD8//3/AAACAAAAAAD8//7/AAACAAEAAAD8////AAACAAIAAAD9//3/AAADAAAAAAD9//7/AAADAAEAAAD9////AAADAAIAAAD+//3/AAAAAAAAAAD+//7/AAAAAAEAAAD+////AAAAAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAAAAP3/AAACAAAAAAAAAP7/AAACAAEAAAAAAP//AAACAAIAAAABAP3/AAADAAAAAAABAP7/AAADAAEAAAABAP//AAADAAIAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAEAAAD6/wIAAAAAAAIAAAD7/wAAAAABAAAAAAD7/wEAAAABAAEAAAD7/wIAAAABAAIAAAD8/wAAAAACAAAAAAD8/wEAAAACAAEAAAD8/wIAAAACAAIAAAD9/wAAAAADAAAAAAD9/wEAAAADAAEAAAD9/wIAAAADAAIAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAEAAAD+/wIAAAAAAAIAAAD//wAAAAABAAAAAAD//wEAAAABAAEAAAD//wIAAAABAAIAAAAAAAAAAAACAAAAAAAAAAEAAAACAAEAAAAAAAIAAAACAAIAAAABAAAAAAADAAAAAAABAAEAAAADAAEAAAABAAIAAAADAAIAAAACAP3/AAAAAAAAAAACAP7/AAAAAAEAAAACAP//AAAAAAIAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAIAAAAEAP3/AAACAAAAAAAEAP7/AAACAAEAAAAEAP//AAACAAIAAAAFAP3/AAADAAAAAAAFAP7/AAADAAEAAAAFAP//AAADAAIAAAACAAAAAAAAAAAAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAADAAAAAAABAAAAAAADAAEAAAABAAEAAAADAAIAAAABAAIAAAAEAAAAAAACAAAAAAAEAAEAAAACAAEAAAAEAAIAAAACAAIAAAAFAAAAAAADAAAAAAAFAAEAAAADAAEAAAAFAAIAAAADAAIAAAA=")
+tile_set = ExtResource("2_jk4kj")
+
+[node name="Foreground" type="TileMapLayer" parent="TileMap"]
+z_index = 120
+use_parent_material = true
+tile_set = ExtResource("2_jk4kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, -16)
+texture = ExtResource("5_d8cv2")
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-14, 9)
+texture = ExtResource("6_cvga0")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(11, 9)
+texture = ExtResource("6_cvga0")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-9, 16)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_8hsl6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-56, -40)
+texture = ExtResource("7_513t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D3"]
+position = Vector2(-1.19209e-07, 12)
+texture = ExtResource("7_ct6jm")

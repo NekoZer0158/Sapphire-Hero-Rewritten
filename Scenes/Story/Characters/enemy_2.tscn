@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq4emwps3gmdw"]
+
+[ext_resource type="Texture2D" uid="uid://67jdkly16yvq" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Body.png" id="1_ffjgr"]
+[ext_resource type="Texture2D" uid="uid://b1cm0ttuyl0yx" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Head.png" id="2_if77n"]
+[ext_resource type="Texture2D" uid="uid://cs2xncivyuqa0" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Arm.png" id="3_dhucc"]
+[ext_resource type="Texture2D" uid="uid://coowga76jnh20" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Hand.png" id="4_o5w81"]
+[ext_resource type="Texture2D" uid="uid://33bb8hrp2m2f" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Leg_up.png" id="5_j8oj1"]
+[ext_resource type="Texture2D" uid="uid://c41ydmxqd3fpm" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Leg_down.png" id="6_b0p0u"]
+
+[node name="Enemy_2" type="Sprite2D"]
+z_index = 110
+position = Vector2(39, 13)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_ffjgr")
+
+[node name="Head" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("2_if77n")
+
+[node name="Arm_right" type="Sprite2D" parent="."]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("3_dhucc")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("4_o5w81")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="."]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("3_dhucc")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("4_o5w81")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("5_j8oj1")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("6_b0p0u")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="."]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("5_j8oj1")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("6_b0p0u")
+offset = Vector2(0, 3)

@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://cud4m8nd5dtms"]
+
+[ext_resource type="Script" uid="uid://bjy7ppng7k0dg" path="res://Scripts/AI/Boss/Ledyanoy_AI.gd" id="1_jh6sa"]
+[ext_resource type="PackedScene" uid="uid://dgnh52xu5n71t" path="res://Scenes/Bodies/Boss/Ledyanoy.tscn" id="2_3olty"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_m4cbh"]
+[ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="3_ue34h"]
+[ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="4_24c1y"]
+[ext_resource type="Resource" uid="uid://djnqk7qtgqfcr" path="res://Resources/Weapons/Power_punch.tres" id="4_x2473"]
+
+[sub_resource type="Resource" id="Resource_brskf"]
+script = ExtResource("3_ue34h")
+weapons = Array[ExtResource("4_24c1y")]([ExtResource("4_x2473")])
+module_name = "No_name"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rnr2"]
+size = Vector2(38, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08pfl"]
+size = Vector2(20, 40)
+
+[node name="Ledyanoy" type="Node2D"]
+script = ExtResource("1_jh6sa")
+
+[node name="Boss_body" parent="." instance=ExtResource("2_3olty")]
+shooting_module = SubResource("Resource_brskf")
+
+[node name="Area2D" type="Area2D" parent="Boss_body"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_body/Area2D"]
+position = Vector2(26, -18)
+shape = SubResource("RectangleShape2D_3rnr2")
+
+[node name="Area2D_nearby" type="Area2D" parent="Boss_body"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_body/Area2D_nearby"]
+position = Vector2(1, -20)
+shape = SubResource("RectangleShape2D_08pfl")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Boss_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(32.4, 14.6)
+enable_node_path = NodePath("../..")
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+
+[node name="Boss_UI" parent="Boss_UI" node_paths=PackedStringArray("boss_body") instance=ExtResource("3_m4cbh")]
+visible = false
+boss_HP_color = Color(0.309804, 0.74902, 0.788235, 1)
+boss_body = NodePath("../../Boss_body")
+
+[node name="Timer_shoot" type="Timer" parent="."]
+
+[connection signal="detected_a_body" from="Boss_body" to="." method="_on_boss_body_detected_a_body"]
+[connection signal="got_hit" from="Boss_body" to="Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]
+[connection signal="now_dead" from="Boss_body" to="." method="_boss_death"]
+[connection signal="area_entered" from="Boss_body/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Boss_body/Area2D_nearby" to="." method="_on_area_2d_nearby_body_entered"]
+[connection signal="timeout" from="Timer_shoot" to="." method="_on_timer_shoot_timeout"]

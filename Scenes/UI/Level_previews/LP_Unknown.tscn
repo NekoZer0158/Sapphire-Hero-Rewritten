@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=4 uid="uid://dnhuh0vg1q0y1"]
+
+[ext_resource type="Script" uid="uid://c2ol41wnvt2mj" path="res://Scripts/UI/Level_preview.gd" id="1_bpb0x"]
+[ext_resource type="TileSet" uid="uid://dd6iibeaeyao8" path="res://Resources/Tilesets/Unknown.tres" id="2_78yth"]
+[ext_resource type="Texture2D" uid="uid://q8soa8sqvcwh" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_drill.png" id="4_5fs1q"]
+[ext_resource type="Texture2D" uid="uid://b46stig08d71q" path="res://Sprites/Effects/Flying_robot_flame_purple.png" id="5_g5nfr"]
+[ext_resource type="Texture2D" uid="uid://bgt0fp5tmrjh" path="res://Sprites/Enemies/Moving/moving_mine.png" id="5_wo6rb"]
+
+[node name="Level_preview" type="Node2D"]
+z_index = 90
+script = ExtResource("1_bpb0x")
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+process_mode = 4
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAIAAQAEAAAAAAAAAAMAAQAFAAEAAAABAAIAAQAEAAAAAAABAAMAAQAFAAEAAAACAAIAAQAEAAAAAAACAAMAAQAFAAEAAAADAAIAAQAEAAAAAAADAAMAAQAFAAEAAAAEAAIAAQAEAAAAAAAEAAMAAQAFAAEAAAAFAAIAAQAEAAAAAAAFAAMAAQAFAAEAAAAAAPz/AQAFAAEAAAABAPz/AQAFAAEAAAACAPz/AQAFAAEAAAADAPz/AQAFAAEAAAAEAPz/AQAFAAEAAAAFAPz/AQAFAAEAAAD6//z/AQAFAAEAAAD7//z/AQAFAAEAAAD8//z/AQAFAAEAAAD9//z/AQAFAAEAAAD+//z/AQAFAAEAAAD///z/AQAFAAEAAAD6/wIAAQAEAAAAAAD6/wMAAQAFAAEAAAD7/wIAAQAEAAAAAAD7/wMAAQAFAAEAAAD8/wIAAQAEAAAAAAD8/wMAAQAFAAEAAAD9/wIAAQAEAAAAAAD9/wMAAQAFAAEAAAD+/wIAAQAEAAAAAAD+/wMAAQAFAAEAAAD//wIAAQAEAAAAAAD//wMAAQAFAAEAAAA=")
+tile_set = ExtResource("2_78yth")
+
+[node name="Background" type="TileMapLayer" parent="TileMap"]
+z_index = -25
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD6//z/AAACAAAAAAD6//3/AAACAAAAAAD6//7/AAACAAAAAAD6////AAACAAAAAAD6/wAAAAACAAAAAAD6/wEAAAACAAAAAAD6/wIAAAACAAAAAAD7//z/AAACAAAAAAD7//3/AAACAAAAAAD7//7/AAACAAAAAAD7////AAACAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAACAAAAAAD7/wIAAAACAAAAAAD8//z/AAACAAAAAAD8//3/AAACAAAAAAD8//7/AAACAAAAAAD8////AAACAAAAAAD8/wAAAAACAAAAAAD8/wEAAAACAAAAAAD8/wIAAAACAAAAAAD9//z/AAACAAAAAAD9//3/AAACAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAD+//z/AAACAAAAAAD+//3/AAACAAAAAAD+//7/AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD+/wIAAAACAAAAAAD///z/AAACAAAAAAD///3/AAACAAAAAAD///7/AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD//wIAAAACAAAAAAAAAPz/AAACAAAAAAAAAP3/AAACAAAAAAAAAP7/AAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAADAAAAAAAAAAIAAAACAAAAAAABAPz/AAACAAAAAAABAP3/AAACAAAAAAABAP7/AAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAABAAEAAAADAAAAAAABAAIAAAACAAAAAAACAPz/AAACAAAAAAACAP3/AAACAAAAAAACAP7/AAACAAAAAAACAP//AAACAAAAAAACAAAAAAACAAAAAAACAAEAAAACAAAAAAACAAIAAAACAAAAAAADAPz/AAACAAAAAAADAP3/AAACAAAAAAADAP7/AAAAAAAAAAADAP//AAACAAAAAAADAAAAAAACAAAAAAADAAEAAAACAAAAAAADAAIAAAACAAAAAAAEAPz/AAACAAAAAAAEAP3/AAACAAAAAAAEAP7/AAACAAAAAAAEAP//AAACAAAAAAAEAAAAAAACAAAAAAAEAAEAAAACAAAAAAAEAAIAAAACAAAAAAAFAPz/AAACAAAAAAAFAP3/AAACAAAAAAAFAP7/AAACAAAAAAAFAP//AAACAAAAAAAFAAAAAAACAAAAAAAFAAEAAAACAAAAAAAFAAIAAAACAAAAAAA=")
+tile_set = ExtResource("2_78yth")
+
+[node name="Foreground" type="TileMapLayer" parent="TileMap"]
+z_index = 120
+use_parent_material = true
+tile_set = ExtResource("2_78yth")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-33, -38)
+texture = ExtResource("4_5fs1q")
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-14, 9)
+texture = ExtResource("5_g5nfr")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(11, 9)
+texture = ExtResource("5_g5nfr")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(52, 24)
+texture = ExtResource("5_wo6rb")
+hframes = 8
+vframes = 2

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbvdq5a2k37ly"]
+
+[ext_resource type="Script" uid="uid://dgl6uvstwyihq" path="res://Scripts/Projectiles/Projectile_speed_increase.gd" id="1_a8ig7"]
+[ext_resource type="Texture2D" uid="uid://buukgaxu0svbs" path="res://Sprites/Projectiles/ice_spike.png" id="2_htsh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
+size = Vector2(24, 32)
+
+[node name="Ice_spike" type="Node2D" groups=["Projectile"]]
+process_mode = 1
+z_index = 10
+script = ExtResource("1_a8ig7")
+id = 5
+atk = 4
+speed = Vector2(0, 400)
+has_particle = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1.78814e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_htsh5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 74
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3kn46")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(14.9, 10.55)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

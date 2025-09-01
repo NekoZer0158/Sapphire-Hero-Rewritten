@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bn3aep0v41ydw"]
+
+[ext_resource type="Texture2D" uid="uid://y4ynibswhkvl" path="res://Sprites/UI/Player/Button_progressbar_mobile.png" id="1_keri5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xopty"]
+texture = ExtResource("1_keri5")
+expand_margin_left = 9.0
+expand_margin_top = 4.0
+expand_margin_right = 9.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scagm"]
+bg_color = Color(0.231373, 0.666667, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[resource]
+ProgressBar/styles/background = SubResource("StyleBoxTexture_xopty")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_scagm")

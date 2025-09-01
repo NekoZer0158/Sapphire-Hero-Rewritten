@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://l1s2sh5lbjv8"]
+
+[ext_resource type="Script" uid="uid://dd5wbgucwye5b" path="res://Scripts/Objects/Cloud.gd" id="1_2s5xq"]
+[ext_resource type="Texture2D" uid="uid://jxaoi4areb25" path="res://Sprites/Background/Clouds/cloud_1.png" id="1_r88ym"]
+
+[node name="Cloud" type="Node2D" node_paths=PackedStringArray("sprite") groups=["Cloud"]]
+script = ExtResource("1_2s5xq")
+sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_r88ym")
+hframes = 2
+metadata/_edit_lock_ = true

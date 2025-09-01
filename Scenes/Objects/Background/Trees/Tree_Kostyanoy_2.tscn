@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdt7ak1iwlc0s"]
+
+[ext_resource type="Texture2D" uid="uid://bppqj8osyqcjr" path="res://Sprites/Background/Trees/Kostyanoy_2.png" id="1_805ky"]
+
+[node name="Tree_Kostyanoy_2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_805ky")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://cafq2r5hu0kn0"]
+
+[ext_resource type="Script" uid="uid://iew1nhua50es" path="res://Scripts/Objects/Robot_spawner.gd" id="1_mf3c3"]
+[ext_resource type="Texture2D" uid="uid://cmc7g7nveoqdg" path="res://Sprites/Objects/Shield_robot_spawner.png" id="2_64luf"]
+[ext_resource type="PackedScene" uid="uid://eyop22kfqvtk" path="res://Scenes/Enemies/Flying/Flying_robot_shield.tscn" id="2_g5qh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83m12"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw4qx"]
+size = Vector2(30, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo0nn"]
+size = Vector2(1, 32)
+
+[node name="Shield_robot_spawner" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 78
+script = ExtResource("1_mf3c3")
+spawn_this_robot = ExtResource("2_g5qh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_83m12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_64luf")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(16.6, 5)
+
+[node name="Spawn_positions" type="Node2D" parent="."]
+
+[node name="Up" type="Marker2D" parent="Spawn_positions"]
+position = Vector2(0, -40)
+
+[node name="Right" type="Marker2D" parent="Spawn_positions"]
+position = Vector2(24, -16)
+
+[node name="Down" type="Marker2D" parent="Spawn_positions"]
+position = Vector2(0, 8)
+
+[node name="Left" type="Marker2D" parent="Spawn_positions"]
+position = Vector2(-24, -16)
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="Area2D_up" type="Area2D" parent="Areas"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D_up"]
+position = Vector2(0, -32.5)
+shape = SubResource("RectangleShape2D_iw4qx")
+
+[node name="Area2D_down" type="Area2D" parent="Areas"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D_down"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_iw4qx")
+
+[node name="Area2D_right" type="Area2D" parent="Areas"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D_right"]
+position = Vector2(16.5, -16)
+shape = SubResource("RectangleShape2D_oo0nn")
+
+[node name="Area2D_left" type="Area2D" parent="Areas"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Area2D_left"]
+position = Vector2(-16.5, -16)
+shape = SubResource("RectangleShape2D_oo0nn")
+
+[connection signal="area_entered" from="Areas/Area2D_up" to="." method="_on_area_2d_up_area_entered"]
+[connection signal="area_entered" from="Areas/Area2D_down" to="." method="_on_area_2d_down_area_entered"]
+[connection signal="area_entered" from="Areas/Area2D_right" to="." method="_on_area_2d_right_area_entered"]
+[connection signal="area_entered" from="Areas/Area2D_left" to="." method="_on_area_2d_left_area_entered"]

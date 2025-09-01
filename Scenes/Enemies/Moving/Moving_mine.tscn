@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpniafs24etuo"]
+
+[ext_resource type="PackedScene" uid="uid://cp5pyftpmc08e" path="res://Scenes/Bodies/Enemies/Moving/Moving_mine.tscn" id="1_bvc4e"]
+[ext_resource type="Script" uid="uid://cp75fgjnkqgqn" path="res://Scripts/AI/Enemies/Moving/Moving_mine_AI.gd" id="1_uvnwd"]
+
+[node name="Moving_mine" type="Node2D"]
+script = ExtResource("1_uvnwd")
+
+[node name="Moving_mine" parent="." instance=ExtResource("1_bvc4e")]
+
+[node name="RayCast_left" type="RayCast2D" parent="Moving_mine"]
+position = Vector2(0, -10)
+target_position = Vector2(90, 0)
+collision_mask = 74
+
+[node name="RayCast_right" type="RayCast2D" parent="Moving_mine"]
+position = Vector2(0, -10)
+target_position = Vector2(-90, 0)
+collision_mask = 74
+
+[node name="Move_left" type="RayCast2D" parent="Moving_mine"]
+position = Vector2(0, -4)
+target_position = Vector2(25, 0)
+collision_mask = 8
+
+[node name="Move_right" type="RayCast2D" parent="Moving_mine"]
+position = Vector2(0, -4)
+target_position = Vector2(-25, 0)
+collision_mask = 8
+
+[node name="Check_ground_left" type="RayCast2D" parent="Moving_mine"]
+position = Vector2(10, -3)
+target_position = Vector2(0, 5)
+collision_mask = 8
+
+[node name="Check_ground_right" type="RayCast2D" parent="Moving_mine"]
+position = Vector2(-10, -3)
+target_position = Vector2(0, 5)
+collision_mask = 8
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Moving_mine"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(9.25, 3.55)
+enable_node_path = NodePath("../..")

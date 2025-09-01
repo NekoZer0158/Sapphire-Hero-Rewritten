@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwwqy5jd3q4pd"]
+
+[ext_resource type="Script" uid="uid://c6wasvge3rvbd" path="res://Scripts/Other/Clouds_spawner.gd" id="1_ftaqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5hc"]
+
+[node name="CloudsSpawner" type="Area2D" groups=["Cloud_spawner"]]
+collision_mask = 128
+script = ExtResource("1_ftaqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tx5hc")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

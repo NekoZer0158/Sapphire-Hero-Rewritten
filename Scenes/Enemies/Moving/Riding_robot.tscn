@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://mqm5xks8dkuv"]
+
+[ext_resource type="Script" uid="uid://dwtkrqo8jtt64" path="res://Scripts/AI/Enemies/Moving/Riding_robot_AI.gd" id="1_egrvc"]
+[ext_resource type="PackedScene" uid="uid://d3ixe1d85grj" path="res://Scenes/Bodies/Enemies/Flying/Flying_riding_head.tscn" id="2_0dag2"]
+[ext_resource type="PackedScene" uid="uid://dn7de7pjjxnce" path="res://Scenes/Bodies/Enemies/Moving/Riding_robot.tscn" id="3_c15bg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wxs7"]
+size = Vector2(750, 400)
+
+[node name="Riding_robot" type="Node2D"]
+script = ExtResource("1_egrvc")
+
+[node name="Riding_robot" parent="." groups=["Without_spikes"] instance=ExtResource("3_c15bg")]
+
+[node name="Flying_head_riding" parent="Riding_robot" groups=["Without_spikes"] instance=ExtResource("2_0dag2")]
+z_index = -1
+position = Vector2(0, -32)
+
+[node name="Area2D" type="Area2D" parent="Riding_robot/Flying_head_riding"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Riding_robot/Flying_head_riding/Area2D"]
+shape = SubResource("RectangleShape2D_3wxs7")
+debug_color = Color(0, 0.596078, 0.701961, 0)
+
+[node name="RayCast_right" type="RayCast2D" parent="Riding_robot"]
+position = Vector2(0, -5)
+target_position = Vector2(25, 0)
+collision_mask = 72
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Riding_robot"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(12.55, 4.675)
+enable_node_path = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Timer_change_direction" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="now_dead" from="Riding_robot" to="." method="_on_riding_robot_now_dead"]
+[connection signal="now_dead" from="Riding_robot/Flying_head_riding" to="." method="_on_flying_head_riding_now_dead"]
+[connection signal="body_entered" from="Riding_robot/Flying_head_riding/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer_change_direction" to="." method="_on_timer_change_direction_timeout"]

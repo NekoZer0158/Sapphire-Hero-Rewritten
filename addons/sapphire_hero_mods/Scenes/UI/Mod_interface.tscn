@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsgswwmtxd8v"]
+
+[ext_resource type="Script" uid="uid://co2hdicxgihlv" path="res://addons/sapphire_hero_mods/Scripts/UI/Mod_interface.gd" id="1_4u1fp"]
+[ext_resource type="Texture2D" uid="uid://bdw6i5lg33ayi" path="res://addons/sapphire_hero_mods/Sprites/Icon_template.png" id="2_lj5c5"]
+[ext_resource type="Texture2D" uid="uid://of3ere86d0iy" path="res://addons/sapphire_hero_mods/Sprites/Activated_deactivated.png" id="3_6lir3"]
+
+[node name="Mod_interface" type="Control" node_paths=PackedStringArray("texture_rect_activation")]
+z_index = 5
+custom_minimum_size = Vector2(624, 128)
+layout_mode = 3
+anchor_right = 0.325
+anchor_bottom = 0.119
+offset_right = -6.10352e-05
+offset_bottom = -0.520004
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4u1fp")
+texture_rect_activation = NodePath("TextureRectActivation")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 624.0
+offset_bottom = 128.0
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+anchor_right = 0.205128
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = ExtResource("2_lj5c5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(466, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.218
+anchor_top = 0.0625
+anchor_right = 0.218
+anchor_bottom = 0.0625
+offset_left = -0.0320129
+offset_right = 465.968
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Name"
+scroll_active = false
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(466, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.218
+anchor_top = 0.1875
+anchor_right = 0.218
+anchor_bottom = 0.1875
+offset_left = -0.0320129
+offset_right = 465.968
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "some text 1
+some text 2
+some text 3
+some text 4
+some text 5
+some text 6
+some text 7"
+scroll_active = false
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRectActivation" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 608.0
+offset_right = 613.0
+offset_bottom = 128.0
+texture = ExtResource("3_6lir3")

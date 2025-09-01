@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://exretkwtgtmh"]
+
+[ext_resource type="Texture2D" uid="uid://dax5j8l7upk5b" path="res://Sprites/Background/Trees/Kostyanoy_trees_preview.png" id="1_7f6cg"]
+
+[node name="Trees_Kostyanoy" type="Node2D"]
+modulate = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(272, -48)
+texture = ExtResource("1_7f6cg")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://drql8ew4t6i72"]
+
+[ext_resource type="Script" uid="uid://bqiov1k4u4ski" path="res://Scripts/Story/Cutscene.gd" id="1_87f4n"]
+[ext_resource type="PackedScene" uid="uid://d4vwo11iluh5" path="res://Scenes/Story/Pictures/After_final/Picture_1_after_final.tscn" id="2_582p2"]
+[ext_resource type="PackedScene" uid="uid://cmj00haneqn3e" path="res://Scenes/Story/Pictures/Before_final_boss/Picture_2.tscn" id="3_muvwo"]
+[ext_resource type="PackedScene" uid="uid://xo5nwporsnah" path="res://Scenes/Story/Pictures/Intro/Picture_1.tscn" id="4_us0yq"]
+[ext_resource type="Theme" uid="uid://c74bxhe62fcnp" path="res://Resources/Themes/Cutscene.tres" id="5_s0l13"]
+
+[node name="The_end" type="Control" node_paths=PackedStringArray("pictures_marker")]
+z_index = 1030
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87f4n")
+all_pictures = Array[PackedScene]([ExtResource("2_582p2"), ExtResource("3_muvwo"), ExtResource("4_us0yq")])
+pictures_marker = NodePath("Pictures_pos")
+text_first_word = "the_end"
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -52
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Pictures_pos" type="Marker2D" parent="."]
+position = Vector2(960, 340)
+scale = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 644.0
+offset_right = 1904.0
+offset_bottom = 1080.0
+theme = ExtResource("5_s0l13")
+text = "some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 320
+layout_mode = 0
+offset_left = -1787.0
+offset_top = -44.0
+offset_right = 3804.0
+offset_bottom = 1163.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true

@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2mgfpxajsm8c"]
+
+[ext_resource type="Script" uid="uid://d1ioms5hiaisb" path="res://Scripts/Other/Mobile/Mobile_credits.gd" id="1_4ap2x"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_mwvj6"]
+
+[node name="Mobile" type="Control" node_paths=PackedStringArray("credits_node")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4ap2x")
+credits_node = NodePath("")
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Page" type="Button" parent="Container"]
+custom_minimum_size = Vector2(256, 16)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_mwvj6")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = ">"
+flat = true
+
+[node name="License" type="Button" parent="Container"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_mwvj6")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "License_Godot"
+flat = true
+
+[node name="Back" type="Button" parent="Container"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_mwvj6")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Container/Page" to="." method="_on_page_pressed"]
+[connection signal="pressed" from="Container/License" to="." method="_on_license_pressed"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

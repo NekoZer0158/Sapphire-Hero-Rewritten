@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbx4co30mtksb"]
+
+[ext_resource type="Texture2D" uid="uid://ceuqygwcuiysa" path="res://Sprites/Minigames/Hack_planes/Player_projectile.png" id="1_0uiej"]
+[ext_resource type="Script" uid="uid://xu43dhk5113n" path="res://Scripts/Minigames/Hack_planes/Projectile.gd" id="1_6wpte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw3dy"]
+size = Vector2(4, 8)
+
+[node name="PlayerProjectile" type="Node2D"]
+z_index = 10
+script = ExtResource("1_6wpte")
+speed = -300
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0uiej")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 3072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rw3dy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

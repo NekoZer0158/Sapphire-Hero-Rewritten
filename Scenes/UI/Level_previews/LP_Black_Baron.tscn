@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnh8ql8ur6ncr"]
+
+[ext_resource type="Script" uid="uid://c2ol41wnvt2mj" path="res://Scripts/UI/Level_preview.gd" id="1_6canr"]
+
+[node name="Level_preview" type="Node2D"]
+z_index = 90
+script = ExtResource("1_6canr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1

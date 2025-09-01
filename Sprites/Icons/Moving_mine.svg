@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16mm"
+   height="16mm"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg848"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="Moving_mine.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title5848">Moving_mine</title>
+  <sodipodi:namedview
+     id="namedview850"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="12.215376"
+     inkscape:cx="23.208455"
+     inkscape:cy="37.084409"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs845" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1642"
+       style="fill:none;stroke:#8da5f3;stroke-width:0.730932;stroke-dashoffset:28.7769"
+       transform="translate(0,-0.01867635)"
+       d="m 0.36546585,10.725804 c 0,-2.7071276 15.26906915,-2.7071276 15.26906915,0 0,1.380228 0,4.927406 0,4.927406 H 0.36546585 c 0,0 0,-3.198916 0,-4.927406 z"
+       sodipodi:nodetypes="ssccs" />
+    <rect
+       style="fill:#8da5f3;fill-opacity:1;stroke:#8da5f3;stroke-width:0.693938;stroke-dashoffset:28.7769;stroke-opacity:1"
+       id="rect3312"
+       width="3.0762215"
+       height="6.4484243"
+       x="6.4618897"
+       y="9.1861095" />
+    <path
+       id="rect3374"
+       style="fill:#8da5f3;stroke:#8da5f3;stroke-width:0.747001;stroke-dashoffset:28.7769"
+       d="m 0.93137395,10.572763 0.88805425,-0.6281359 0,5.6899069 H 0.93137395 Z"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       id="path3377"
+       style="fill:#8da5f3;stroke:#8da5f3;stroke-width:0.747001;stroke-dashoffset:28.7769"
+       d="M 15.068627,10.572763 14.180573,9.9446271 v 5.6899069 h 0.888054 z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+  <metadata
+     id="metadata5846">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Moving_mine</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

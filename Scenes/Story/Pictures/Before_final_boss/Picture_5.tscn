@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg5lsq1f4dcxd"]
+
+[ext_resource type="Texture2D" uid="uid://snomla23b4x0" path="res://Sprites/Story/Picture_4_before_final_boss.png" id="1_3cam5"]
+[ext_resource type="PackedScene" uid="uid://dm485psk0qjkv" path="res://Scenes/Story/Pictures/Before_final_boss/Player_sprite.tscn" id="2_pdfyt"]
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 70
+texture = ExtResource("1_3cam5")
+
+[node name="PlayerSprite" parent="." instance=ExtResource("2_pdfyt")]
+z_index = 85
+position = Vector2(32, 51)
+scale = Vector2(2, 2)

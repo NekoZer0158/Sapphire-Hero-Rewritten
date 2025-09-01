@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmlv1fdcb6mii"]
+
+[ext_resource type="Script" uid="uid://dx652e01cjjsl" path="res://Scripts/Objects/Moving_platform.gd" id="1_a5fy8"]
+[ext_resource type="Texture2D" uid="uid://bbpa6qabur7v4" path="res://Sprites/Objects/Moving_platforms/final_moving_platform.png" id="2_hbq6n"]
+[ext_resource type="PackedScene" uid="uid://wfhqtvro8y3k" path="res://Scenes/Objects/Levers/Final_lever.tscn" id="3_xrq0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg02p"]
+size = Vector2(128, 31)
+
+[node name="Final_moving_platform" type="CharacterBody2D" node_paths=PackedStringArray("raycast_wall")]
+z_index = -10
+collision_layer = 65
+collision_mask = 70
+script = ExtResource("1_a5fy8")
+speed = Vector2(11000, 0)
+check_wall = true
+raycast_wall = NodePath("RayCast_wall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-06, 7.5)
+shape = SubResource("RectangleShape2D_wg02p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("2_hbq6n")
+offset = Vector2(0, 16)
+
+[node name="RayCast_wall" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(65, 0)
+collision_mask = 8
+
+[node name="Elevator_lever" parent="." instance=ExtResource("3_xrq0x")]
+position = Vector2(0, -8)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4, -2)
+scale = Vector2(10, 12.6)
+
+[connection signal="lever_activation" from="Elevator_lever" to="." method="_on_lever_activation"]

@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcixur6fqo43g"]
+
+[ext_resource type="Script" uid="uid://dku70382vrigr" path="res://Scripts/UI/Pause_UI.gd" id="1_tbnet"]
+[ext_resource type="PackedScene" uid="uid://ctbq18ipo4hje" path="res://Scenes/UI/Button_UI.tscn" id="2_4lwu0"]
+[ext_resource type="Theme" uid="uid://dxa5r1xiqxw3" path="res://Resources/Themes/button_progress_bar.tres" id="3_lbhg2"]
+[ext_resource type="PackedScene" uid="uid://clth0vstxvs73" path="res://Scenes/UI/Settings.tscn" id="4_owx6o"]
+[ext_resource type="PackedScene" uid="uid://bxscygo6sxg7l" path="res://Scenes/UI/Mobile/Mobile_pause_UI.tscn" id="5_aecb3"]
+
+[node name="Pause_UI" type="Control" node_paths=PackedStringArray("buttons")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tbnet")
+buttons = [NodePath("Restart_button"), NodePath("Settings_button"), NodePath("Back_to_menu")]
+time_for_timers = 0.06
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1152.0
+offset_top = -72.0
+offset_right = 3504.0
+offset_bottom = 1176.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.243137)
+metadata/_edit_lock_ = true
+
+[node name="Pause" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1728.0
+offset_right = 1920.0
+offset_bottom = 128.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart_desc" type="RichTextLabel" parent="." groups=["M_hide_settings"]]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 232.0
+offset_right = 1856.0
+offset_bottom = 320.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Restart_desc"
+
+[node name="BtM_desc" type="RichTextLabel" parent="." groups=["M_hide_settings"]]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 360.0
+offset_right = 1856.0
+offset_bottom = 448.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]BtM_desc"
+
+[node name="Restart_button" parent="." instance=ExtResource("2_4lwu0")]
+position = Vector2(1312, 72)
+scale = Vector2(4, 4)
+cur_button = "R"
+
+[node name="ProgressBar" type="ProgressBar" parent="Restart_button"]
+offset_left = -8.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme = ExtResource("3_lbhg2")
+max_value = 50.0
+step = 1.0
+show_percentage = false
+
+[node name="Settings_button" parent="." instance=ExtResource("2_4lwu0")]
+position = Vector2(1440, 72)
+scale = Vector2(4, 4)
+cur_button = "S"
+
+[node name="Back_to_menu" parent="." instance=ExtResource("2_4lwu0")]
+position = Vector2(1568, 72)
+scale = Vector2(4, 4)
+cur_button = "B"
+
+[node name="ProgressBar" type="ProgressBar" parent="Back_to_menu"]
+offset_left = -8.0
+offset_top = 12.0
+offset_right = 8.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme = ExtResource("3_lbhg2")
+max_value = 50.0
+step = 1.0
+show_percentage = false
+
+[node name="Settings" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("4_owx6o")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Pause")
+mobile_parent_node = NodePath("../Mobile_node_fake")
+
+[node name="Timer_restart" type="Timer" parent="."]
+
+[node name="Timer_back_to_menu" type="Timer" parent="."]
+
+[node name="Mobile" parent="." instance=ExtResource("5_aecb3")]
+visible = false
+layout_mode = 1
+
+[node name="Mobile_node_fake" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+mouse_filter = 2
+
+[connection signal="hide_settings" from="Settings" to="." method="_on_settings_hide_settings"]
+[connection signal="timeout" from="Timer_restart" to="." method="_on_timer_restart_timeout"]
+[connection signal="timeout" from="Timer_back_to_menu" to="." method="_on_timer_back_to_menu_timeout"]

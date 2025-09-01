@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75w17x632aho"]
+
+[ext_resource type="Script" uid="uid://cdyp53wg1yaqh" path="res://Scripts/AI/Story/Unknown_cutscene_2.gd" id="1_iwi2a"]
+[ext_resource type="PackedScene" uid="uid://bvg64egdkuc72" path="res://Scenes/Bodies/Unknown_body.tscn" id="2_f6m05"]
+
+[node name="Unknown_cutscene" type="Node2D" node_paths=PackedStringArray("robot_body")]
+script = ExtResource("1_iwi2a")
+robot_body = NodePath("Unknown_body")
+
+[node name="Unknown_body" parent="." instance=ExtResource("2_f6m05")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Unknown_body"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -125
+scale = Vector2(32, 22)
+enable_node_path = NodePath("../..")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 70
+offset_left = -1496.0
+offset_top = -24.0
+offset_right = 4144.0
+offset_bottom = 1128.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Timer_short" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="no_ground" from="Unknown_body" to="." method="_on_unknown_body_no_ground"]
+[connection signal="timeout" from="Timer_short" to="." method="_on_timer_short_timeout"]

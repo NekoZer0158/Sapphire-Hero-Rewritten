@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbdsxwxsat2ns"]
+
+[ext_resource type="Script" uid="uid://dufp6xaswdy4p" path="res://Scripts/Effects/Default_weapon_particle.gd" id="1_m0lgi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bk18x"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 26.58
+initial_velocity_min = 195.6
+initial_velocity_max = 220.55
+gravity = Vector3(0, 98, 0)
+scale_min = 4.0
+scale_max = 4.0
+
+[node name="DefaultWeaponParticle" type="GPUParticles2D"]
+process_mode = 1
+z_index = 100
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_bk18x")
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+randomness = 0.1
+script = ExtResource("1_m0lgi")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

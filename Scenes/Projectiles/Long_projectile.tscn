@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhxtear650fsc"]
+
+[ext_resource type="Script" uid="uid://dl6m7n3sm8miw" path="res://Scripts/Projectiles/Projectile.gd" id="1_nah6k"]
+[ext_resource type="Texture2D" uid="uid://dixg87bsdi1fb" path="res://Sprites/Projectiles/Long.png" id="2_ov6qx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
+size = Vector2(48, 16)
+
+[node name="Long_projectile" type="Node2D" node_paths=PackedStringArray("life_timer") groups=["Projectile"]]
+process_mode = 1
+z_index = 10
+script = ExtResource("1_nah6k")
+id = 6
+atk = 4
+speed = Vector2(1200, 0)
+life_time = 1.9
+life_timer = NodePath("Timer_life")
+particle_color = Color(0.862745, 0.682353, 0.937255, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1.78814e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_ov6qx")
+
+[node name="Timer_life" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 74
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3kn46")
+
+[connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

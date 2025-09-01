@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://bergjbsqvnxr6"]
+
+[ext_resource type="Script" uid="uid://bha175qdn0aw0" path="res://Scripts/Other/Explosive_platform.gd" id="1_jmesn"]
+[ext_resource type="PackedScene" uid="uid://dhwgfpjp1j2jk" path="res://Scenes/Effects/Enemy_boom.tscn" id="2_22uim"]
+[ext_resource type="Texture2D" uid="uid://w5guvri7t31" path="res://Sprites/Other/Explosive_platform.png" id="2_l2dhg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqh4t"]
+size = Vector2(384, 64)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_upvdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnrfq"]
+size = Vector2(8, 136)
+
+[node name="Explosive_platform" type="StaticBody2D"]
+script = ExtResource("1_jmesn")
+boom = ExtResource("2_22uim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_gqh4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 32)
+scale = Vector2(384, 64)
+texture = SubResource("CanvasTexture_upvdl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 31)
+texture = ExtResource("2_l2dhg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-70, -67)
+shape = SubResource("RectangleShape2D_nnrfq")
+
+[node name="Boom_markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-168, 32)
+
+[node name="Marker2D9" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-144, 16)
+
+[node name="Marker2D10" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-96, 16)
+
+[node name="Marker2D11" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-48, 16)
+
+[node name="Marker2D12" type="Marker2D" parent="Boom_markers"]
+position = Vector2(0, 16)
+
+[node name="Marker2D13" type="Marker2D" parent="Boom_markers"]
+position = Vector2(48, 16)
+
+[node name="Marker2D14" type="Marker2D" parent="Boom_markers"]
+position = Vector2(96, 16)
+
+[node name="Marker2D15" type="Marker2D" parent="Boom_markers"]
+position = Vector2(144, 16)
+
+[node name="Marker2D2" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-120, 32)
+
+[node name="Marker2D3" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-72, 32)
+
+[node name="Marker2D4" type="Marker2D" parent="Boom_markers"]
+position = Vector2(-24, 32)
+
+[node name="Marker2D5" type="Marker2D" parent="Boom_markers"]
+position = Vector2(24, 32)
+
+[node name="Marker2D6" type="Marker2D" parent="Boom_markers"]
+position = Vector2(72, 32)
+
+[node name="Marker2D7" type="Marker2D" parent="Boom_markers"]
+position = Vector2(120, 32)
+
+[node name="Marker2D8" type="Marker2D" parent="Boom_markers"]
+position = Vector2(168, 32)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

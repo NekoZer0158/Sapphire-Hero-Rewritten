@@ -1,0 +1,143 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjp0pyg3nrxa3"]
+
+[ext_resource type="Script" uid="uid://b1d8jvm75v2t7" path="res://Scripts/Other/Mobile/Mobile_main_menu.gd" id="1_yboxf"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_8dii5"]
+
+[node name="Mobile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yboxf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hide" type="ColorRect" parent="."]
+z_index = 240
+layout_mode = 2
+offset_top = 448.0
+offset_right = 1608.0
+offset_bottom = 1080.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Hide2" type="ColorRect" parent="."]
+z_index = 240
+layout_mode = 2
+offset_top = 512.0
+offset_right = 1920.0
+offset_bottom = 1016.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Mobile_options" type="FlowContainer" parent="."]
+z_index = 405
+layout_mode = 0
+offset_top = 424.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/h_separation = 235
+theme_override_constants/v_separation = 165
+alignment = 1
+last_wrap_alignment = 3
+
+[node name="Epilogue" type="Button" parent="Mobile_options"]
+visible = false
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Epilogue"
+flat = true
+
+[node name="Prologue" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Prologue"
+flat = true
+
+[node name="New_game" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "New game"
+flat = true
+
+[node name="Load_game" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Load game"
+flat = true
+
+[node name="Achievements" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Achievements"
+flat = true
+
+[node name="Settings" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Settings"
+flat = true
+
+[node name="Controls" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Controls"
+flat = true
+
+[node name="Customization" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Customization"
+flat = true
+
+[node name="Credits" type="Button" parent="Mobile_options"]
+custom_minimum_size = Vector2(128, 70)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_8dii5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Credits"
+flat = true
+
+[connection signal="pressed" from="Mobile_options/Epilogue" to="." method="_on_epilogue_pressed"]
+[connection signal="pressed" from="Mobile_options/Prologue" to="." method="_on_prologue_pressed"]
+[connection signal="pressed" from="Mobile_options/New_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Mobile_options/Load_game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Mobile_options/Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="Mobile_options/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Mobile_options/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Mobile_options/Customization" to="." method="_on_customization_pressed"]
+[connection signal="pressed" from="Mobile_options/Credits" to="." method="_on_credits_pressed"]

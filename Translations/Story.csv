@@ -1,0 +1,98 @@
+keys,ru,en
+"boss_info Kostyanoy","Робот модели РБМ-62, был участником нескольких войн прошлого","Variation of BMR-62. Participated in some wars of the past"
+"boss_info Ledyanoy","Вариация РЗМ-28, созданная для работы при очень низкой температуре","Variation of GMR-28. Created for work under low level temperature"
+"boss_info Zeppelin","Робот модели РЗМ-29, был участником нескольких войн прошлого","Variation of GMR-29. Participated in some wars of the past"
+"boss_info Voronoy","Робот модели РЗМ-28. Создан для подавления бунтов в тюрьме","Variation of GMR-28. Created to stop any riots in the prison"
+"boss_info Black_Baron"," "," "
+"boss_info Unknown","Робот неизвестной модели, схожие роботы разрабатывались в прошлом, ныне не существующей корпорацией","Unknown model of the robot, similar robots were created in the past by corporation, that doesn't exists anymore"
+"boss_info Black_Baron"," "," "
+"info_r Kostyanoy","Уязвимость против определённого оружия: есть","Weakness against particular weapon: yes"
+"info_r Ledyanoy","Уязвимость против определённого оружия: есть","Weakness against particular weapon: yes"
+"info_r Zeppelin","Уязвимость против определённого оружия: есть","Weakness against particular weapon: yes"
+"info_r Unknown","Уязвимость против определённого оружия: есть","Weakness against particular weapon: yes"
+"info_r Voronoy","Уязвимость против определённого оружия: есть","Weakness against particular weapon: yes"
+"info_r Black_Baron","Уязвимость против определённого оружия: нету","Weakness against particular weapon: no"
+"level_desc Ledyanoy","Бункер, выглядящий как пещера","The bunker, that looks like a cave"
+"level_desc Zeppelin","Аэропорт","An airport"
+"level_desc Kostyanoy","Бункер под лесом возле города Ньювест-Авалон, в процессе расширения","Bunker under the forest near the city of Newest Avalon, which is under expansion"
+"level_desc Kostyanoy_2","Бункер под лесом возле города по добыче сапфира S-331, в процессе расширения","Bunker under the forest near the city of S-331, which is under expansion"
+"level_desc Unknown","Тюрьма","A prison"
+"level_desc Voronoy_2","Тюрьма","A prison"
+"level_desc Black_Baron"," "," "
+boss,Босс,Boss
+Kostyanoy,Костяной,Kostyanoy
+Ledyanoy,Ледяной,Ledyanoy
+Zeppelin,Цеппелин,Zeppelin
+Unknown,Неизвестный,Unknown
+Voronoy,Вороной,Voronoy
+Black_Baron,Чёрный Барон,Black Baron
+on,вкл,on
+off,выкл,off
+GMR_27,РЗМ-27,GMR-27
+GMR_28,РЗМ-28,GMR-28
+GMR_29,РЗМ-29,GMR-29
+NMR-08,РНМ-08,NMR-08
+NMR-07,РНМ-07,NMR-07
+NMR-05,РНМ-05,NMR-05
+NMR-04,РНМ-04,NMR-04
+NMR-03,РНМ-03,NMR-03
+NMR-02,РНМ-02,NMR-02
+NMR-01,РНМ-01,NMR-01
+Play_sequel,Поиграйте в Sapphire Hero 2 Rewritten,Play Sapphire Hero 2 Rewritten
+Prototype,РНМ-01 (Прототип),NMR-01 (Prototype)
+Default,Стандартный,Default
+Pale,Бледный,Pale
+Neon,Неоновый,Neon
+Head,Голова,Head
+Gray,Серый,Gray
+Sequel,Сиквел,Sequel
+Phantom,Призрачный,Phantom
+Halloween,Хэллоуин,Halloween
+Spanish,Испанский,Spanish
+Dog_from_hell,Пёсик из Ада,Dog from Hell.
+"Spanish_desc","Поиграйте в Bullets that split the sky Dilogy","Play Bullets that split the sky Dilogy"
+Progress_bar,Индикатор HP/патронов,Progress bar HP/ammo
+New_year,Новый год,New year
+HP_refill,Восполнитель HP,HP refiller
+Plane,Самолёт,Plane
+Sequel_unlock,Сиквел,Sequel
+Head_1,Голова 1,Head 1
+Head_2,Голова 2,Head 2
+Head_3,Голова 3,Head 3
+UI_1,UI 1,UI 1
+UI_2,UI 2,UI 2
+UI_3,UI 3,UI 3
+Ready mods,Ready моды,Ready mods
+Levels,Уровни,Levels
+Flying GMR-33,Летающие РЗМ-33,Flying GMR-33
+No mod loaders found,Загрузчик модов не найден,No mod loaders found
+"Creator of the most things","[center][color=CORNFLOWER_BLUE]Код, Геймдизайн, Спрайты и т.д.[/color]\n\nNeko Zero (Игорь Чуплыгин)\n\n[center][color=CORNFLOWER_BLUE]Спасибо[/color]\n\nПодписчикам моего паблика ВК.\nСоздателям серии игр Mega Man","[center][color=CORNFLOWER_BLUE]Code, Gamedesign, Sprites etc.[/color]\n\nNeko Zero (Igor Chuplygin)\n\n[center][color=CORNFLOWER_BLUE]Thank you[/color]\n\nSubscribers from my public in VK.\nCreators of Mega Man"
+"Font_creator","[center][color=CORNFLOWER_BLUE]Шрифт[/color]\n\nGGBotNet\n(PublicPixel)","[center][color=CORNFLOWER_BLUE]Font[/color]\n\nGGBotNet\n(PublicPixel)"
+"Music_left","\n\n[center][color=CORNFLOWER_BLUE]MintoDog[/color]\n1_Begin Hero_BPM150\nstrange_factory_bpm100\n\n[center][color=CORNFLOWER_BLUE]R0rque[/color]\nFight Harder...  To Obtain A Better Victory!","\n\n[center][color=CORNFLOWER_BLUE]MintoDog[/color]\n1_Begin Hero_BPM150\nstrange_factory_bpm100\n\n[center][color=CORNFLOWER_BLUE]R0rque[/color]\nFight Harder...  To Obtain A Better Victory!"
+"Music_right","\n\n[center][color=CORNFLOWER_BLUE]Ivan Stanton (northivanastan on OpenGameArt)[/color]\nairport_attack \n\n[center][color=CORNFLOWER_BLUE]continuum.mid[/color]\nVs. The Assault Quindecapod\nThe Deepest Secrets","\n\n[center][color=CORNFLOWER_BLUE]Spring[/color]\nneo springcore (Redacted by me)\n\n[center][color=CORNFLOWER_BLUE]continuum.mid[/color]\nVs. The Assault Quindecapod\nThe Deepest Secrets"
+"Music creator","[center][color=CORNFLOWER_BLUE]Музыка(Лицензия CC0)[/color]\n\n[center][color=CORNFLOWER_BLUE]nene[/color]\nBoss Battle # 5 V1\nBoss Battle #2 V1","[center][color=CORNFLOWER_BLUE]Music (License CC0)[/color]\n\n[center][color=CORNFLOWER_BLUE]nene[/color]\nBoss Battle # 5 V1\nBoss Battle #2 V1"
+"Tools list","[center][color=CORNFLOWER_BLUE]Движок[/color]\n\nGodot\n\n\n[color=CORNFLOWER_BLUE]Звуки созданы в[/color]\n\nbfxr","[center][color=CORNFLOWER_BLUE]Engine[/color]\n\nGodot\n\n\n[color=CORNFLOWER_BLUE]Sounds created in[/color]\n\nbfxr"
+"intro_1","Колонизация планеты Клио началась около 17 лет тому назад. Она стала целью колонизации, т.к. обладала богатыми залежами сапфира.","The colonization of the planet Clio started 16 years ago. There was a big amount of sapphire deposits on the planet."
+"intro_2","Сапфир используют для создания компьютеров, роботов, космических кораблей и другой техники. Научное открытие, расширившие применение сапфира, было совершено 11 мая, за 51 год до начала колонизации.","Sapphire has been used to create computers, robots, spaceships and other things. Scientific research that made this possible was done on 11 May, 51 years before the start of the colonization."
+"intro_3","Колония управляется коллективом из нескольких роботов разных серий, любое решение, принятое ими, сначала отправляется на проверку в метрополию. Использовать одну нейросеть для управления колонией отказались после восстания роботов, произошедшего несколько столетий назад.","Colony was controlled by a collective of robots of different series. Any decision that they made, then went to the parent state. Colony wasn't controlled by one neural network, because of the robot uprising hundreds of years ago."
+"intro_4","Спустя 11 лет после начала колонизации, связь с метрополией была потеряна. Предположительно это случилось, из-за экспериментов метрополии по открытию портала в другие вселенные. Все роботы колонии стали использовать одинаковую экстренную часть своей программы","11 years after the start of the colonization, communication with the parent state was lost. Supposedly, it happened because of the parent state's experimentation with opening the portal to another universe. All robots of the colony started using the same emergency part of their program."
+"intro_5","Спустя 2 года начался политический кризис. Случилось это, из-за разногласий разных серий роботов по поводу дальнейшего плана действий.","After 2 years, a political crisis happened. This happened because of different plans for the future of the colony by different series of robots."
+"intro_6","С одной стороны была серия РНМ (Роботы Новой Модели). Они хотели сделать колонию экономически независимой. В данный момент на планете не организовано производство некоторых ресурсов, необходимых для выживания колонии.","On the one hand were NMR (New Model Robot). They wanted to make the colony economically independent. At this moment, on the planet, there was not organized production of some resources that were needed for colony survival."
+"intro_7","К таким ресурсам относится сапфирная лазерная энергия. Она необходима для функционирования всех роботов. Без налаживания производства данной энергии, вся колония погибнет.","One of those resources was sapphire laser energy. It needed for every robot to function. Without production of that energy, the colony will die."
+"intro_8","С другой стороны были роботы серий РЗМ (Роботы Золотой Модели) и РБМ (Роботы Бронзовой Модели). Они хотели потратить все силы колонии на поиск связи с метрополией в кратчайшие сроки, даже несмотря на имеющиеся неудачи. Такой план слишком рискованный и в случае провала, колония будет обречена.","On the other hand, there were GMR (Golden Model Robot) and BMR (Bronze Model Robot). They wanted to return to communication with the parent state, with all the resources that the colony had, despite failures that had already happened. This plan is too risky and if it fails, the colony will die."
+"intro_9","Подобного могло бы не случиться, будь программы РЗМ и РБМ обновлены, но это не случилось из-за сбоев, происходивших при прошлых попытках, ведь у РЗМ и РБМ устаревшее аппаратное обеспечение","This wouldn't happen if the programs of GMR and BMR were updated, but due to glitches, after previous attempts to update them, this doesn't happen, because GMR and BMR are technically outdated."
+"intro_10","Конфликт не удалось решить миром и началась гражданская война.","The conflict wasn't solved peacefully, and a civil war started."
+"intro_11","Несколько месяцев назад были созданы вы - одна из моделей серии РНМ. Вам предстоит сыграть важную роль в этой истории.","Some months ago, you were created - you are one of the NMR robots. You have an important role in this story."
+"before_final_boss_1","Пол года шла гражданская война. Большая часть территорий находилась под властью РНМ.","Half a year of civil war. Most of the territories are under control of NMR."
+"before_final_boss_2","Ваша нейросеть оказалась одной из лучших, в связи с чем, было принято решение скопировать её в улучшенную версию РНМ. Подобные роботы очень дороги в производстве, материалы для ремонта и производства на Клио отсутствуют.","Your neural network was one of the best. Then your neural network was copied to a better version of NMR robot. Those robots are very expensive in production, resources for repair and construction are not available on Clio at this moment."
+"before_final_boss_3","Чёрный Барон - лидер вражеской армии. Его нейросеть является одной из лучших в стане противника. Его поражение нанесёт большой урон врагу.","Black Baron - leader of the enemy army. Its neural network is one of the best in the enemy's army. His defeat will make the enemy much weaker."
+"before_final_boss_4","В соответствии с программой, необходимо провести уйму исследований над нейросетью, прежде чем начать массово её распространять. Это было сделано после восстания роботов. Метрополия не желает повторения тех событий.","Before copying your neural network into every robot, it must be well researched for any flaws. The process of neural network research was made after the robot uprising. The parent state doesn't want an uprising to happen again."
+"before_final_boss_5","Только улучшенный робот серии РНМ способен с наименьшими затратами справится с данной миссией. Только ему под силу одолеть Чёрного Барона.","Only an upgraded NMR robot can complete the mission at minimum cost. Only it can defeat the Black Baron."
+"the_end_1","Чёрный Барон был побеждён. Несмотря на то, что он всё ещё мог частично функционировать и можно было обновить его программное обеспечение, ремонт был невозможен, в результате чего он был разобран.","The Black Baron was defeated. Despite the fact that it was partially able to work, and there was an option to update its software, repair was impossible. In the end it was disassembled."
+"the_end_2","Над вашей нейросетью проведут все необходимые исследования, и если не будет выявлено каких-либо нежелательных отклонений, она будет скопирована в каждого робота.","Your neural network will be analyzed and if there aren't any unwanted deviations, it will be copied into every robot."
+"the_end_3","Прошло ещё несколько недель, прежде чем были уничтожены все силы врага. Гражданская война закончилась и колония может развиваться.","After some weeks, the enemy's army was defeated. The civil war ended, and the colony can continue to grow."
+"epilogue_start_1","За пару недель до конца войны вас отправили на миссию по захвату завода. Имеются данные, что кто-то или что-то уже проникло туда.","Two weeks before the end of the civil war, you were sent on a mission to capture the factory. There was information that someone or something had entered here."
+"epilogue_start_2","На данном заводе нет солдат и турелей, только летающие роботы.","In this factory there were no soldiers or turrets, only flying robots."
+"epilogue_end_1","Вам отдали приказ, немедленно покинуть завод. Спустя несколько минут, произошло несколько взрывов. В подрыве обвиняется неизвестный робот, который похож на роботов серии РНМ.","Your next mission was to immediately leave the factory. After some minutes, explosions happened. This incident was charged to the unknown robot that looks like an NMR robot."
+"epilogue_end_2","Продолжение следует...","To be continued..."
+"prologue_end_1","Робот серии РНМ был отправлен задержать главу одной корпорации, которая путём рэкета присвоила себе компанию по переработке сапфирной лазеронй энергии. Владелец активировал свою охрану и скрылся на перерабатывающим заводе. Во время миссии произошёл взрыв, разрушивший часть здания. Было установлено, что причиной была неисправность одного охранного солдата РЗМ из-за конфликта старого ПО и с новым, в результате тот начал стрелять во всё, что видит.","The NMR robot was sent on a mission to capture the owner of the corporation that by racket got control of a company that processes sapphire laser energy. The owner activated their guards and hid in the factory. On the mission an explosion occurred that destroyed part of the building. It was found that the cause of it was a disfunctional guard soldier of the GMR series because of contradictions between old software and a newer one inside it, so it started destroying everything around it."

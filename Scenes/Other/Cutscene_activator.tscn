@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci8400tobjq6e"]
+
+[ext_resource type="Script" uid="uid://dqftsn3v5ulrn" path="res://Scripts/Other/Cutscene_activator.gd" id="1_sq2b6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvsbx"]
+size = Vector2(20, 72)
+
+[node name="CutsceneActivator" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_sq2b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 26)
+shape = SubResource("RectangleShape2D_rvsbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

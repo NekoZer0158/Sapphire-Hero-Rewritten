@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb0bju15fg7t1"]
+
+[ext_resource type="Script" uid="uid://25nmi5sm4584" path="res://Scripts/Levels/Level.gd" id="1_hhmko"]
+[ext_resource type="TileSet" uid="uid://uoiajntmkbxo" path="res://Resources/Tilesets/test_tileset.tres" id="2_fqqep"]
+
+[node name="Level_base" type="Node2D" groups=["Levels"]]
+scale = Vector2(4, 4)
+script = ExtResource("1_hhmko")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="LayerTemplate" type="TileMapLayer" parent="TileMapLayers"]
+use_parent_material = true
+tile_set = ExtResource("2_fqqep")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Other" type="Node2D" parent="."]
+
+[node name="Teleports" type="Node2D" parent="."]
+
+[node name="Areas" type="Node" parent="."]

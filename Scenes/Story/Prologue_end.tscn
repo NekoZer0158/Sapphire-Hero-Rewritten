@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqi3xtshj0akb"]
+
+[ext_resource type="Script" uid="uid://bqiov1k4u4ski" path="res://Scripts/Story/Cutscene.gd" id="1_y6a42"]
+[ext_resource type="PackedScene" uid="uid://kgndt20iup2s" path="res://Scenes/Story/Pictures/Prologue_end/Picture_1_prologue.tscn" id="2_d0d2k"]
+[ext_resource type="Theme" uid="uid://c74bxhe62fcnp" path="res://Resources/Themes/Cutscene.tres" id="4_fthbk"]
+
+[node name="Prologue_end" type="Control" node_paths=PackedStringArray("pictures_marker")]
+z_index = 3800
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6a42")
+all_pictures = Array[PackedScene]([ExtResource("2_d0d2k")])
+pictures_marker = NodePath("Pictures_pos")
+text_first_word = "prologue_end"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -52
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Pictures_pos" type="Marker2D" parent="."]
+position = Vector2(960, 340)
+scale = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 644.0
+offset_right = 1904.0
+offset_bottom = 1080.0
+theme = ExtResource("4_fthbk")
+text = "some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 320
+layout_mode = 0
+offset_left = -1787.0
+offset_top = -44.0
+offset_right = 3804.0
+offset_bottom = 1163.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true

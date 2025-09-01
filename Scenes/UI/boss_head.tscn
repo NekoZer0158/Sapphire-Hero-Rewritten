@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://befxvnbjjhmio"]
+
+[ext_resource type="Texture2D" uid="uid://do6m7p7lt3c8r" path="res://Sprites/UI/Main_menu/Save_slot.png" id="1_0v1y1"]
+[ext_resource type="Script" uid="uid://df4a6mfcgkvrv" path="res://Scripts/UI/boss_head.gd" id="1_2hs35"]
+[ext_resource type="Shader" uid="uid://5a6agmh2aqkb" path="res://Resources/Shaders/Black_and_white.gdshader" id="2_axotu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx6mt"]
+resource_local_to_scene = true
+shader = ExtResource("2_axotu")
+shader_parameter/activated = false
+shader_parameter/different_style = false
+
+[node name="Boss_head" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2hs35")
+
+[node name="Boss_head" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 2.25
+offset_top = 9.75
+offset_right = 18.25
+offset_bottom = 26.75
+texture = ExtResource("1_0v1y1")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Background_color" type="ColorRect" parent="Boss_head"]
+z_index = -1
+layout_mode = 0
+offset_left = 0.75
+offset_top = 1.25
+offset_right = 14.75
+offset_bottom = 16.25
+
+[node name="Sprite2D" type="Sprite2D" parent="Boss_head"]
+material = SubResource("ShaderMaterial_qx6mt")
+position = Vector2(8, 7.5)
+metadata/_edit_lock_ = true

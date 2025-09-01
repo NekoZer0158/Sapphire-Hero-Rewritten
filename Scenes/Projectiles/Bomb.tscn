@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhmwjy6vc8lev"]
+
+[ext_resource type="Script" uid="uid://dc3tladf4u6u0" path="res://Scripts/Projectiles/Bomb.gd" id="1_wxwdr"]
+[ext_resource type="Texture2D" uid="uid://id1mdlkjxlr0" path="res://Sprites/Projectiles/Bomb.png" id="2_hctex"]
+[ext_resource type="SpriteFrames" uid="uid://dd4w3f53fjjh3" path="res://Resources/SpriteFrames/explosion_enemy.tres" id="3_7jgtk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
+size = Vector2(24, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhi2"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1j3gk"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvu21"]
+radius = 128.0
+
+[node name="Bomb" type="Node2D" node_paths=PackedStringArray("explosion_sprite", "timer_explosion", "explosion_small", "life_timer") groups=["Projectile"]]
+process_mode = 1
+script = ExtResource("1_wxwdr")
+explosion_sprite = NodePath("Explosion_sprite")
+timer_explosion = NodePath("Timer_explosion")
+explosion_small = NodePath("Explosion_small")
+id = 3
+atk = 1
+speed = Vector2(0, 700)
+life_time = 8.0
+life_timer = NodePath("Timer_life")
+has_particle = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1.19209e-07, 1.78814e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_hctex")
+
+[node name="Timer_life" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3kn46")
+
+[node name="Explosion_small" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion_small"]
+shape = SubResource("CircleShape2D_lbhi2")
+
+[node name="Explosion_medium" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion_medium"]
+shape = SubResource("CircleShape2D_1j3gk")
+
+[node name="Explosion_large" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion_large"]
+shape = SubResource("CircleShape2D_gvu21")
+
+[node name="Explosion_sprite" type="AnimatedSprite2D" parent="."]
+z_index = 25
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("3_7jgtk")
+
+[node name="Timer_explosion" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Explosion_small" to="." method="_on_explosion_small_body_entered"]
+[connection signal="body_exited" from="Explosion_small" to="." method="_on_explosion_small_body_exited"]
+[connection signal="body_entered" from="Explosion_medium" to="." method="_on_explosion_medium_body_entered"]
+[connection signal="body_exited" from="Explosion_medium" to="." method="_on_explosion_medium_body_exited"]
+[connection signal="body_entered" from="Explosion_large" to="." method="_on_explosion_large_body_entered"]
+[connection signal="body_exited" from="Explosion_large" to="." method="_on_explosion_large_body_exited"]
+[connection signal="timeout" from="Timer_explosion" to="." method="_on_timer_explosion_timeout"]

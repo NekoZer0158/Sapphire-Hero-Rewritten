@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Default_weapon_with_colors" load_steps=2 format=3 uid="uid://b2f8vpkw37sxl"]
+
+[ext_resource type="Script" uid="uid://yvk3ktpy1m1o" path="res://Scripts/Resources/Weapons/Default_weapon_with_colors.gd" id="1_6masd"]
+
+[resource]
+script = ExtResource("1_6masd")
+body_color = Color(0.552941, 0.286275, 0.94902, 1)
+ammo_color = Color(0.552941, 0.286275, 0.94902, 1)
+weapon_name = "Triple_weapon"
+weapon_id = 4
+max_ammo = 15
+ammo_per_shot = 1
+projectile_ids = Array[int]([4])
+min_amount_of_markers = 1

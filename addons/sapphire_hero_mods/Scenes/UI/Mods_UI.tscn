@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=3 uid="uid://dibyxqoydl0fs"]
+
+[ext_resource type="Script" uid="uid://wbjr2q7hyne3" path="res://addons/sapphire_hero_mods/Scripts/UI/Mods_UI.gd" id="1_576lw"]
+[ext_resource type="Theme" uid="uid://bes1icxm7keio" path="res://addons/sapphire_hero_mods/Resources/default_theme.tres" id="2_vvmt8"]
+[ext_resource type="Theme" uid="uid://co8iql47ove7h" path="res://addons/sapphire_hero_mods/Resources/controls_font.tres" id="4_oasgu"]
+
+[node name="Mods_UI" type="Control"]
+z_index = 50
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_576lw")
+check_this_folder_for_mods = "Mods/"
+mod_loaders_folder_path = "Mods/Mod loaders/"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1916.0
+offset_top = -60.0
+offset_right = 4234.0
+offset_bottom = 1158.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Mods" type="Label" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.118519
+theme_override_font_sizes/font_size = 64
+text = "Mods"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="R-controls" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 0.118519
+theme_override_font_sizes/font_size = 32
+text = "R - controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00416667
+anchor_top = 0.118519
+anchor_right = 0.00416667
+anchor_bottom = 0.118519
+offset_right = 1904.0
+offset_bottom = 895.999
+mouse_filter = 2
+tab_alignment = 1
+current_tab = 0
+tab_focus_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Ready mods" type="GridContainer" parent="TabContainer"]
+layout_mode = 2
+theme = ExtResource("2_vvmt8")
+columns = 3
+metadata/_tab_index = 0
+
+[node name="Levels" type="GridContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_vvmt8")
+columns = 3
+metadata/_tab_index = 1
+
+[node name="Controls" type="Control" parent="."]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Controls"]
+layout_mode = 0
+offset_left = -1916.0
+offset_top = 112.0
+offset_right = 4234.0
+offset_bottom = 1158.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Container" type="VBoxContainer" parent="Controls"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 1856.0
+offset_bottom = 1024.0
+theme_override_constants/separation = 30
+
+[node name="Up" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "W_up"
+
+[node name="Left" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "A_left"
+
+[node name="Down" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "S_down"
+
+[node name="Right" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "D_right"
+
+[node name="PreviousTab" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "Mods_controls_previous_tab"
+
+[node name="NextTab" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "Mods_controls_next_tab"
+
+[node name="Activate" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "R_activate"
+
+[node name="Back" type="Label" parent="Controls/Container"]
+layout_mode = 2
+theme = ExtResource("4_oasgu")
+text = "Mods_controls_back"
+
+[node name="LabelNoModLoader" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(1, 0.46875, 0.46875, 1)
+theme_override_font_sizes/font_size = 64
+text = "No mod loaders found"
+horizontal_alignment = 1
+vertical_alignment = 1

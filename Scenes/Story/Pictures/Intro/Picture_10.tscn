@@ -1,0 +1,483 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmv8cfs30a55r"]
+
+[ext_resource type="TileSet" uid="uid://dtbdi127riw33" path="res://Resources/Tilesets/Science.tres" id="1_i8f6p"]
+[ext_resource type="Shader" uid="uid://dgyjjjc7u05dd" path="res://Resources/Shaders/color_change.gdshader" id="3_mta4y"]
+[ext_resource type="Texture2D" uid="uid://bs514jh5bemd7" path="res://Sprites/Player/Default/Body.png" id="4_8qgbf"]
+[ext_resource type="Texture2D" uid="uid://dt07lpdtms7dg" path="res://Sprites/Player/Default/Head.png" id="5_52m0x"]
+[ext_resource type="Texture2D" uid="uid://bgcv6erhecssr" path="res://Sprites/Player/Default/Arm.png" id="6_3b0up"]
+[ext_resource type="Texture2D" uid="uid://bukr0lk4esu3d" path="res://Sprites/Player/Default/Hand.png" id="7_022s3"]
+[ext_resource type="Texture2D" uid="uid://dshnv8flpn4do" path="res://Sprites/Player/Default/Arm_left.png" id="8_608qe"]
+[ext_resource type="Texture2D" uid="uid://cs8ym84rdpna5" path="res://Sprites/Player/Default/Hand_shoot.png" id="8_ytybl"]
+[ext_resource type="Texture2D" uid="uid://bmbwt70ag4u0s" path="res://Sprites/Player/Default/Leg_up.png" id="9_dctff"]
+[ext_resource type="Texture2D" uid="uid://c8yix5uwu07tl" path="res://Sprites/Player/Default/Leg_down.png" id="10_5lbuv"]
+[ext_resource type="PackedScene" uid="uid://bfua4g05mycw4" path="res://Scenes/Filters/Dark.tscn" id="11_scdo5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2k0n"]
+shader = ExtResource("3_mta4y")
+shader_parameter/color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_only_with_this_color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_this_color = Color(0.624, 0.7098, 0.78, 1)
+shader_parameter/change_to_this = Color(0, 0, 0, 1)
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_i8f6p")
+format = 2
+layer_0/tile_data = PackedInt32Array(131072, 4, 1, 196608, 65540, 0, 131073, 4, 1, 196609, 65540, 0, 131074, 4, 1, 196610, 65540, 0, 131075, 4, 1, 196611, 65540, 0, 131076, 4, 1, 196612, 65540, 0, 131077, 4, 1, 196613, 65540, 0, -262144, 65540, 1, -262143, 65540, 1, -262142, 65540, 1, -262141, 65540, 1, -262140, 65540, 1, -262139, 65540, 1, -196614, 65540, 1, -196613, 65540, 1, -196612, 65540, 1, -196611, 65540, 1, -196610, 65540, 1, -196609, 65540, 1, 196602, 4, 1, 262138, 65540, 0, 196603, 4, 1, 262139, 65540, 0, 196604, 4, 1, 262140, 65540, 0, 196605, 4, 1, 262141, 65540, 0, 196606, 4, 1, 262142, 65540, 0, 196607, 4, 1, 262143, 65540, 0, 131066, 4, 0, 131067, 4, 0, 131068, 4, 0, 131069, 4, 0, 131070, 4, 0, 131071, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0)
+layer_1/name = "Background"
+layer_1/z_index = -25
+layer_1/tile_data = PackedInt32Array(-131078, 3, 1, -65542, 3, 0, -6, 3, 1, -131077, 3, 1, -65541, 3, 0, -5, 3, 1, -131076, 3, 1, -65540, 3, 0, -4, 3, 1, -131075, 3, 1, -65539, 3, 0, -3, 3, 1, -131074, 3, 1, -65538, 3, 0, -2, 3, 1, -131073, 3, 1, -65537, 3, 0, -1, 3, 1, -196608, 3, 1, -131072, 3, 0, -65536, 3, 1, -196607, 3, 1, -131071, 3, 0, -65535, 3, 1, 65530, 3, 0, 131066, 3, 1, 196602, 3, 1, 65531, 3, 0, 131067, 3, 1, 196603, 3, 1, 65532, 3, 0, 131068, 3, 1, 196604, 3, 1, 65533, 3, 0, 131069, 3, 1, 196605, 3, 1, 65534, 3, 0, 131070, 3, 1, 196606, 3, 1, 65535, 3, 0, 131071, 3, 1, 196607, 3, 1, 0, 3, 0, 65536, 3, 1, 131072, 3, 1, 1, 3, 0, 65537, 3, 1, 131073, 3, 1, -196606, 3, 1, -131070, 3, 0, -65534, 3, 1, -196605, 3, 1, -131069, 3, 0, -65533, 3, 1, -196604, 3, 1, -131068, 3, 0, -65532, 3, 1, -196603, 3, 1, -131067, 3, 0, -65531, 3, 1, 2, 3, 0, 65538, 3, 1, 131074, 3, 1, 3, 3, 0, 65539, 3, 1, 131075, 3, 1, 4, 3, 0, 65540, 3, 1, 131076, 3, 1, 5, 3, 0, 65541, 3, 1, 131077, 3, 1, -196614, 3, 1, -196613, 3, 1, -196612, 3, 1, -196611, 3, 1, -196610, 3, 1, -196609, 3, 1, -262144, 3, 1, -262143, 3, 1, -262142, 3, 1, -262141, 3, 1, -262140, 3, 1, -262139, 3, 1, 262138, 3, 1, 262139, 3, 1, 262140, 3, 1, 262141, 3, 1, 262142, 3, 1, 262143, 3, 1, 196608, 3, 1, 196609, 3, 1, 196610, 3, 1, 196611, 3, 1, 196612, 3, 1, 196613, 3, 1)
+layer_2/name = "Foreground"
+layer_2/z_index = 120
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Soldier" type="Sprite2D" parent="."]
+z_index = 90
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(0, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Soldier2" type="Sprite2D" parent="."]
+z_index = 15
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(-75, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier2"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier2"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier2/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier2/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier2"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier2/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier2/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Soldier3" type="Sprite2D" parent="."]
+z_index = 15
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(-50, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier3"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier3"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier3/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier3"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier3/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier3"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier3/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier3"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier3/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Soldier4" type="Sprite2D" parent="."]
+z_index = 15
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(-25, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier4"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier4"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier4/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier4"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier4/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier4"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier4/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier4"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier4/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Soldier5" type="Sprite2D" parent="."]
+z_index = 15
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(25, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier5"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier5"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier5/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier5"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier5/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier5"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier5/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier5"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier5/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Soldier6" type="Sprite2D" parent="."]
+z_index = 15
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(50, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier6"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier6"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier6/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier6"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier6/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier6"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier6/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier6"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier6/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Soldier7" type="Sprite2D" parent="."]
+z_index = 15
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(75, 13)
+texture = ExtResource("4_8qgbf")
+
+[node name="Head" type="Sprite2D" parent="Soldier7"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_52m0x")
+
+[node name="Arm_right" type="Sprite2D" parent="Soldier7"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_3b0up")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Soldier7/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_022s3")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Soldier7"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_608qe")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Soldier7/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_ytybl")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Soldier7"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier7/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Soldier7"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_dctff")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Soldier7/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_5lbuv")
+offset = Vector2(0, 3)
+
+[node name="Dark" parent="." instance=ExtResource("11_scdo5")]
+z_index = 30
+offset_left = -96.0
+offset_top = -65.0
+offset_right = 96.0
+offset_bottom = 64.0
+metadata/_edit_lock_ = true

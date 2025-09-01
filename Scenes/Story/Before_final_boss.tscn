@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://3fbyoy02jxcc"]
+
+[ext_resource type="Script" uid="uid://bqiov1k4u4ski" path="res://Scripts/Story/Cutscene.gd" id="1_og5be"]
+[ext_resource type="PackedScene" uid="uid://bw2b70ej6la88" path="res://Scenes/Story/Pictures/Before_final_boss/Picture_1.tscn" id="2_2fjp3"]
+[ext_resource type="PackedScene" uid="uid://cmj00haneqn3e" path="res://Scenes/Story/Pictures/Before_final_boss/Picture_2.tscn" id="3_0um1u"]
+[ext_resource type="PackedScene" uid="uid://dv6dmx6gohq62" path="res://Scenes/Story/Pictures/Before_final_boss/Picture_3.tscn" id="4_4vwdm"]
+[ext_resource type="PackedScene" uid="uid://cg5lsq1f4dcxd" path="res://Scenes/Story/Pictures/Before_final_boss/Picture_5.tscn" id="5_hh1ra"]
+[ext_resource type="PackedScene" uid="uid://bgalvko843cfb" path="res://Scenes/Story/Pictures/Before_final_boss/Picture_4.tscn" id="5_xbs1d"]
+[ext_resource type="Theme" uid="uid://c74bxhe62fcnp" path="res://Resources/Themes/Cutscene.tres" id="7_r6lmt"]
+
+[node name="Before_final_boss" type="Control" node_paths=PackedStringArray("pictures_marker")]
+z_index = 1030
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_og5be")
+all_pictures = Array[PackedScene]([ExtResource("2_2fjp3"), ExtResource("3_0um1u"), ExtResource("4_4vwdm"), ExtResource("5_xbs1d"), ExtResource("5_hh1ra")])
+pictures_marker = NodePath("Pictures_pos")
+text_first_word = "before_final_boss"
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -52
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Pictures_pos" type="Marker2D" parent="."]
+position = Vector2(960, 340)
+scale = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 644.0
+offset_right = 1904.0
+offset_bottom = 1080.0
+theme = ExtResource("7_r6lmt")
+text = "some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 320
+layout_mode = 0
+offset_left = -1787.0
+offset_top = -44.0
+offset_right = 3804.0
+offset_bottom = 1163.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true

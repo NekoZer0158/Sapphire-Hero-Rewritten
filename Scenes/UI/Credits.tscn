@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://2pjbo8c0irqt"]
+
+[ext_resource type="Script" uid="uid://df1d0nkgvb46t" path="res://Scripts/UI/Credits.gd" id="1_7pjxy"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_qojf8"]
+[ext_resource type="PackedScene" uid="uid://b2mgfpxajsm8c" path="res://Scenes/UI/Mobile/Mobile_credits.tscn" id="3_u63pf"]
+
+[node name="Credits" type="Control" node_paths=PackedStringArray("credits_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7pjxy")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+credits_text = [NodePath("Credits/Most_things"), NodePath("Credits/Music"), NodePath("Credits/Tools")]
+metadata/_edit_lock_ = true
+
+[node name="Credits_options" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 920.0
+offset_right = 1344.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Page" type="Label" parent="Credits_options"]
+layout_mode = 2
+theme = ExtResource("2_qojf8")
+text = "Page"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="Credits_options"]
+layout_mode = 2
+theme = ExtResource("2_qojf8")
+text = "License_Godot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Label" parent="Credits_options"]
+layout_mode = 2
+theme = ExtResource("2_qojf8")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("credits_node") instance=ExtResource("3_u63pf")]
+layout_mode = 1
+credits_node = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -7
+layout_mode = 0
+offset_left = -2235.0
+offset_top = 351.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Credits" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Most_things" type="RichTextLabel" parent="Credits"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 378.0
+offset_right = 551.0
+offset_bottom = 926.0
+mouse_filter = 2
+theme = ExtResource("2_qojf8")
+bbcode_enabled = true
+text = "Creator of the most things"
+fit_content = true
+scroll_active = false
+
+[node name="Music" type="RichTextLabel" parent="Credits"]
+layout_mode = 2
+offset_left = 578.0
+offset_top = 378.0
+offset_right = 1272.0
+offset_bottom = 921.0
+mouse_filter = 2
+theme = ExtResource("2_qojf8")
+bbcode_enabled = true
+text = "Music creator"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Tools" type="RichTextLabel" parent="Credits"]
+layout_mode = 2
+offset_left = 1296.0
+offset_top = 378.0
+offset_right = 1912.0
+offset_bottom = 904.0
+mouse_filter = 2
+theme = ExtResource("2_qojf8")
+bbcode_enabled = true
+text = "Tools list"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false

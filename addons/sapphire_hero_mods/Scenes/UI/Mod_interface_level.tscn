@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0yyujkd88pks"]
+
+[ext_resource type="Script" uid="uid://m7s4c65poslr" path="res://addons/sapphire_hero_mods/Scripts/UI/MI_level.gd" id="1_u4spd"]
+[ext_resource type="Texture2D" uid="uid://bdw6i5lg33ayi" path="res://addons/sapphire_hero_mods/Sprites/Icon_template.png" id="2_0cm2k"]
+
+[node name="Mod_interface" type="Control"]
+z_index = 5
+custom_minimum_size = Vector2(624, 128)
+layout_mode = 3
+anchor_right = 0.325
+anchor_bottom = 0.119
+offset_right = -6.10352e-05
+offset_bottom = -0.520004
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4spd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 624.0
+offset_bottom = 128.0
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+anchor_right = 0.205128
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = ExtResource("2_0cm2k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(466, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.218
+anchor_top = 0.0625
+anchor_right = 0.218
+anchor_bottom = 0.0625
+offset_left = -0.0320129
+offset_right = 465.968
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Name"
+scroll_active = false
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(466, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.218
+anchor_top = 0.187
+anchor_right = 0.218
+anchor_bottom = 0.187
+offset_left = -0.0320129
+offset_top = 0.0639992
+offset_right = 465.968
+offset_bottom = 100.064
+mouse_filter = 2
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "some text 1
+some text 2
+some text 3
+some text 4
+some text 5
+some text 6
+some text 7"
+scroll_active = false
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true

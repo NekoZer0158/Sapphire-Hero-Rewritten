@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpb81nyyr1cra"]
+
+[ext_resource type="Script" uid="uid://b4bugdmuroemj" path="res://Scripts/AI/Boss/Zeppelin_AI.gd" id="1_0lx42"]
+[ext_resource type="PackedScene" uid="uid://tmxyd5lllbba" path="res://Scenes/Bodies/Boss/Zeppelin.tscn" id="2_tfgec"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_qm5u8"]
+
+[node name="Zeppelin" type="Node2D"]
+script = ExtResource("1_0lx42")
+
+[node name="Boss_body" parent="." instance=ExtResource("2_tfgec")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Boss_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(32.4, 14.6)
+enable_node_path = NodePath("../..")
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+
+[node name="Boss_UI" parent="Boss_UI" node_paths=PackedStringArray("boss_body") instance=ExtResource("3_qm5u8")]
+visible = false
+boss_HP_color = Color(0.560784, 0.560784, 0.560784, 1)
+boss_body = NodePath("../../Boss_body")
+
+[node name="Timer_shoot" type="Timer" parent="."]
+
+[node name="Timer_jumped" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="got_hit" from="Boss_body" to="Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]
+[connection signal="nearby_tile" from="Boss_body" to="." method="_on_boss_body_nearby_tile"]
+[connection signal="now_dead" from="Boss_body" to="." method="_boss_death"]
+[connection signal="timeout" from="Timer_shoot" to="." method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="Timer_jumped" to="." method="_on_timer_jumped_timeout"]

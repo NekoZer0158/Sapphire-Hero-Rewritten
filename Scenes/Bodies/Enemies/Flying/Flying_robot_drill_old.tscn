@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpf81yetkg0r2"]
+
+[ext_resource type="Script" uid="uid://csyd68xeiaiec" path="res://Scripts/Bodies/Flying_body_drill.gd" id="1_cqflx"]
+[ext_resource type="Texture2D" uid="uid://wmo0it2282fj" path="res://Sprites/Enemies/Flying/golden_32/Flying_robot_drill.png" id="2_ohjh4"]
+[ext_resource type="Texture2D" uid="uid://b46stig08d71q" path="res://Sprites/Effects/Flying_robot_flame_purple.png" id="3_mnxun"]
+[ext_resource type="Animation" uid="uid://di6juh3ydw685" path="res://Resources/Animations/Enemies/Flying/flying_robot_flame.res" id="4_k0ctn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjfx"]
+size = Vector2(18, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtxo"]
+size = Vector2(14, 5)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcx82"]
+_data = {
+&"flying_robot_flame": ExtResource("4_k0ctn")
+}
+
+[node name="Flying_robot_drill" type="CharacterBody2D" node_paths=PackedStringArray("attacking_area", "animation_player", "death_effect_marker", "timer_reload") groups=["Flying_enemy_body"]]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_cqflx")
+attacking_area = NodePath("Attack_area")
+atk = 1
+animation_player = NodePath("AnimationPlayer")
+hp = 4
+speed = 1000.0
+reload_time = 0.5
+death_effect_marker = NodePath("Death_effect_marker")
+timer_reload = NodePath("Timer_reload")
+mirror_sprite = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ohjh4")
+metadata/_edit_lock_ = true
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-13, 9)
+texture = ExtResource("3_mnxun")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(10, 9)
+texture = ExtResource("3_mnxun")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8fjfx")
+metadata/_edit_lock_ = true
+
+[node name="Attack_area" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_area"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_hqtxo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Attack_area"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_hqtxo")
+
+[node name="Timer_reload" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vcx82")
+}
+
+[node name="Death_effect_marker" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="Attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="Attack_area" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]

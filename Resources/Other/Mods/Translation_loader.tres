@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Translation_loader" load_steps=2 format=3 uid="uid://cerjakqpas26p"]
+
+[ext_resource type="Script" uid="uid://cf3bq63cc0th6" path="res://Scripts/Resources/Other/Translation_loader.gd" id="1_43h73"]
+
+[resource]
+script = ExtResource("1_43h73")
+check_this_folder = "Translations/"

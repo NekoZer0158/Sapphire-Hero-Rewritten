@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bunrx6nx6l1du"]
+
+[ext_resource type="PackedScene" uid="uid://bvg64egdkuc72" path="res://Scenes/Bodies/Unknown_body.tscn" id="1_hqky5"]
+[ext_resource type="Script" uid="uid://dekfs3aimglsx" path="res://Scripts/AI/Story/Unknown_cutscene.gd" id="1_prg2b"]
+
+[node name="Unknown_cutscene" type="Node2D" node_paths=PackedStringArray("robot_body")]
+script = ExtResource("1_prg2b")
+robot_body = NodePath("Unknown_body")
+
+[node name="Unknown_body" parent="." instance=ExtResource("1_hqky5")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Unknown_body"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -125
+scale = Vector2(32, 22)
+enable_node_path = NodePath("../..")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_hide" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="nearby_tile" from="Unknown_body" to="." method="_change_state_to_standing"]
+[connection signal="timeout" from="Timer" to="." method="_change_state_to_moving"]
+[connection signal="timeout" from="Timer_hide" to="." method="_go_away"]

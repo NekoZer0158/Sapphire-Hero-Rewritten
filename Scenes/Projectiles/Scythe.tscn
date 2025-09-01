@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://ekwhe86isqch"]
+
+[ext_resource type="Script" uid="uid://b7v8ij2t7ugdw" path="res://Scripts/Projectiles/Double_scythe_projectile.gd" id="1_diw4k"]
+[ext_resource type="Texture2D" uid="uid://ch6tpfpt5kagj" path="res://Sprites/Projectiles/Scythe.png" id="2_1w3hg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
+size = Vector2(64, 48)
+
+[sub_resource type="Animation" id="Animation_a74pb"]
+resource_name = "scythe"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.785398, 1.5708, 2.35619, 3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bkunf"]
+_data = {
+&"scythe": SubResource("Animation_a74pb")
+}
+
+[node name="Double_scythe" type="Node2D" node_paths=PackedStringArray("life_timer") groups=["Projectile"]]
+process_mode = 1
+z_index = 10
+script = ExtResource("1_diw4k")
+id = 8
+atk = 2
+speed = Vector2(500, 0)
+life_time = 1.1
+life_timer = NodePath("Timer_life")
+particle_color = Color(1, 0.661743, 0.363281, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1.78814e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_1w3hg")
+
+[node name="Timer_life" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 78
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3kn46")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bkunf")
+}
+
+[connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

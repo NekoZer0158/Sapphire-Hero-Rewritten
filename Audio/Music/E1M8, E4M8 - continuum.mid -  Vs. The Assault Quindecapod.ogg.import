@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cfq08fe6oqp16"
+path="res://.godot/imported/E1M8, E4M8 - continuum.mid -  Vs. The Assault Quindecapod.ogg-d540a7c34566198845d65888e87e9553.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/E1M8, E4M8 - continuum.mid -  Vs. The Assault Quindecapod.ogg"
+dest_files=["res://.godot/imported/E1M8, E4M8 - continuum.mid -  Vs. The Assault Quindecapod.ogg-d540a7c34566198845d65888e87e9553.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

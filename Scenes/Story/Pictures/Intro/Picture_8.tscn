@@ -1,0 +1,274 @@
+[gd_scene load_steps=22 format=3 uid="uid://rhme2p7p3okq"]
+
+[ext_resource type="Texture2D" uid="uid://dgjii6gwu0nr5" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Body.png" id="1_8erht"]
+[ext_resource type="Texture2D" uid="uid://cpg7pqlblibu7" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Body.png" id="1_85wk1"]
+[ext_resource type="Texture2D" uid="uid://ed5u0mnuel3p" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Head.png" id="2_mgova"]
+[ext_resource type="Texture2D" uid="uid://buaue17pjyspt" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Head.png" id="2_n4rpt"]
+[ext_resource type="Texture2D" uid="uid://dwt34kwwxrwji" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Arm.png" id="3_cfn1x"]
+[ext_resource type="Texture2D" uid="uid://ds7wbqtvk7gei" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Arm.png" id="3_i2a40"]
+[ext_resource type="Texture2D" uid="uid://davwfnvgb6aai" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Hand.png" id="4_6qyf0"]
+[ext_resource type="Texture2D" uid="uid://sr2p3ugcp3wc" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Hand.png" id="4_s3fx6"]
+[ext_resource type="Texture2D" uid="uid://8bn26yn0rj3d" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Hand_shoot.png" id="5_1hydd"]
+[ext_resource type="Texture2D" uid="uid://cy1uitxpmfgxw" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Hand_shoot.png" id="5_r17ow"]
+[ext_resource type="Texture2D" uid="uid://dkoquacxerp4d" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Leg_up.png" id="6_pfm1m"]
+[ext_resource type="Texture2D" uid="uid://bxseb1wvs3nbr" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Leg_up.png" id="6_uu6xv"]
+[ext_resource type="Texture2D" uid="uid://bp6hjv0aidsug" path="res://Sprites/Enemies/Moving/Soldiers/Slower/Leg_down.png" id="7_314kf"]
+[ext_resource type="Texture2D" uid="uid://cmsg8cbnuy1lq" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Leg_down.png" id="7_xkrcl"]
+[ext_resource type="Texture2D" uid="uid://cd3rqsudgmtui" path="res://Sprites/Enemies/Moving/Soldiers/Default/Body.png" id="8_me3pu"]
+[ext_resource type="Texture2D" uid="uid://cafdeybsgpac1" path="res://Sprites/Enemies/Moving/Soldiers/Default/Head.png" id="9_iqvev"]
+[ext_resource type="Texture2D" uid="uid://ct84bgklo2ut0" path="res://Sprites/Enemies/Moving/Soldiers/Default/Arm.png" id="10_607in"]
+[ext_resource type="Texture2D" uid="uid://oy0s0yrko4fn" path="res://Sprites/Enemies/Moving/Soldiers/Default/Hand.png" id="11_5kvmq"]
+[ext_resource type="Texture2D" uid="uid://dxp3g6ocs0ct3" path="res://Sprites/Enemies/Moving/Soldiers/Default/Hand_shoot.png" id="12_ar44i"]
+[ext_resource type="Texture2D" uid="uid://c6doqsa7gufwp" path="res://Sprites/Enemies/Moving/Soldiers/Default/Leg_up.png" id="13_0bdom"]
+[ext_resource type="Texture2D" uid="uid://ukppmfv7ficx" path="res://Sprites/Enemies/Moving/Soldiers/Default/Leg_down.png" id="14_mhrxh"]
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="R_27" type="ColorRect" parent="."]
+offset_left = -75.0
+offset_top = -24.0
+offset_right = -43.0
+offset_bottom = 24.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body" type="Sprite2D" parent="R_27"]
+z_index = 130
+position = Vector2(16, 24)
+texture = ExtResource("1_85wk1")
+
+[node name="Head" type="Sprite2D" parent="R_27/Body"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("2_mgova")
+
+[node name="Arm_right" type="Sprite2D" parent="R_27/Body"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("3_i2a40")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="R_27/Body/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("4_s3fx6")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="R_27/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("3_i2a40")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="R_27/Body/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("5_r17ow")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="R_27/Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("6_pfm1m")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="R_27/Body/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_314kf")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="R_27/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("6_pfm1m")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="R_27/Body/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_314kf")
+offset = Vector2(0, 3)
+
+[node name="Label" type="Label" parent="R_27"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 50.0
+offset_right = 43.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 8
+text = "GMR_27"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="R_28" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body2" type="Sprite2D" parent="R_28"]
+z_index = 135
+position = Vector2(16, 24)
+texture = ExtResource("8_me3pu")
+
+[node name="Head" type="Sprite2D" parent="R_28/Body2"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("9_iqvev")
+
+[node name="Arm_right" type="Sprite2D" parent="R_28/Body2"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("10_607in")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="R_28/Body2/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("11_5kvmq")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="R_28/Body2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("10_607in")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="R_28/Body2/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("12_ar44i")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="R_28/Body2"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("13_0bdom")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="R_28/Body2/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("14_mhrxh")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="R_28/Body2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("13_0bdom")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="R_28/Body2/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("14_mhrxh")
+offset = Vector2(0, 3)
+
+[node name="Label" type="Label" parent="R_28"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 50.0
+offset_right = 43.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 8
+text = "GMR_28"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="R_29" type="ColorRect" parent="."]
+offset_left = 43.0
+offset_top = -24.0
+offset_right = 75.0
+offset_bottom = 24.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body" type="Sprite2D" parent="R_29"]
+z_index = 145
+position = Vector2(16, 24)
+texture = ExtResource("1_8erht")
+
+[node name="Head" type="Sprite2D" parent="R_29/Body"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("2_n4rpt")
+
+[node name="Arm_right" type="Sprite2D" parent="R_29/Body"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("3_cfn1x")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="R_29/Body/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("4_6qyf0")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="R_29/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("3_cfn1x")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="R_29/Body/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("5_1hydd")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="R_29/Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("6_uu6xv")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="R_29/Body/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_xkrcl")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="R_29/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("6_uu6xv")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="R_29/Body/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_xkrcl")
+offset = Vector2(0, 3)
+
+[node name="Label" type="Label" parent="R_29"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 50.0
+offset_right = 43.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 8
+text = "GMR_29"
+horizontal_alignment = 1
+vertical_alignment = 1

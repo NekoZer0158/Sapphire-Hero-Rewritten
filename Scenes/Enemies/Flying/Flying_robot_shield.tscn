@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://eyop22kfqvtk"]
+
+[ext_resource type="Script" uid="uid://dy57vvw3gwc5n" path="res://Scripts/AI/Enemies/Flying/Flying_robot_shield_AI.gd" id="1_kbr08"]
+[ext_resource type="PackedScene" uid="uid://duw2pphrlxcwu" path="res://Scenes/Bodies/Enemies/Flying/Flying_robot_shield.tscn" id="2_acagc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmx46"]
+size = Vector2(350, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bjca"]
+size = Vector2(1024, 202)
+
+[node name="Flying_robot_shield" type="Node2D"]
+script = ExtResource("1_kbr08")
+
+[node name="Robot_body" parent="." instance=ExtResource("2_acagc")]
+
+[node name="Area2D" type="Area2D" parent="Robot_body"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Robot_body/Area2D"]
+shape = SubResource("RectangleShape2D_gmx46")
+debug_color = Color(0, 0.596078, 0.701961, 0)
+
+[node name="Attacked_vision" type="CollisionShape2D" parent="Robot_body/Area2D"]
+shape = SubResource("RectangleShape2D_7bjca")
+disabled = true
+debug_color = Color(0, 0.596078, 0.701961, 0)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Robot_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(28.63, 14.6)
+enable_node_path = NodePath("../..")
+
+[connection signal="got_hit" from="Robot_body" to="." method="_on_flying_robot_spiked_got_hit"]
+[connection signal="now_dead" from="Robot_body" to="." method="_on_flying_robot_spiked_now_dead"]
+[connection signal="body_entered" from="Robot_body/Area2D" to="." method="_on_area_2d_body_entered"]

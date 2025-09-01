@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Default_weapon_with_colors" load_steps=2 format=3 uid="uid://dk1lkhvyakvtq"]
+
+[ext_resource type="Script" uid="uid://yvk3ktpy1m1o" path="res://Scripts/Resources/Weapons/Default_weapon_with_colors.gd" id="1_bkhyc"]
+
+[resource]
+script = ExtResource("1_bkhyc")
+body_color = Color(0.901961, 0.509804, 0.235294, 1)
+ammo_color = Color(0.901961, 0.509804, 0.235294, 1)
+weapon_name = "Laser_wall"
+weapon_id = 31
+max_ammo = 2
+ammo_per_shot = 1
+projectile_ids = Array[int]([31])
+min_amount_of_markers = 1

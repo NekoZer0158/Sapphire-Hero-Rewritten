@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0gpe13btsws0"]
+
+[ext_resource type="Script" uid="uid://lf3jdahqtsja" path="res://Scripts/Levels/Loaders/Level_loader.gd" id="1_1crnw"]
+[ext_resource type="Script" uid="uid://c8cptvtop584o" path="res://Scripts/Levels/Loaders/Enemy_loader.gd" id="2_mn7dj"]
+[ext_resource type="Script" uid="uid://denvegpjgrcfo" path="res://Scripts/Levels/Loaders/Player_loader.gd" id="3_pwbqq"]
+[ext_resource type="Script" uid="uid://dmp4cc1x8j2a2" path="res://Scripts/Levels/Loaders/Boss_loader.gd" id="4_545nd"]
+
+[node name="Level_loader" type="Node"]
+script = ExtResource("1_1crnw")
+
+[node name="Enemy_loader" type="Node" parent="."]
+script = ExtResource("2_mn7dj")
+
+[node name="Player_loader" type="Node" parent="."]
+script = ExtResource("3_pwbqq")
+
+[node name="Boss_loader" type="Node" parent="."]
+script = ExtResource("4_545nd")
+
+[node name="Transition" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 536
+offset_left = -1264.0
+offset_top = -24.0
+offset_right = 3128.0
+offset_bottom = 1120.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true

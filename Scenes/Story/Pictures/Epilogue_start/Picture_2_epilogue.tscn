@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://tu3xpe1cyj36"]
+
+[ext_resource type="Texture2D" uid="uid://5jjfvdy7pq67" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_machinegun.png" id="1_x2vu6"]
+[ext_resource type="Texture2D" uid="uid://gjdyjx8vhwn0" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_spiked.png" id="2_w8tib"]
+[ext_resource type="Texture2D" uid="uid://q8soa8sqvcwh" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_drill.png" id="3_7nwxl"]
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -96.0
+offset_top = 26.0
+offset_right = 96.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 8
+text = "Flying GMR-33"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Robot_1" type="ColorRect" parent="."]
+offset_left = -75.0
+offset_top = -24.0
+offset_right = -43.0
+offset_bottom = 24.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body" type="Sprite2D" parent="Robot_1"]
+z_index = 130
+position = Vector2(16, 24)
+texture = ExtResource("1_x2vu6")
+
+[node name="Robot_2" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body2" type="Sprite2D" parent="Robot_2"]
+z_index = 135
+position = Vector2(16, 24)
+texture = ExtResource("2_w8tib")
+hframes = 4
+
+[node name="Robot_3" type="ColorRect" parent="."]
+offset_left = 43.0
+offset_top = -24.0
+offset_right = 75.0
+offset_bottom = 24.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body" type="Sprite2D" parent="Robot_3"]
+z_index = 145
+position = Vector2(16, 24)
+texture = ExtResource("3_7nwxl")

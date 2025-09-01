@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Default_weapon_with_colors" load_steps=2 format=3 uid="uid://dpgya3x4np2po"]
+
+[ext_resource type="Script" uid="uid://yvk3ktpy1m1o" path="res://Scripts/Resources/Weapons/Default_weapon_with_colors.gd" id="1_e8l24"]
+
+[resource]
+script = ExtResource("1_e8l24")
+body_color = Color(0.890196, 0.807843, 0.431373, 1)
+ammo_color = Color(0.890196, 0.807843, 0.431373, 1)
+weapon_name = "Black_Baron_phase_3"
+weapon_id = 32
+max_ammo = -1
+ammo_per_shot = 1
+projectile_ids = Array[int]([32])
+min_amount_of_markers = 1

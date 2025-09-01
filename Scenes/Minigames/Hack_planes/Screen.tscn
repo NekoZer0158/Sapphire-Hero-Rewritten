@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=4 uid="uid://bto4nftbr1ryb"]
+
+[ext_resource type="Script" uid="uid://hregpa5o0g2h" path="res://Scripts/Minigames/Hack_planes/Screen.gd" id="1_e8156"]
+[ext_resource type="TileSet" uid="uid://3rpq1k3t0w8o" path="res://Resources/Tilesets/minigame_planes.tres" id="1_eo1sw"]
+[ext_resource type="PackedScene" uid="uid://bt4a53oa7uclo" path="res://Scenes/Minigames/Hack_planes/Planes/Player.tscn" id="2_plvm6"]
+[ext_resource type="PackedScene" uid="uid://cmjfrcor4eqlj" path="res://Scenes/Minigames/Hack_planes/Planes/Enemy_plane_2.tscn" id="3_y3602"]
+[ext_resource type="PackedScene" uid="uid://d1qc254ugaiq6" path="res://Scenes/Minigames/Hack_planes/Planes/Enemy_plane_3.tscn" id="4_k3xk4"]
+[ext_resource type="PackedScene" uid="uid://cxkmma6uwiaxf" path="res://Scenes/Minigames/Hack_planes/Planes/Enemy_plane_1.tscn" id="4_tyvh5"]
+
+[node name="Screen" type="CanvasLayer" node_paths=PackedStringArray("elements_2D", "player_plane", "top_text_label")]
+script = ExtResource("1_e8156")
+elements_2D = NodePath("Elements_2D")
+player_plane = NodePath("Elements_2D/Player")
+enemies = Array[PackedScene]([null, ExtResource("4_tyvh5"), ExtResource("3_y3602"), ExtResource("4_k3xk4")])
+top_text = "if args.size() >= 4:
+	if args[0] is Array[String] and typeof(args[1]) == TYPE_INT and typeof(args[2]) == TYPE_FLOAT and typeof(args[3]) == TYPE_INT:
+		if args[0].size() >= database[args[1]].check():
+			if args.size() > 4:
+				database[args[1]].use_password(args[0],args[2],args[3],args.slice(4))
+			else:
+				database[args[1]].use_password(args[0],args[2],args[3],[])
+		else:
+			WARNING.activate()
+elif args.size() == 3:
+	if typeof(args[0]) == TYPE_STRING and typeof(args[1]) == TYPE_FLOAT and typeof(args[2]) == TYPE_FLOAT:
+		var tween = args[0].create_tween()
+		tween.tween_property(args[0],\"r_d\",args[1],args[2])
+		return true
+	else:
+		WARNING.activate()
+for i in dc_array:
+	if C.Can_access[i] and i != P.closed:
+		for j in C.troubleshoots[i]:
+			for k in j.areas:
+				if k.p in dc_array and k.p != i and Are_allowed[k.p] and Not_available[k.p].size() == 0:
+					get_access(i,k.p)
+					return
+		for k in dc_array:
+			if i != k and i != ACESS_DENIED:
+				next(i,k)
+	else:
+		for k in dc_array:
+			if i != k and i != ACESS_DENIED:
+				next_other(i,k)
+other_units = 0
+randomize()
+dc_array.shuffle()"
+top_text_label = NodePath("Elements_2D/Top_text")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 448.0
+offset_top = -48.0
+offset_right = 2600.0
+offset_bottom = 960.0
+color = Color(0, 0, 0, 1)
+
+[node name="Elements_2D" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="TileMap_real" type="TileMapLayer" parent="Elements_2D"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAGAA8AAQACAAIAAFAGAAYAAQABAAEAAFAGAAcAAQABAAEAAFAGAAgAAQABAAEAAFAGAAkAAQABAAEAAFAGAAoAAQABAAEAAFAGAAsAAQABAAEAAFAGAAwAAQABAAEAAFAGAA0AAQABAAEAAFAGAA4AAQABAAEAAFAGAAUAAQABAAEAAFAGAAQAAQABAAAAAFAGAAMAAQABAAEAAFAGAAIAAQABAAEAAFAGAAEAAQABAAEAAFAXAAIAAQACAAAAAFAXAAMAAQACAAAAAFAXAAQAAQAAAAMAAAAXAAUAAQACAAAAAFAXAAYAAQACAAAAAFAXAAcAAQACAAAAAFAXAAgAAQACAAAAAFAXAAkAAQACAAAAAFAXAAoAAQACAAAAAFAXAAsAAQACAAAAAFAXAAwAAQACAAAAAFAXAA0AAQACAAAAAFAXAA4AAQACAAAAAFAXAA8AAQAAAAIAAAAIAA8AAQACAAEAAAAJAA8AAQACAAEAAAAHAA8AAQACAAEAAAAKAA8AAQACAAEAAAALAA8AAQACAAEAAAAMAA8AAQACAAEAAAANAA8AAQACAAEAAAAOAA8AAQACAAEAAAAPAA8AAQACAAEAAAAQAA8AAQACAAEAAAARAA8AAQACAAEAAAASAA8AAQACAAEAAAATAA8AAQACAAEAAAAUAA8AAQACAAEAAAAVAA8AAQACAAEAAAAWAA8AAQACAAEAAAAXAAEAAQACAAAAAFAHAAQAAQACAAAAAAAIAAQAAQACAAAAAAAJAAQAAQACAAAAAAAKAAQAAQACAAAAAAALAAQAAQACAAAAAAAMAAQAAQACAAAAAAANAAQAAQACAAAAAAAOAAQAAQACAAAAAAAPAAQAAQACAAAAAAAQAAQAAQACAAAAAAARAAQAAQACAAAAAAASAAQAAQACAAAAAAATAAQAAQACAAAAAAAUAAQAAQACAAAAAAAVAAQAAQACAAAAAAAWAAQAAQACAAAAAAAGAAAAAQABAAEAAFAXAAAAAQACAAAAAFAXAP//AQACAAAAAFAGAP//AQABAAEAAFAHABAAAQADAAEAAAAIABAAAQADAAEAAAAJABAAAQADAAEAAAAKABAAAQADAAEAAAALABAAAQADAAEAAAAMABAAAQADAAEAAAANABAAAQADAAEAAAAOABAAAQADAAEAAAAPABAAAQADAAEAAAAQABAAAQADAAEAAAARABAAAQADAAEAAAASABAAAQADAAEAAAATABAAAQADAAEAAAAUABAAAQADAAEAAAAVABAAAQADAAEAAAAWABAAAQADAAEAAAAGABAAAQADAAAAAFAXABAAAQADAAEAAAAYAAQAAQACAAAAAAAYAA8AAQACAAEAAAAYABAAAQADAAEAAAAZAAQAAQACAAAAAAAZAA8AAQACAAEAAAAZABAAAQADAAEAAAAaAAQAAQACAAAAAAAaAA8AAQACAAEAAAAaABAAAQADAAEAAAAbAAQAAQACAAAAAAAbAA8AAQACAAEAAAAbABAAAQADAAEAAAAcAAQAAQACAAAAAAAcAA8AAQACAAEAAAAcABAAAQADAAEAAAAdAAQAAQACAAAAAAAdAA8AAQACAAEAAAAdABAAAQADAAEAAAAeAAQAAQACAAAAAAAeAA8AAQACAAEAAAAeABAAAQADAAEAAAAfAAQAAQACAAAAAAAfAA8AAQACAAEAAAAfABAAAQADAAEAAAAgAAQAAQACAAAAAAAgAA8AAQACAAEAAAAgABAAAQADAAEAAAAhAAQAAQACAAAAAAAhAA8AAQACAAEAAAAhABAAAQADAAEAAAAiAAQAAQACAAAAAAAiAA8AAQACAAEAAAAiABAAAQADAAEAAAAjAAQAAQACAAAAAAAjAA8AAQACAAEAAAAjABAAAQADAAEAAAAkAAQAAQACAAAAAAAkAA8AAQACAAEAAAAkABAAAQADAAEAAAAlAAQAAQACAAAAAAAlAA8AAQACAAEAAAAlABAAAQADAAEAAAAmAAQAAQACAAAAAAAmAA8AAQACAAEAAAAmABAAAQADAAEAAAAnAAQAAQACAAAAAAAnAA8AAQACAAEAAAAnABAAAQADAAEAAAAoAP//AQABAAEAAGAoAAAAAQABAAEAAGAoAAEAAQABAAEAAGAoAAIAAQABAAEAAGAoAAMAAQABAAEAAGAoAAQAAQABAAAAAGAoAAUAAQABAAEAAGAoAAYAAQABAAEAAGAoAAcAAQABAAEAAGAoAAgAAQABAAEAAGAoAAkAAQABAAEAAGAoAAoAAQABAAEAAGAoAAsAAQABAAEAAGAoAAwAAQABAAEAAGAoAA0AAQABAAEAAGAoAA4AAQABAAEAAGAoAA8AAQACAAIAAEAoABAAAQADAAAAAGA=")
+tile_set = ExtResource("1_eo1sw")
+
+[node name="Player" parent="Elements_2D" instance=ExtResource("2_plvm6")]
+position = Vector2(236, 220)
+
+[node name="Enemy_positions" type="Node2D" parent="Elements_2D"]
+
+[node name="Marker2D" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(128, 100)
+
+[node name="Marker2D3" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(160, 100)
+
+[node name="Marker2D5" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(192, 100)
+
+[node name="Marker2D7" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(224, 100)
+
+[node name="Marker2D9" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(256, 100)
+
+[node name="Marker2D11" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(288, 100)
+
+[node name="Marker2D13" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(320, 100)
+
+[node name="Marker2D15" type="Marker2D" parent="Elements_2D/Enemy_positions"]
+position = Vector2(352, 100)
+
+[node name="Top_text" type="Label" parent="Elements_2D"]
+offset_left = 114.0
+offset_right = 366.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 8
+text = "1111111111111111111111111111111"
+autowrap_mode = 3
+clip_text = true
+
+[node name="Enemies" type="Label" parent="Elements_2D"]
+offset_left = 386.0
+offset_top = 80.0
+offset_right = 460.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+clip_text = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="got_hit" from="Elements_2D/Player" to="." method="_on_player_got_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

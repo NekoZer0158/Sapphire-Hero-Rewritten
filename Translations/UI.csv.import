@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dorglbry74cxf"
+
+[deps]
+
+files=["res://Translations/UI.ru.translation", "res://Translations/UI.en.translation", "res://Translations/UI.el.translation", "res://Translations/UI.de.translation", "res://Translations/UI.es.translation", "res://Translations/UI.it.translation"]
+
+source_file="res://Translations/UI.csv"
+dest_files=["res://Translations/UI.ru.translation", "res://Translations/UI.en.translation", "res://Translations/UI.el.translation", "res://Translations/UI.de.translation", "res://Translations/UI.es.translation", "res://Translations/UI.it.translation"]
+
+[params]
+
+compress=true
+delimiter=0

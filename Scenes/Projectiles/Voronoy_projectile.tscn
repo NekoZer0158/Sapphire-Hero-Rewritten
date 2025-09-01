@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://w5bqxhesyhnq"]
+
+[ext_resource type="Script" uid="uid://dhephgx65wkwb" path="res://Scripts/Projectiles/Voronoy_projectile.gd" id="1_rfcnv"]
+[ext_resource type="Texture2D" uid="uid://ba3pa37pefpd8" path="res://Sprites/Projectiles/Voronoy_projectile.png" id="2_rfcnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
+size = Vector2(40, 20)
+
+[sub_resource type="Animation" id="Animation_rfcnv"]
+resource_name = "default"
+length = 0.25
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gg1s1"]
+_data = {
+&"default": SubResource("Animation_rfcnv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfcnv"]
+size = Vector2(489.555, 52)
+
+[node name="Voronoy_projectile" type="Node2D" node_paths=PackedStringArray("life_timer") groups=["Projectile"]]
+process_mode = 1
+z_index = 10
+script = ExtResource("1_rfcnv")
+speed_y_when_target = 256
+id = 120
+atk = 2
+speed = Vector2(650, 0)
+life_time = 1.1
+life_timer = NodePath("Timer_life")
+particle_color = Color(0.603922, 0.675, 0.917647, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1.78814e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("2_rfcnv")
+vframes = 2
+
+[node name="Timer_life" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 74
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_3kn46")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gg1s1")
+}
+autoplay = "default"
+
+[node name="Area2DTarget" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DTarget"]
+position = Vector2(224, 2)
+shape = SubResource("RectangleShape2D_rfcnv")
+debug_color = Color(0.7, 0, 0, 0.42)
+
+[connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2DTarget" to="." method="_on_area_2d_target_body_entered"]
+[connection signal="body_exited" from="Area2DTarget" to="." method="_on_area_2d_target_body_exited"]

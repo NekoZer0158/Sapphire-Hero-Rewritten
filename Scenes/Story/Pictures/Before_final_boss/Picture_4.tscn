@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgalvko843cfb"]
+
+[ext_resource type="PackedScene" uid="uid://djsfyi1ebmiit" path="res://Scenes/Story/Pictures/Before_final_boss/soldier_sprite.tscn" id="1_1u46f"]
+[ext_resource type="TileSet" uid="uid://dtbdi127riw33" path="res://Resources/Tilesets/Science.tres" id="10_53n0e"]
+
+[node name="Picture" type="Node2D"]
+z_index = 175
+
+[node name="Soldier" parent="." instance=ExtResource("1_1u46f")]
+z_index = 130
+position = Vector2(-76, 29)
+
+[node name="Soldier2" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(20, 0)
+
+[node name="Soldier3" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(40, 0)
+
+[node name="Soldier4" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(60, 0)
+
+[node name="Soldier5" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(80, 0)
+
+[node name="Soldier6" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(100, 0)
+
+[node name="Soldier7" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(120, 0)
+
+[node name="Soldier8" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(140, 0)
+
+[node name="Soldier9" parent="Soldier" instance=ExtResource("1_1u46f")]
+position = Vector2(160, 0)
+
+[node name="Soldier3" parent="." instance=ExtResource("1_1u46f")]
+z_index = -110
+position = Vector2(-76, 13)
+
+[node name="Soldier2" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(20, 0)
+
+[node name="Soldier3" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(40, 0)
+
+[node name="Soldier4" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(60, 0)
+
+[node name="Soldier5" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(80, 0)
+
+[node name="Soldier6" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(100, 0)
+
+[node name="Soldier7" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(120, 0)
+
+[node name="Soldier8" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(140, 0)
+
+[node name="Soldier9" parent="Soldier3" instance=ExtResource("1_1u46f")]
+position = Vector2(160, 0)
+
+[node name="Soldier2" parent="." instance=ExtResource("1_1u46f")]
+z_index = 15
+position = Vector2(-87, 21)
+metadata/_edit_lock_ = true
+
+[node name="Soldier2" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(20, 0)
+
+[node name="Soldier3" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(40, 0)
+
+[node name="Soldier4" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(60, 0)
+
+[node name="Soldier5" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(80, 0)
+
+[node name="Soldier6" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(100, 0)
+
+[node name="Soldier7" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(120, 0)
+
+[node name="Soldier8" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(140, 0)
+
+[node name="Soldier9" parent="Soldier2" instance=ExtResource("1_1u46f")]
+position = Vector2(160, 0)
+
+[node name="Soldier4" parent="." instance=ExtResource("1_1u46f")]
+z_index = -150
+position = Vector2(-87, 5)
+
+[node name="Soldier2" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(20, 0)
+
+[node name="Soldier3" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(40, 0)
+
+[node name="Soldier4" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(60, 0)
+
+[node name="Soldier5" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(80, 0)
+
+[node name="Soldier6" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(100, 0)
+
+[node name="Soldier7" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(120, 0)
+
+[node name="Soldier8" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(140, 0)
+
+[node name="Soldier9" parent="Soldier4" instance=ExtResource("1_1u46f")]
+position = Vector2(160, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -185
+tile_set = ExtResource("10_53n0e")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196614, 65540, 1, 262138, 4, 1, -196613, 65540, 1, 262139, 4, 1, -196612, 65540, 1, 262140, 4, 1, -196611, 65540, 1, 262141, 4, 1, -196610, 65540, 1, 262142, 4, 1, -196609, 65540, 1, 262143, 4, 1, -262144, 65540, 1, 196608, 4, 1, -262143, 65540, 1, 196609, 4, 1, -262142, 65540, 1, 196610, 4, 1, -262141, 65540, 1, 196611, 4, 1, -262140, 65540, 1, 196612, 4, 1, -262139, 65540, 1, 196613, 4, 1, 196605, 131076, 0, 196606, 131076, 0, 196602, 131076, 0, 196603, 131076, 0, 196604, 131076, 0, 196607, 131076, 0, 131072, 131076, 0, 131073, 131076, 0, 131074, 131076, 0, 131075, 131076, 0, 131076, 131076, 0, 131077, 131076, 0, 65541, 131076, 0, 65540, 131076, 0, 65539, 131076, 0, 65538, 131076, 0, 65537, 131076, 0, 65536, 131076, 0, 131071, 131076, 0, 131070, 131076, 0, 131069, 131076, 0, 131068, 131076, 0, 131067, 131076, 0, 131066, 131076, 0, 65530, 131076, 0, 65531, 131076, 0, 65532, 131076, 0, 65533, 131076, 0, 65534, 131076, 0, 65535, 131076, 0, 0, 131076, 0, 1, 131076, 0, 2, 131076, 0, 3, 131076, 0, 4, 131076, 0, 5, 131076, 0, -65531, 4, 0, -65532, 4, 0, -65533, 4, 0, -65534, 4, 0, -65535, 4, 0, -65536, 4, 0, -1, 4, 0, -2, 4, 0, -3, 4, 0, -4, 4, 0, -5, 4, 0, -6, 4, 0)
+layer_1/name = "Background"
+layer_1/z_index = -25
+layer_1/tile_data = PackedInt32Array(-196614, 3, 1, -131078, 3, 0, -65542, 3, 1, -6, 3, 1, 65530, 3, 0, 131066, 3, 1, 196602, 3, 1, 262138, 3, 1, -196613, 3, 1, -131077, 3, 0, -65541, 3, 1, -5, 3, 1, 65531, 3, 0, 131067, 3, 1, 196603, 3, 1, 262139, 3, 1, -196612, 3, 1, -131076, 3, 0, -65540, 3, 1, -4, 3, 1, 65532, 3, 0, 131068, 3, 1, 196604, 3, 1, 262140, 3, 1, -196611, 3, 1, -131075, 3, 0, -65539, 3, 1, -3, 3, 1, 65533, 3, 0, 131069, 3, 1, 196605, 3, 1, 262141, 3, 1, -196610, 3, 1, -131074, 3, 0, -65538, 3, 1, -2, 3, 1, 65534, 3, 0, 131070, 3, 1, 196606, 3, 1, 262142, 3, 1, -196609, 3, 1, -131073, 3, 0, -65537, 3, 1, -1, 3, 1, 65535, 3, 0, 131071, 3, 1, 196607, 3, 1, 262143, 3, 1, -262144, 3, 1, -196608, 3, 0, -131072, 3, 1, -65536, 3, 1, 0, 3, 0, 65536, 3, 1, 131072, 3, 1, 196608, 3, 1, -262143, 3, 1, -196607, 3, 0, -131071, 3, 1, -65535, 3, 1, 1, 3, 0, 65537, 3, 1, 131073, 3, 1, 196609, 3, 1, -262142, 3, 1, -196606, 3, 0, -131070, 3, 1, -65534, 3, 1, 2, 3, 0, 65538, 3, 1, 131074, 3, 1, 196610, 3, 1, -262141, 3, 1, -196605, 3, 0, -131069, 3, 1, -65533, 3, 1, 3, 3, 0, 65539, 3, 1, 131075, 3, 1, 196611, 3, 1, -262140, 3, 1, -196604, 3, 0, -131068, 3, 1, -65532, 3, 1, 4, 3, 0, 65540, 3, 1, 131076, 3, 1, 196612, 3, 1, -262139, 3, 1, -196603, 3, 0, -131067, 3, 1, -65531, 3, 1, 5, 3, 0, 65541, 3, 1, 131077, 3, 1, 196613, 3, 1)
+layer_2/name = "Foreground"
+layer_2/z_index = 120
+layer_2/tile_data = PackedInt32Array()

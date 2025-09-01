@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://j1kg0i06osgl"]
+
+[ext_resource type="Texture2D" uid="uid://0esa2o2h6kmi" path="res://Sprites/Background/Trees/Ledyanoy.png" id="2_l7e08"]
+
+[node name="Tree_Ledyanoy_1" type="Sprite2D"]
+position = Vector2(0, -176)
+texture = ExtResource("2_l7e08")

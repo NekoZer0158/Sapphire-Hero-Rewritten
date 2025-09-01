@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://3kly2si8sgjw"]
+
+[ext_resource type="Script" uid="uid://dtvguigrh4ddj" path="res://Scripts/Bodies/Flying_body.gd" id="1_bqb18"]
+[ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="2_g728v"]
+[ext_resource type="Resource" uid="uid://tw14inf8cdd8" path="res://Resources/Weapons/Minigun.tres" id="3_5e05v"]
+[ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="3_io301"]
+[ext_resource type="Texture2D" uid="uid://5jjfvdy7pq67" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_machinegun.png" id="4_gl0yf"]
+[ext_resource type="Texture2D" uid="uid://t2x76c70nnoj" path="res://Sprites/Effects/Flying_robot_flame_pink.png" id="5_yp4iu"]
+[ext_resource type="Animation" uid="uid://di6juh3ydw685" path="res://Resources/Animations/Enemies/Flying/flying_robot_flame.res" id="6_xvk5q"]
+
+[sub_resource type="Resource" id="Resource_a7fms"]
+script = ExtResource("2_g728v")
+weapons = Array[ExtResource("3_io301")]([ExtResource("3_5e05v")])
+module_name = "No_name"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjfx"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcx82"]
+_data = {
+&"flying_robot_flame": ExtResource("6_xvk5q")
+}
+
+[node name="Flying_robot_minigun" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "markers", "death_effect_marker", "timer_reload") groups=["Flying_enemy_body"]]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_bqb18")
+animation_player = NodePath("AnimationPlayer")
+hp = 5
+speed = 135.0
+reload_time = 0.06
+shooting_module = SubResource("Resource_a7fms")
+markers = [NodePath("Marker2D")]
+death_effect_marker = NodePath("Death_effect_marker")
+timer_reload = NodePath("Timer_reload")
+mirror_sprite = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_gl0yf")
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-12, 10)
+texture = ExtResource("5_yp4iu")
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(13, 10)
+texture = ExtResource("5_yp4iu")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8fjfx")
+metadata/_edit_lock_ = true
+
+[node name="Timer_reload" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vcx82")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="Death_effect_marker" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]

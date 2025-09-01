@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccpl75l3hdhnj"]
+
+[ext_resource type="Script" uid="uid://dn6hbw0hwpb0x" path="res://Scripts/AI/Enemies/Flying/Flying_robot_drill.gd" id="1_nieej"]
+[ext_resource type="PackedScene" uid="uid://l5ym12ijodav" path="res://Scenes/Bodies/Enemies/Flying/Flying_robot_drill.tscn" id="2_nb5wl"]
+
+[node name="Flying_robot_drill" type="Node2D"]
+script = ExtResource("1_nieej")
+
+[node name="Robot_body" parent="." instance=ExtResource("2_nb5wl")]
+atk = 3
+
+[node name="Down" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(0, 250)
+collision_mask = 74
+
+[node name="Up" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(0, -250)
+collision_mask = 74
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Robot_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(6.45, 14.6)
+enable_node_path = NodePath("../..")
+
+[connection signal="now_dead" from="Robot_body" to="." method="_on_robot_body_now_dead"]

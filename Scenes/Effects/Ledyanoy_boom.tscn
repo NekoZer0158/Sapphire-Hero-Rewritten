@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://btacyncqvreot"]
+
+[ext_resource type="Script" uid="uid://d2pbb1qc4kean" path="res://Scripts/Effects/Enemy_boom.gd" id="1_wgd8s"]
+[ext_resource type="Texture2D" uid="uid://bx3bpfio65alf" path="res://Sprites/Effects/Boom/Ledyanoy_explosion_small.png" id="2_ongt4"]
+[ext_resource type="Texture2D" uid="uid://byn5khlthdavv" path="res://Sprites/Effects/Boom/Ledyanoy_explosion_medium.png" id="3_yic51"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtnwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ongt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yic51")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Ledyanoy_boom" type="Node2D"]
+z_index = 115
+script = ExtResource("1_wgd8s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wtnwb")
+speed_scale = 1.1
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

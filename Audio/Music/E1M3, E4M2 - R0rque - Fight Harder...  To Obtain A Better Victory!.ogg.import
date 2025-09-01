@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4mdjtlmtn4o1"
+path="res://.godot/imported/E1M3, E4M2 - R0rque - Fight Harder...  To Obtain A Better Victory!.ogg-24e4a8649dd689b126914e40aac6f938.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/E1M3, E4M2 - R0rque - Fight Harder...  To Obtain A Better Victory!.ogg"
+dest_files=["res://.godot/imported/E1M3, E4M2 - R0rque - Fight Harder...  To Obtain A Better Victory!.ogg-24e4a8649dd689b126914e40aac6f938.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

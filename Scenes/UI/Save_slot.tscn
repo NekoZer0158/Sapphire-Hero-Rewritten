@@ -1,0 +1,208 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqhls3uohnk8m"]
+
+[ext_resource type="Texture2D" uid="uid://do6m7p7lt3c8r" path="res://Sprites/UI/Main_menu/Save_slot.png" id="1_kqd30"]
+[ext_resource type="Script" uid="uid://dv0qnmg680gq8" path="res://Scripts/UI/Save_slot.gd" id="1_ps7jg"]
+[ext_resource type="Texture2D" uid="uid://c55qy887axlbe" path="res://Sprites/Boss/Black_Baron/Phase_3/Head_other.png" id="3_1xcbk"]
+[ext_resource type="Theme" uid="uid://pjw3ntkhtc84" path="res://Resources/Themes/save_slot.tres" id="3_i33up"]
+[ext_resource type="Shader" uid="uid://5a6agmh2aqkb" path="res://Resources/Shaders/Black_and_white.gdshader" id="3_om0td"]
+[ext_resource type="Texture2D" uid="uid://b7yeb3i7ax8dg" path="res://Sprites/Boss/Kostyanoy/Head.png" id="3_qv2he"]
+[ext_resource type="Texture2D" uid="uid://ddet5k66wnaih" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Head.png" id="4_ca54y"]
+[ext_resource type="PackedScene" uid="uid://befxvnbjjhmio" path="res://Scenes/UI/boss_head.tscn" id="4_smr3t"]
+[ext_resource type="Texture2D" uid="uid://i0wsotp5xfnh" path="res://Sprites/Boss/Ledyanoy/Head.png" id="6_o82r5"]
+[ext_resource type="Texture2D" uid="uid://b0cltwxl4nvtn" path="res://Sprites/Boss/Unknown/Head.png" id="7_7mrk8"]
+[ext_resource type="Texture2D" uid="uid://2akw665ue4sl" path="res://Sprites/Boss/Zeppelin/Head.png" id="8_c1ci5"]
+[ext_resource type="Texture2D" uid="uid://cyjuuggq618rk" path="res://Sprites/UI/Player/Default/HP_refill.png" id="10_an32d"]
+[ext_resource type="PackedScene" uid="uid://dt6idkrendsyv" path="res://Scenes/UI/Main_menu/No_save_data.tscn" id="13_g7bte"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_av0ga"]
+resource_local_to_scene = true
+shader = ExtResource("3_om0td")
+shader_parameter/activated = false
+shader_parameter/different_style = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfu0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1xcbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ca54y")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="SaveSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+mouse_filter = 2
+script = ExtResource("1_ps7jg")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 169.0
+offset_bottom = 8.0
+mouse_filter = 2
+
+[node name="Color_border" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 9.0
+texture = ExtResource("1_kqd30")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Final_boss_border" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 10.0
+offset_right = 102.0
+offset_bottom = 40.0
+texture = ExtResource("1_kqd30")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Background" type="ColorRect" parent="Final_boss_border"]
+z_index = -1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Final_boss_border"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 29.0
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Final_boss_border"]
+material = SubResource("ShaderMaterial_av0ga")
+position = Vector2(16, 15)
+sprite_frames = SubResource("SpriteFrames_wfu0w")
+metadata/_edit_lock_ = true
+
+[node name="Main" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 42.0
+texture = ExtResource("1_kqd30")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+metadata/_edit_lock_ = true
+
+[node name="save_number_border" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 69.0
+offset_bottom = 42.0
+texture = ExtResource("1_kqd30")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Save_number" type="Label" parent="save_number_border"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 68.0
+offset_bottom = 13.0
+theme = ExtResource("3_i33up")
+text = "save_"
+vertical_alignment = 1
+
+[node name="Boss_heads" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 53.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/separation = 17
+metadata/_edit_lock_ = true
+
+[node name="Boss_Kostyanoy" parent="Boss_heads" instance=ExtResource("4_smr3t")]
+layout_mode = 2
+head_texture = ExtResource("3_qv2he")
+
+[node name="Boss_Ledyanoy" parent="Boss_heads" instance=ExtResource("4_smr3t")]
+layout_mode = 2
+head_texture = ExtResource("6_o82r5")
+
+[node name="Boss_Unknown" parent="Boss_heads" instance=ExtResource("4_smr3t")]
+layout_mode = 2
+head_texture = ExtResource("7_7mrk8")
+
+[node name="Boss_Zeppelin" parent="Boss_heads" instance=ExtResource("4_smr3t")]
+layout_mode = 2
+head_texture = ExtResource("8_c1ci5")
+
+[node name="HP_refills" type="Sprite2D" parent="."]
+position = Vector2(110, 25.5)
+texture = ExtResource("10_an32d")
+
+[node name="Label" type="Label" parent="HP_refills"]
+offset_left = 6.0
+offset_top = -4.75
+offset_right = 25.0
+offset_bottom = 3.25
+theme = ExtResource("3_i33up")
+text = "=0"
+metadata/_edit_lock_ = true
+
+[node name="Mobile" type="Control" parent="."]
+z_index = 125
+layout_mode = 1
+anchor_right = 0.0885417
+anchor_bottom = 0.0388889
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Mobile"]
+z_index = 80
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 42.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+flat = true
+
+[node name="No_save_data" parent="." instance=ExtResource("13_g7bte")]
+layout_mode = 1
+
+[node name="Dimension" type="Label" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 9.0
+offset_right = 168.0
+offset_bottom = 41.0
+theme = ExtResource("3_i33up")
+text = " 1>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

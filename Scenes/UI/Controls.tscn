@@ -1,0 +1,371 @@
+[gd_scene load_steps=5 format=3 uid="uid://bipqxlb4ramrc"]
+
+[ext_resource type="Script" uid="uid://b5bsx5oalgq1k" path="res://Scripts/UI/Controls.gd" id="1_ai6bw"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="1_ebjmh"]
+[ext_resource type="Theme" uid="uid://vxwxjsyk074o" path="res://Resources/Themes/column_controls.tres" id="2_p14qm"]
+[ext_resource type="PackedScene" uid="uid://4dk6fn5meobu" path="res://Scenes/UI/Mobile/Mobile_controls.tscn" id="4_0fxxt"]
+
+[node name="Controls" type="Control" node_paths=PackedStringArray("controls_options", "keyboard_container", "gamepad_xbox_container", "gamepad_playstation_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ai6bw")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+controls_options = NodePath("Controls_options")
+keyboard_container = NodePath("Keyboard_container")
+gamepad_xbox_container = NodePath("Gamepad_xbox_container")
+gamepad_playstation_container = NodePath("Gamepad_playstation_container")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 448.0
+offset_right = 2096.0
+offset_bottom = 1088.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Keyboard_container" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.539815
+anchor_right = 0.96875
+anchor_bottom = 0.881481
+offset_left = -4.0
+offset_top = -71.0002
+offset_right = -4.0
+offset_bottom = -71.0002
+mouse_filter = 2
+theme_override_constants/h_separation = 35
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Column_1" type="VBoxContainer" parent="Keyboard_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Keyboard_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "W_up"
+vertical_alignment = 1
+
+[node name="Controls_3" type="Label" parent="Keyboard_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "A_left"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Keyboard_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "S_down"
+vertical_alignment = 1
+
+[node name="Controls_4" type="Label" parent="Keyboard_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "D_right"
+vertical_alignment = 1
+
+[node name="Column_2" type="VBoxContainer" parent="Keyboard_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Keyboard_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Q_previous_weapon"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Keyboard_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "E_next_weapon"
+vertical_alignment = 1
+
+[node name="Controls_3" type="Label" parent="Keyboard_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "R_activate"
+vertical_alignment = 1
+
+[node name="Controls_5" type="Label" parent="Keyboard_container/Column_2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "F_Use_hp_refill"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls_4" type="Label" parent="Keyboard_container/Column_2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "ESC_pause"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Column_3" type="VBoxContainer" parent="Keyboard_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Keyboard_container/Column_3"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "H_shoot"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Keyboard_container/Column_3"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "J_jump"
+vertical_alignment = 1
+
+[node name="Controls_3" type="Label" parent="Keyboard_container/Column_3"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "F12_fullscreen"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Gamepad_xbox_container" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.539815
+anchor_right = 0.96875
+anchor_bottom = 0.881481
+offset_left = -4.0
+offset_top = -71.0002
+offset_right = -4.0
+offset_bottom = -71.0002
+mouse_filter = 2
+theme_override_constants/h_separation = 20
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Column_1" type="VBoxContainer" parent="Gamepad_xbox_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Gamepad_xbox_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_up"
+vertical_alignment = 1
+
+[node name="Controls_3" type="Label" parent="Gamepad_xbox_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_left"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Gamepad_xbox_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_down"
+vertical_alignment = 1
+
+[node name="Controls_4" type="Label" parent="Gamepad_xbox_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_right"
+vertical_alignment = 1
+
+[node name="Column_2" type="VBoxContainer" parent="Gamepad_xbox_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Gamepad_xbox_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "LB_previous_weapon"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Gamepad_xbox_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "RB_next_weapon"
+vertical_alignment = 1
+
+[node name="Controls_3" type="Label" parent="Gamepad_xbox_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Y_activate"
+vertical_alignment = 1
+
+[node name="Controls_5" type="Label" parent="Gamepad_xbox_container/Column_2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Select_Use_hp_refill"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls_4" type="Label" parent="Gamepad_xbox_container/Column_2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "START_pause"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Column_3" type="VBoxContainer" parent="Gamepad_xbox_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Gamepad_xbox_container/Column_3"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "X_shoot"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Gamepad_xbox_container/Column_3"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "A_jump"
+vertical_alignment = 1
+
+[node name="Gamepad_playstation_container" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.539815
+anchor_right = 0.96875
+anchor_bottom = 0.881481
+offset_left = -4.0
+offset_top = -71.0002
+offset_right = -4.0
+offset_bottom = -71.0002
+mouse_filter = 2
+theme_override_constants/h_separation = 20
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Column_1" type="VBoxContainer" parent="Gamepad_playstation_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Gamepad_playstation_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_up"
+vertical_alignment = 1
+
+[node name="Controls_3" type="Label" parent="Gamepad_playstation_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_left"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Gamepad_playstation_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_down"
+vertical_alignment = 1
+
+[node name="Controls_4" type="Label" parent="Gamepad_playstation_container/Column_1"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Stick_right"
+vertical_alignment = 1
+
+[node name="Column_2" type="VBoxContainer" parent="Gamepad_playstation_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="Label" parent="Gamepad_playstation_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "L1_previous_weapon"
+vertical_alignment = 1
+
+[node name="Controls_2" type="Label" parent="Gamepad_playstation_container/Column_2"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "R1_next_weapon"
+vertical_alignment = 1
+
+[node name="Controls_3" type="RichTextLabel" parent="Gamepad_playstation_container/Column_2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+bbcode_enabled = true
+text = "Triangle_activate"
+
+[node name="Controls_5" type="Label" parent="Gamepad_playstation_container/Column_2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "SHARE_Use_hp_refill"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls_4" type="Label" parent="Gamepad_playstation_container/Column_2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "OPTIONS_pause"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Column_3" type="VBoxContainer" parent="Gamepad_playstation_container"]
+layout_mode = 2
+theme = ExtResource("2_p14qm")
+
+[node name="Controls_1" type="RichTextLabel" parent="Gamepad_playstation_container/Column_3"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+bbcode_enabled = true
+text = "Square_shoot"
+
+[node name="Controls_2" type="RichTextLabel" parent="Gamepad_playstation_container/Column_3"]
+custom_minimum_size = Vector2(512, 40)
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+bbcode_enabled = true
+text = "X_jump"
+
+[node name="Controls_options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.898148
+anchor_bottom = 0.898148
+offset_top = 6.10352e-05
+offset_right = 1920.0
+offset_bottom = 110.0
+mouse_filter = 2
+theme_override_constants/separation = 15
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Keyboard" type="Label" parent="Controls_options"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Keyboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Back" type="Label" parent="Controls_options"]
+layout_mode = 2
+theme = ExtResource("1_ebjmh")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("parent_node") instance=ExtResource("4_0fxxt")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("..")

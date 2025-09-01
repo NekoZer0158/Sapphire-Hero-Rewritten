@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Hack_planes_projectiles_database" load_steps=2 format=3 uid="uid://6hrtmv6hd5dm"]
+
+[ext_resource type="Script" uid="uid://c5v1mwap7m8wp" path="res://Scripts/Resources/Databases/Hack_planes_projectiles_database.gd" id="1_4ea0s"]
+
+[resource]
+script = ExtResource("1_4ea0s")

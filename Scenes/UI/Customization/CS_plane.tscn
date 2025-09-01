@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bki3cc64hl2tg"]
+
+[ext_resource type="Script" uid="uid://dcpgimk4i7j8l" path="res://Scripts/UI/Customization/CS_single.gd" id="1_ym3k2"]
+[ext_resource type="Texture2D" uid="uid://g7gxqxsmbo7n" path="res://Sprites/UI/Main_menu/Boss_select_background.png" id="2_i48hy"]
+[ext_resource type="Texture2D" uid="uid://dgc6yi08arp54" path="res://Sprites/UI/Main_menu/Boss_select.png" id="3_xgw00"]
+
+[node name="Customization_single" type="Control" groups=["Customization_slot"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ym3k2")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(6.5, 4)
+texture = ExtResource("2_i48hy")
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(6.5, 4)
+texture = ExtResource("3_xgw00")
+
+[node name="Sprite_texture" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(6, 6)
+
+[node name="Button_mobile" type="Button" parent="."]
+visible = false
+offset_left = -104.0
+offset_top = -112.0
+offset_right = 104.0
+offset_bottom = 112.0
+focus_mode = 0
+flat = true

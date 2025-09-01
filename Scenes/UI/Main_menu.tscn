@@ -1,0 +1,285 @@
+[gd_scene load_steps=18 format=3 uid="uid://cja00nxgqs3l"]
+
+[ext_resource type="Script" uid="uid://gfqvhmynj0pc" path="res://Scripts/UI/Main_menu.gd" id="1_bovof"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="1_lg6fm"]
+[ext_resource type="Resource" uid="uid://cerjakqpas26p" path="res://Resources/Other/Mods/Translation_loader.tres" id="2_4awcj"]
+[ext_resource type="Texture2D" uid="uid://csjymntoknrs1" path="res://Sprites/Other/Logo_background.png" id="2_ic7pu"]
+[ext_resource type="PackedScene" uid="uid://clth0vstxvs73" path="res://Scenes/UI/Settings.tscn" id="3_abcs5"]
+[ext_resource type="PackedScene" uid="uid://2pjbo8c0irqt" path="res://Scenes/UI/Credits.tscn" id="5_ealag"]
+[ext_resource type="PackedScene" uid="uid://bipqxlb4ramrc" path="res://Scenes/UI/Controls.tscn" id="5_m41hb"]
+[ext_resource type="PackedScene" uid="uid://o56khckkf8lh" path="res://Scenes/UI/New_load_game.tscn" id="5_whdix"]
+[ext_resource type="PackedScene" uid="uid://lilthkvo02c1" path="res://Scenes/UI/Customization/Customization_UI.tscn" id="7_1p0bb"]
+[ext_resource type="PackedScene" uid="uid://dibyxqoydl0fs" path="res://addons/sapphire_hero_mods/Scenes/UI/Mods_UI.tscn" id="8_r5frj"]
+[ext_resource type="PackedScene" uid="uid://cthj60koov6p5" path="res://Scenes/UI/Achievements.tscn" id="9_xncp3"]
+[ext_resource type="Texture2D" uid="uid://bsjwtilatnmlt" path="res://Sprites/UI/Achievements/all_achievements.png" id="11_n3eal"]
+[ext_resource type="Texture2D" uid="uid://uw826d7kni1g" path="res://Sprites/UI/Main_menu/Copyleft.png" id="13_f5weg"]
+[ext_resource type="PackedScene" uid="uid://cjp0pyg3nrxa3" path="res://Scenes/UI/Mobile/Mobile_main_menu.tscn" id="13_wcjjx"]
+[ext_resource type="PackedScene" uid="uid://c0gpe13btsws0" path="res://Scenes/Levels/Level_loader.tscn" id="14_b66mx"]
+[ext_resource type="Script" uid="uid://bbiv3gip1nvv7" path="res://Scripts/Other/One_time_only/Shader_and_particles_preload.gd" id="15_llqno"]
+[ext_resource type="PackedScene" uid="uid://dbdsxwxsat2ns" path="res://Scenes/Effects/Projectiles/Default_weapon_particle.tscn" id="16_rrnkg"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("menu_options_container", "settings_menu", "controls_menu", "credits_menu", "achievements_menu", "customization_menu", "mods_menu", "new_load_game_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bovof")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+menu_options_container = NodePath("Menu_options")
+settings_menu = NodePath("Settings")
+controls_menu = NodePath("Controls")
+credits_menu = NodePath("Credits")
+achievements_menu = NodePath("Achievements")
+customization_menu = NodePath("Customization_UI")
+mods_menu = NodePath("Mods_UI")
+new_load_game_menu = NodePath("NewLoadGame")
+transition_time = 0.5
+translation_loader = ExtResource("2_4awcj")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -7
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Node2D" parent="."]
+skew = 0.261799
+
+[node name="Game_name" type="Label" parent="Logo"]
+offset_left = 37.8
+offset_right = 1957.8
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 80
+text = "Sapphire Hero 
+      Rewritten"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Logo/Game_name"]
+z_index = -1
+position = Vector2(994, 349)
+scale = Vector2(4, 4)
+texture = ExtResource("2_ic7pu")
+metadata/_edit_lock_ = true
+
+[node name="Settings" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("3_abcs5")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Menu_options")
+mobile_parent_node = NodePath("../Mobile")
+
+[node name="NewLoadGame" parent="." node_paths=PackedStringArray("parent_node", "mobile_main_node") instance=ExtResource("5_whdix")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Menu_options")
+mobile_main_node = NodePath("../Mobile")
+
+[node name="Achievements" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("9_xncp3")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Menu_options")
+mobile_parent_node = NodePath("../Mobile")
+
+[node name="Controls" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("5_m41hb")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Menu_options")
+mobile_parent_node = NodePath("../Mobile")
+
+[node name="Customization_UI" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("7_1p0bb")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Menu_options")
+mobile_parent_node = NodePath("../Mobile")
+
+[node name="Mods_UI" parent="." node_paths=PackedStringArray("level_loader", "show_this_after_hiding") instance=ExtResource("8_r5frj")]
+visible = false
+layout_mode = 1
+level_loader = NodePath("../Level_loader")
+show_this_after_hiding = NodePath("../Menu_options")
+metadata/_edit_lock_ = true
+
+[node name="Credits" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("5_ealag")]
+visible = false
+layout_mode = 1
+parent_node = NodePath("../Menu_options")
+mobile_parent_node = NodePath("../Mobile")
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1728.0
+offset_top = 1024.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("1_lg6fm")
+text = "2.4"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="All_achievements" type="Sprite2D" parent="Version"]
+visible = false
+position = Vector2(-40, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("11_n3eal")
+
+[node name="License" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00416667
+anchor_top = 0.948148
+anchor_right = 0.291667
+anchor_bottom = 0.992593
+theme = ExtResource("1_lg6fm")
+text = "GPL-3.0-only"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Copyleft" type="TextureRect" parent="License"]
+layout_mode = 2
+anchor_left = -0.014
+anchor_right = -0.014
+offset_left = 515.819
+offset_right = 559.728
+offset_bottom = 48.0
+theme = ExtResource("1_lg6fm")
+texture = ExtResource("13_f5weg")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu_options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.00700005
+anchor_bottom = 0.00700005
+offset_left = 576.0
+offset_top = 440.44
+offset_right = 1344.0
+offset_bottom = 1072.44
+theme_override_constants/separation = 15
+alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Epilogue" type="Label" parent="Menu_options"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Epilogue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prologue" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Prologue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="New_game" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "New game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load_game" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Load game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Achievements" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Achievements"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Customization" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Customization"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mods" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Mods"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Label" parent="Menu_options"]
+layout_mode = 2
+theme = ExtResource("1_lg6fm")
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Transition" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1155
+layout_mode = 0
+offset_left = -1264.0
+offset_top = -24.0
+offset_right = 3128.0
+offset_bottom = 1120.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 0)
+limit_top = 0
+limit_bottom = 1080
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("main_node") instance=ExtResource("13_wcjjx")]
+visible = false
+layout_mode = 1
+main_node = NodePath("..")
+
+[node name="Level_loader" parent="." instance=ExtResource("14_b66mx")]
+
+[node name="Shader_and_particles_preload" type="Node2D" parent="."]
+z_index = -500
+script = ExtResource("15_llqno")
+
+[node name="DefaultWeaponParticle" parent="Shader_and_particles_preload" instance=ExtResource("16_rrnkg")]
+position = Vector2(126.96, 130.685)
+
+[connection signal="game_was_completed" from="NewLoadGame" to="Settings" method="save_global_save_data"]
+[connection signal="unlocked_all_achievements" from="Achievements" to="." method="_on_achievements_unlocked_all_achievements"]

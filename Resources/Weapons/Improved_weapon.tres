@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Default_weapon_with_colors" load_steps=2 format=3 uid="uid://bmmt2jt6crsrh"]
+
+[ext_resource type="Script" uid="uid://yvk3ktpy1m1o" path="res://Scripts/Resources/Weapons/Default_weapon_with_colors.gd" id="1_tm55v"]
+
+[resource]
+script = ExtResource("1_tm55v")
+body_color = Color(0.8, 0.152941, 0.164706, 1)
+ammo_color = Color(0.8, 0.152941, 0.164706, 1)
+weapon_name = "Default_weapon"
+weapon_id = 25
+max_ammo = -1
+ammo_per_shot = 1
+projectile_ids = Array[int]([20])
+min_amount_of_markers = 1

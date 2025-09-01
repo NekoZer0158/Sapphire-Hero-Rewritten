@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://clncc34vm6stk"]
+
+[ext_resource type="Texture2D" uid="uid://co1eleomh4xf6" path="res://Sprites/Boss/Core/Core_two_parts.png" id="1_4ls6d"]
+[ext_resource type="Script" uid="uid://cvs65u10viynm" path="res://Scripts/Story/Bottom_core.gd" id="1_5dwcy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgyvj"]
+size = Vector2(196, 56)
+
+[node name="BottomCore" type="CharacterBody2D"]
+collision_layer = 4096
+collision_mask = 8
+script = ExtResource("1_5dwcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_rgyvj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4ls6d")
+vframes = 2
+frame = 1

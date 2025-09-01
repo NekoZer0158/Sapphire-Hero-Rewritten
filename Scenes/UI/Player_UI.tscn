@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=3 uid="uid://cle5aclnyr280"]
+
+[ext_resource type="Script" uid="uid://ci5ve81nw7bii" path="res://Scripts/UI/Player_UI.gd" id="1_7cxku"]
+[ext_resource type="Texture2D" uid="uid://cyjuuggq618rk" path="res://Sprites/UI/Player/Default/HP_refill.png" id="3_sko3c"]
+[ext_resource type="Theme" uid="uid://b3os6jye00tyf" path="res://Resources/Themes/test_theme.tres" id="4_o1w0q"]
+[ext_resource type="PackedScene" uid="uid://bx45fs3jswigl" path="res://Scenes/UI/Achievement.tscn" id="4_qtg8e"]
+
+[sub_resource type="Animation" id="Animation_ir1oe"]
+resource_name = "Show_achievement"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Achievement/Achievement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 2.5, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(48, -150), Vector2(48, 0), Vector2(48, 0), Vector2(48, -150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5bq4k"]
+_data = {
+&"Show_achievement": SubResource("Animation_ir1oe")
+}
+
+[node name="Player_UI" type="Control" node_paths=PackedStringArray("progress_bar_HP", "progress_bar_ammo", "hp_refill_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7cxku")
+progress_bar_HP = NodePath("X4/ProgressBar_HP")
+progress_bar_ammo = NodePath("X4/ProgressBar_ammo")
+hp_refill_label = NodePath("X4/HP_refill_label")
+
+[node name="X4" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar_HP" type="ProgressBar" parent="X4"]
+self_modulate = Color(0.278431, 0.482353, 1, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 130.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme = ExtResource("4_o1w0q")
+max_value = 15.0
+step = 1.0
+show_percentage = false
+
+[node name="Foreground" type="Sprite2D" parent="X4/ProgressBar_HP"]
+offset = Vector2(60, 5)
+
+[node name="ProgressBar_ammo" type="ProgressBar" parent="X4"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 130.0
+offset_bottom = 30.0
+mouse_filter = 2
+theme = ExtResource("4_o1w0q")
+max_value = 15.0
+step = 1.0
+show_percentage = false
+
+[node name="Foreground" type="Sprite2D" parent="X4/ProgressBar_ammo"]
+offset = Vector2(60, 5)
+
+[node name="HP_refill_label" type="Label" parent="X4"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 2.0
+offset_right = 186.0
+offset_bottom = 18.0
+theme = ExtResource("4_o1w0q")
+theme_override_font_sizes/font_size = 8
+text = "=0"
+vertical_alignment = 1
+
+[node name="Weapons" type="Label" parent="X4"]
+layout_mode = 0
+offset_left = 133.75
+offset_top = 16.0
+offset_right = 173.75
+offset_bottom = 32.0
+theme = ExtResource("4_o1w0q")
+theme_override_font_sizes/font_size = 8
+text = "0"
+vertical_alignment = 1
+
+[node name="Nodes_2D" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="Sprite_HP_reifll" type="Sprite2D" parent="Nodes_2D"]
+position = Vector2(138, 10)
+texture = ExtResource("3_sko3c")
+
+[node name="Achievement" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.996
+anchor_right = 0.996
+offset_left = -584.32
+offset_right = -0.320068
+offset_bottom = 88.0
+
+[node name="Achievement" parent="Achievement" instance=ExtResource("4_qtg8e")]
+z_index = 620
+position = Vector2(48, -150)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5bq4k")
+}

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://blie8khndhj25"]
+
+[ext_resource type="Script" uid="uid://pqc2e21qamek" path="res://Scripts/Objects/Lever.gd" id="1_wgn7s"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bcilk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwkgd"]
+size = Vector2(16, 32)
+
+[node name="Test_lever" type="Node2D"]
+script = ExtResource("1_wgn7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15.75)
+scale = Vector2(16, 32.5)
+texture = SubResource("CanvasTexture_bcilk")
+
+[node name="Enter_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter_area"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_lwkgd")
+
+[connection signal="body_entered" from="Enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="Enter_area" to="." method="_on_enter_area_body_exited"]

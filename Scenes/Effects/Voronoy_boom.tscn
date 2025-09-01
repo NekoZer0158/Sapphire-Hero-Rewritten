@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbokucs4b3o67"]
+
+[ext_resource type="Script" uid="uid://d2pbb1qc4kean" path="res://Scripts/Effects/Enemy_boom.gd" id="1_mf8c8"]
+[ext_resource type="Texture2D" uid="uid://cmgessrth4vlh" path="res://Sprites/Effects/Boom/Voronoy_explosion_small.png" id="2_mf8c8"]
+[ext_resource type="Texture2D" uid="uid://dodwqaeshtqb8" path="res://Sprites/Effects/Boom/Voronoy_explosion_medium.png" id="3_lesja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf8c8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mf8c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lesja")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Voronoy_boom" type="Node2D"]
+z_index = 115
+script = ExtResource("1_mf8c8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mf8c8")
+speed_scale = 1.1
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

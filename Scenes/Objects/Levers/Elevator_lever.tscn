@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://2bhpgcw8nmxd"]
+
+[ext_resource type="Script" uid="uid://pqc2e21qamek" path="res://Scripts/Objects/Lever.gd" id="1_bxsja"]
+[ext_resource type="Texture2D" uid="uid://cdfqfkhbsruu6" path="res://Sprites/Objects/Levers/Elevator_lever.png" id="2_vhlhd"]
+[ext_resource type="Texture2D" uid="uid://cek4ke71qcl2s" path="res://Sprites/Objects/Levers/Elevator_lever_base.png" id="3_iypvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwkgd"]
+size = Vector2(27, 32)
+
+[sub_resource type="Animation" id="Animation_ci4q1"]
+resource_name = "lever_use"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [-0.785398, -0.261799, 0.0, 0.261799, 0.785398]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_07m72"]
+_data = {
+&"lever_use": SubResource("Animation_ci4q1")
+}
+
+[node name="Elevator_lever" type="Node2D"]
+script = ExtResource("1_bxsja")
+
+[node name="Lever" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -2)
+rotation = -0.785398
+texture = ExtResource("2_vhlhd")
+offset = Vector2(1, -18)
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("3_iypvm")
+metadata/_edit_lock_ = true
+
+[node name="Enter_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter_area"]
+position = Vector2(-7.5, -16)
+shape = SubResource("RectangleShape2D_lwkgd")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_07m72")
+}
+
+[connection signal="body_entered" from="Enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="Enter_area" to="." method="_on_enter_area_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

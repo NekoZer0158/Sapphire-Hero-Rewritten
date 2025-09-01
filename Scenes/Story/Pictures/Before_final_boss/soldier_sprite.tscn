@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://djsfyi1ebmiit"]
+
+[ext_resource type="Shader" uid="uid://dgyjjjc7u05dd" path="res://Resources/Shaders/color_change.gdshader" id="1_r5dlp"]
+[ext_resource type="Texture2D" uid="uid://bs514jh5bemd7" path="res://Sprites/Player/Default/Body.png" id="2_wgkvd"]
+[ext_resource type="Texture2D" uid="uid://dt07lpdtms7dg" path="res://Sprites/Player/Default/Head.png" id="3_vra61"]
+[ext_resource type="Texture2D" uid="uid://bgcv6erhecssr" path="res://Sprites/Player/Default/Arm.png" id="4_ci0d4"]
+[ext_resource type="Texture2D" uid="uid://bukr0lk4esu3d" path="res://Sprites/Player/Default/Hand.png" id="5_te3gj"]
+[ext_resource type="Texture2D" uid="uid://dshnv8flpn4do" path="res://Sprites/Player/Default/Arm_left.png" id="6_sxpho"]
+[ext_resource type="Texture2D" uid="uid://cs8ym84rdpna5" path="res://Sprites/Player/Default/Hand_shoot.png" id="7_fuowq"]
+[ext_resource type="Texture2D" uid="uid://bmbwt70ag4u0s" path="res://Sprites/Player/Default/Leg_up.png" id="8_gev4q"]
+[ext_resource type="Texture2D" uid="uid://c8yix5uwu07tl" path="res://Sprites/Player/Default/Leg_down.png" id="9_u0ycx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y31w6"]
+shader = ExtResource("1_r5dlp")
+shader_parameter/color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_only_with_this_color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_this_color = Color(0.624, 0.7098, 0.78, 1)
+shader_parameter/change_to_this = Color(0, 0, 0, 1)
+
+[node name="Soldier" type="Sprite2D"]
+material = SubResource("ShaderMaterial_y31w6")
+position = Vector2(-81, 29)
+texture = ExtResource("2_wgkvd")
+
+[node name="Head" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("3_vra61")
+
+[node name="Arm_right" type="Sprite2D" parent="."]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("4_ci0d4")
+offset = Vector2(0, 6)
+metadata/_edit_lock_ = true
+
+[node name="Hand" type="Sprite2D" parent="Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("5_te3gj")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="."]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("6_sxpho")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_fuowq")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="."]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("8_gev4q")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("9_u0ycx")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="."]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("8_gev4q")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("9_u0ycx")
+offset = Vector2(0, 3)

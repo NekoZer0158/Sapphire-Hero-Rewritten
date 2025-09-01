@@ -1,0 +1,2 @@
+class_name Level_preview
+extends Node2D

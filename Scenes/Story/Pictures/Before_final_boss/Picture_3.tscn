@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv6dmx6gohq62"]
+
+[ext_resource type="Texture2D" uid="uid://xaud63pmkdd5" path="res://Sprites/Boss/Black_Baron/Phase_3/Dark/Body.png" id="2_tua2g"]
+[ext_resource type="Texture2D" uid="uid://c55qy887axlbe" path="res://Sprites/Boss/Black_Baron/Phase_3/Head_other.png" id="3_5bpxb"]
+[ext_resource type="Texture2D" uid="uid://djckecq76tq62" path="res://Sprites/Boss/Black_Baron/Phase_3/Dark/Arm.png" id="4_ykmaj"]
+[ext_resource type="Texture2D" uid="uid://brcaahwl8eykp" path="res://Sprites/Boss/Black_Baron/Phase_3/Dark/Hand.png" id="5_3p304"]
+[ext_resource type="Texture2D" uid="uid://b73us6ry46v6w" path="res://Sprites/Boss/Black_Baron/Phase_3/Dark/Hand_shoot_normal.png" id="5_hrhiy"]
+[ext_resource type="Texture2D" uid="uid://bqstcxm167uxf" path="res://Sprites/Boss/Black_Baron/Phase_3/Dark/Leg_up.png" id="7_mseuh"]
+[ext_resource type="Texture2D" uid="uid://tt5g2enq7po1" path="res://Sprites/Boss/Black_Baron/Phase_3/Dark/Leg_down.png" id="8_25mpb"]
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 48.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body2" type="Sprite2D" parent="."]
+z_index = 185
+scale = Vector2(2, 2)
+texture = ExtResource("2_tua2g")
+
+[node name="Head" type="Sprite2D" parent="Body2"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("3_5bpxb")
+
+[node name="Arm_right" type="Sprite2D" parent="Body2"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("4_ykmaj")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Body2/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("5_3p304")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Body2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("4_ykmaj")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Body2/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("5_hrhiy")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Body2"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("7_mseuh")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Body2/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_25mpb")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Body2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("7_mseuh")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Body2/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_25mpb")
+offset = Vector2(0, 3)

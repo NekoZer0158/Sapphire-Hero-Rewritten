@@ -1,0 +1,279 @@
+[gd_scene load_steps=26 format=3 uid="uid://d4vwo11iluh5"]
+
+[ext_resource type="TileSet" uid="uid://dtbdi127riw33" path="res://Resources/Tilesets/Science.tres" id="1_fo8ho"]
+[ext_resource type="Shader" uid="uid://dgyjjjc7u05dd" path="res://Resources/Shaders/color_change.gdshader" id="3_yckas"]
+[ext_resource type="Texture2D" uid="uid://bs514jh5bemd7" path="res://Sprites/Player/Default/Body.png" id="4_cotnv"]
+[ext_resource type="Texture2D" uid="uid://dt07lpdtms7dg" path="res://Sprites/Player/Default/Head.png" id="5_caix6"]
+[ext_resource type="Texture2D" uid="uid://bgcv6erhecssr" path="res://Sprites/Player/Default/Arm.png" id="6_ti3qm"]
+[ext_resource type="Texture2D" uid="uid://bukr0lk4esu3d" path="res://Sprites/Player/Default/Hand.png" id="7_ri5cr"]
+[ext_resource type="Texture2D" uid="uid://dshnv8flpn4do" path="res://Sprites/Player/Default/Arm_left.png" id="8_d01co"]
+[ext_resource type="Texture2D" uid="uid://cbsdxr3is4g36" path="res://Sprites/Player/Story/Hand_after_final.png" id="8_xtyg1"]
+[ext_resource type="Texture2D" uid="uid://dvmt3kgscl2lf" path="res://Sprites/Player/Story/Hand_after_final_front.png" id="9_8yf0l"]
+[ext_resource type="Texture2D" uid="uid://bmbwt70ag4u0s" path="res://Sprites/Player/Default/Leg_up.png" id="9_tge3r"]
+[ext_resource type="Texture2D" uid="uid://c8yix5uwu07tl" path="res://Sprites/Player/Default/Leg_down.png" id="10_qpfeq"]
+[ext_resource type="Shader" uid="uid://d1by08iiw3b3f" path="res://Resources/Shaders/Change_specific_color.gdshader" id="11_m35nk"]
+[ext_resource type="Texture2D" uid="uid://bclnqo4wsrmkq" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Body.png" id="12_kf5tl"]
+[ext_resource type="Texture2D" uid="uid://cvi6ec4ucoqf8" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Arm.png" id="14_6btq1"]
+[ext_resource type="Texture2D" uid="uid://bfhjyvaa30owy" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Head_off.png" id="14_jxgel"]
+[ext_resource type="Texture2D" uid="uid://df8fhi0rl7i4i" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Hand.png" id="15_06cg5"]
+[ext_resource type="Texture2D" uid="uid://bw7ninpeporsh" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Arm_left.png" id="16_de1aa"]
+[ext_resource type="Texture2D" uid="uid://w63r6e6kavj8" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Hand_shoot.png" id="17_yhngy"]
+[ext_resource type="Texture2D" uid="uid://dae6w7fxvrr10" path="res://Sprites/Objects/Computer_science_other.png" id="19_glmtt"]
+[ext_resource type="Texture2D" uid="uid://dtc1bjpwyxiga" path="res://Sprites/Story/Moving_robot.png" id="20_74a7p"]
+[ext_resource type="Texture2D" uid="uid://bann4udd48m5d" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Leg_up.png" id="21_aq222"]
+[ext_resource type="Texture2D" uid="uid://bkiimlc2k2gla" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Leg_down_destroyed.png" id="22_wuppt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2k0n"]
+shader = ExtResource("3_yckas")
+shader_parameter/color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_only_with_this_color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_this_color = Color(0.624, 0.7098, 0.78, 1)
+shader_parameter/change_to_this = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxbwv"]
+shader = ExtResource("11_m35nk")
+shader_parameter/color = Color(0.05, 0.05, 0.05, 1)
+shader_parameter/change_this = Color(0.94902, 0, 0.521569, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvup6"]
+shader = ExtResource("3_yckas")
+shader_parameter/color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_only_with_this_color = Color(0.152941, 0.4, 0.8, 1)
+shader_parameter/change_this_color = Color(0.624, 0.7098, 0.78, 1)
+shader_parameter/change_to_this = Color(0, 0, 0, 1)
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_fo8ho")
+format = 2
+layer_0/tile_data = PackedInt32Array(131072, 4, 2, 196608, 65540, 3, 131073, 4, 2, 196609, 65540, 3, 131074, 4, 2, 196610, 65540, 3, 131075, 4, 2, 196611, 65540, 3, 131076, 4, 2, 196612, 65540, 3, 131077, 4, 2, 196613, 65540, 3, -262144, 65540, 3, -262143, 65540, 3, -262142, 65540, 3, -262141, 65540, 3, -262140, 65540, 3, -262139, 65540, 3, -196614, 65540, 3, -196613, 65540, 3, -196612, 65540, 3, -196611, 65540, 3, -196610, 65540, 3, -196609, 65540, 3, 196602, 4, 2, 262138, 65540, 3, 196603, 4, 2, 262139, 65540, 3, 196604, 4, 2, 262140, 65540, 3, 196605, 4, 2, 262141, 65540, 3, 196606, 4, 2, 262142, 65540, 3, 196607, 4, 2, 262143, 65540, 3, 131066, 4, 0, 131067, 4, 0, 131068, 4, 0, 131069, 4, 0, 131070, 4, 0, 131071, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0)
+layer_1/name = "Background"
+layer_1/z_index = -25
+layer_1/tile_data = PackedInt32Array(-131078, 3, 1, -131077, 3, 1, -131076, 3, 1, -131075, 3, 1, -131074, 3, 1, -131073, 3, 1, -196608, 3, 1, -196607, 3, 1, 131066, 3, 1, 196602, 3, 1, 131067, 3, 1, 196603, 3, 1, 131068, 3, 1, 196604, 3, 1, 131069, 3, 1, 196605, 3, 1, 131070, 3, 1, 196606, 3, 1, 131071, 3, 1, 196607, 3, 1, 65536, 3, 1, 131072, 3, 1, 65537, 3, 1, 131073, 3, 1, -196606, 3, 1, -196605, 3, 1, 65538, 3, 1, 131074, 3, 1, 65539, 3, 1, 131075, 3, 1, 65540, 3, 1, 131076, 3, 1, 65541, 3, 1, 131077, 3, 1, -196614, 3, 1, -196613, 3, 1, -196612, 3, 1, -196611, 3, 1, -196610, 3, 1, -196609, 3, 1, -262144, 3, 1, -262143, 3, 1, -262142, 3, 1, -262141, 3, 1, -262140, 3, 1, -262139, 3, 1, 262138, 3, 1, 262139, 3, 1, 262140, 3, 1, 262141, 3, 1, 262142, 3, 1, 262143, 3, 1, 196608, 3, 1, 196609, 3, 1, 196610, 3, 1, 196611, 3, 1, 196612, 3, 1, 196613, 3, 1, -65531, 65539, 1, -65532, 65539, 1, -65533, 65539, 1, -65534, 65539, 1, -65535, 65539, 1, -65536, 65539, 1, -1, 65539, 1, -2, 65539, 1, -3, 65539, 1, -4, 65539, 1, -5, 65539, 1, -6, 65539, 1, 4, 3, 1, 3, 3, 1, 2, 3, 1, 1, 3, 1, 0, 3, 1, 65535, 3, 1, 65534, 3, 1, 65533, 3, 1, 65532, 3, 1, 65531, 3, 1, 65530, 3, 1, 5, 3, 1, -196603, 3, 1, -131067, 3, 1, -131068, 3, 1, -196604, 3, 1, -131069, 3, 1, -131070, 3, 1, -131071, 3, 1, -131072, 3, 1, -65537, 3, 1, -65538, 3, 1, -65539, 3, 1, -65540, 3, 1, -65541, 3, 1, -65542, 3, 1)
+layer_2/name = "Foreground"
+layer_2/z_index = 120
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Also_background"
+layer_3/z_index = -5
+layer_3/tile_data = PackedInt32Array(-196608, 4, 4, -131072, 4, 4, -65536, 4, 4, 0, 4, 4)
+
+[node name="Scientist" type="Sprite2D" parent="."]
+z_index = 90
+material = SubResource("ShaderMaterial_c2k0n")
+position = Vector2(-34, 13)
+texture = ExtResource("4_cotnv")
+
+[node name="Head" type="Sprite2D" parent="Scientist"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_caix6")
+
+[node name="Arm_right" type="Sprite2D" parent="Scientist"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_ti3qm")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Scientist/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_ri5cr")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Scientist"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+rotation = -1.5708
+texture = ExtResource("8_d01co")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Scientist/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("8_xtyg1")
+offset = Vector2(0, 1)
+
+[node name="Hand_shoot2" type="Sprite2D" parent="Scientist/Arm_left"]
+z_index = 65
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("9_8yf0l")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Scientist"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_tge3r")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Scientist/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_qpfeq")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Scientist"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_tge3r")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Scientist/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_qpfeq")
+offset = Vector2(0, 3)
+
+[node name="Body" type="Sprite2D" parent="."]
+z_index = 40
+material = SubResource("ShaderMaterial_rxbwv")
+position = Vector2(-2, 13)
+texture = ExtResource("12_kf5tl")
+
+[node name="Head" type="Sprite2D" parent="Body"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("14_jxgel")
+
+[node name="Arm_right" type="Sprite2D" parent="Body"]
+z_index = 76
+use_parent_material = true
+position = Vector2(-10, -7)
+texture = ExtResource("14_6btq1")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Body/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("15_06cg5")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("16_de1aa")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Body/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("17_yhngy")
+offset = Vector2(0, 1)
+
+[node name="Scientist2" type="Sprite2D" parent="."]
+z_index = 90
+material = SubResource("ShaderMaterial_nvup6")
+position = Vector2(37, 13)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_cotnv")
+
+[node name="Head" type="Sprite2D" parent="Scientist2"]
+use_parent_material = true
+position = Vector2(-1, -13)
+texture = ExtResource("5_caix6")
+
+[node name="Arm_right" type="Sprite2D" parent="Scientist2"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("6_ti3qm")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Scientist2/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_ri5cr")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Scientist2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("8_d01co")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Scientist2/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_ri5cr")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Scientist2"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("9_tge3r")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Scientist2/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_qpfeq")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Scientist2"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("9_tge3r")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Scientist2/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_qpfeq")
+offset = Vector2(0, 3)
+
+[node name="Computer" type="Sprite2D" parent="."]
+position = Vector2(-69, 7)
+texture = ExtResource("19_glmtt")
+hframes = 3
+
+[node name="Computer2" type="Sprite2D" parent="."]
+position = Vector2(69, 7)
+texture = ExtResource("19_glmtt")
+hframes = 3
+frame = 2
+
+[node name="Moving_robot" type="Sprite2D" parent="."]
+position = Vector2(-79, 25)
+texture = ExtResource("20_74a7p")
+
+[node name="Leg_right" type="Sprite2D" parent="Moving_robot"]
+z_index = 9
+use_parent_material = true
+position = Vector2(-9, -1)
+rotation = -1.5708
+texture = ExtResource("21_aq222")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Moving_robot/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("22_wuppt")
+offset = Vector2(0, 3)
+
+[node name="Leg_right2" type="Sprite2D" parent="Moving_robot"]
+z_index = 9
+use_parent_material = true
+position = Vector2(-4, -1)
+rotation = -1.5708
+texture = ExtResource("21_aq222")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Moving_robot/Leg_right2"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("22_wuppt")
+offset = Vector2(0, 3)
+
+[node name="Moving_robot2" type="Sprite2D" parent="."]
+position = Vector2(-7, 25)
+texture = ExtResource("20_74a7p")

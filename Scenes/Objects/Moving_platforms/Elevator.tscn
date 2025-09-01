@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://0lp3lik2ipxd"]
+
+[ext_resource type="Script" uid="uid://dx652e01cjjsl" path="res://Scripts/Objects/Moving_platform.gd" id="1_gsqnw"]
+[ext_resource type="Texture2D" uid="uid://m87k8kxhmjq3" path="res://Sprites/Objects/Moving_platforms/elevator.png" id="2_f28lo"]
+[ext_resource type="PackedScene" uid="uid://2bhpgcw8nmxd" path="res://Scenes/Objects/Levers/Elevator_lever.tscn" id="3_k5l72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg02p"]
+size = Vector2(382, 31)
+
+[node name="Elevator" type="CharacterBody2D" node_paths=PackedStringArray("raycast_floor")]
+collision_layer = 65
+collision_mask = 7
+script = ExtResource("1_gsqnw")
+check_floor = true
+raycast_floor = NodePath("RayCast_floor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_wg02p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("2_f28lo")
+offset = Vector2(0, 16)
+
+[node name="RayCast_floor" type="RayCast2D" parent="."]
+target_position = Vector2(0, 15.5)
+collision_mask = 8
+
+[node name="Elevator_lever" parent="." instance=ExtResource("3_k5l72")]
+position = Vector2(0, -9)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-1891, 0)
+scale = Vector2(214.8, 9.1)
+metadata/_edit_lock_ = true
+
+[connection signal="lever_activation" from="Elevator_lever" to="." method="_on_lever_activation"]

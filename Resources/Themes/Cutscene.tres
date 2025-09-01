@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://c74bxhe62fcnp"]
+
+[resource]
+default_font_size = 32
+Label/constants/line_spacing = 5

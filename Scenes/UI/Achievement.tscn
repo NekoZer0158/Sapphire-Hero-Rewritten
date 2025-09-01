@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx45fs3jswigl"]
+
+[ext_resource type="Texture2D" uid="uid://do6m7p7lt3c8r" path="res://Sprites/UI/Main_menu/Save_slot.png" id="1_nbv6f"]
+[ext_resource type="Script" uid="uid://bw3hpkl5qyr08" path="res://Scripts/UI/Achievement.gd" id="1_xa40t"]
+[ext_resource type="Texture2D" uid="uid://b6ey241w5d8qo" path="res://Sprites/UI/Main_menu/Inside_slot.png" id="2_8wyun"]
+[ext_resource type="Texture2D" uid="uid://dcwsa6euslfse" path="res://Sprites/UI/Achievements/Test.png" id="4_aalm7"]
+[ext_resource type="Texture2D" uid="uid://cgo1s0h0ydnrh" path="res://Sprites/UI/Achievements/Unlocked_or_not.png" id="5_dj66m"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="6_okc2x"]
+
+[node name="Achievement" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_xa40t")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+
+[node name="Color_border" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.266667
+anchor_bottom = 0.118519
+offset_left = -10.0
+offset_right = 136.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nbv6f")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Color_border2" type="NinePatchRect" parent="."]
+visible = false
+self_modulate = Color(1, 0.13, 0.13, 1)
+anchors_preset = -1
+anchor_right = 0.266667
+anchor_bottom = 0.118519
+offset_left = -16.0
+offset_right = 144.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nbv6f")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Background" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.266667
+anchor_bottom = 0.118519
+offset_left = -10.0
+offset_right = 136.0
+offset_bottom = 32.0
+texture = ExtResource("2_8wyun")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 16)
+texture = ExtResource("4_aalm7")
+
+[node name="Unlocked" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(120, 16)
+texture = ExtResource("5_dj66m")
+
+[node name="Achievement_name" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 2.0
+offset_right = 110.0
+offset_bottom = 30.0
+theme = ExtResource("6_okc2x")
+theme_override_font_sizes/font_size = 8
+text = "test test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Button_mobile" type="Button" parent="."]
+visible = false
+offset_left = -10.0
+offset_right = 136.0
+offset_bottom = 32.0
+focus_mode = 0
+flat = true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://chh6vf0kk45an"]
+
+[ext_resource type="PackedScene" uid="uid://jxg1somlly0o" path="res://Scenes/Bodies/Boss/Unknown.tscn" id="1_16kj4"]
+[ext_resource type="Script" uid="uid://dd0itnc4mjsvn" path="res://Scripts/AI/Boss/Unknown_AI.gd" id="1_modun"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_348bs"]
+
+[node name="Unknown" type="Node2D"]
+script = ExtResource("1_modun")
+
+[node name="Boss_body" parent="." instance=ExtResource("1_16kj4")]
+immortality_frames = true
+
+[node name="Head_position" type="Marker2D" parent="Boss_body"]
+position = Vector2(1, -25)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Boss_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(21.3, 14.6)
+enable_node_path = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+
+[node name="Boss_UI" parent="Boss_UI" node_paths=PackedStringArray("boss_body") instance=ExtResource("3_348bs")]
+visible = false
+boss_HP_color = Color(0.443137, 0.309804, 0.788235, 1)
+boss_body = NodePath("../../Boss_body")
+
+[node name="Timer_phase_0" type="Timer" parent="."]
+
+[node name="Timer_phase_1" type="Timer" parent="."]
+
+[connection signal="detected_a_body" from="Boss_body" to="." method="_on_boss_body_detected_a_body"]
+[connection signal="got_hit" from="Boss_body" to="Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]
+[connection signal="now_dead" from="Boss_body" to="." method="_boss_death"]
+[connection signal="timeout" from="Timer_phase_0" to="." method="_on_timer_phase_0_timeout"]
+[connection signal="timeout" from="Timer_phase_1" to="." method="_on_timer_phase_1_timeout"]

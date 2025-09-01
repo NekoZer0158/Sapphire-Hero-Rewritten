@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Default_weapon_with_colors" load_steps=2 format=3 uid="uid://bnayr76xci4fh"]
+
+[ext_resource type="Script" uid="uid://yvk3ktpy1m1o" path="res://Scripts/Resources/Weapons/Default_weapon_with_colors.gd" id="1_h4js0"]
+
+[resource]
+script = ExtResource("1_h4js0")
+body_color = Color(0.291453, 0.286275, 0.94902, 1)
+ammo_color = Color(0.290196, 0.286275, 0.94902, 1)
+weapon_name = "Voronoy_weapon"
+weapon_id = 120
+max_ammo = 15
+ammo_per_shot = 1
+projectile_ids = Array[int]([120])
+min_amount_of_markers = 1

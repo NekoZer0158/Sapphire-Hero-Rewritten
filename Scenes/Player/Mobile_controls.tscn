@@ -1,0 +1,210 @@
+[gd_scene load_steps=24 format=3 uid="uid://b43alrubkeo6n"]
+
+[ext_resource type="Texture2D" uid="uid://bcaxsl678pvdk" path="res://Sprites/Other/Mobile/Move.png" id="1_r205v"]
+[ext_resource type="Script" uid="uid://bw3k6x70vlrb0" path="res://Scripts/Other/Mobile/Mobile_controls.gd" id="1_vk4ln"]
+[ext_resource type="Texture2D" uid="uid://cqy2i7f0f8i0u" path="res://Sprites/Other/Mobile/Move_activated.png" id="2_8o6h4"]
+[ext_resource type="Texture2D" uid="uid://dg6l2036eihtb" path="res://Sprites/Other/Mobile/Shoot.png" id="3_ap17y"]
+[ext_resource type="Texture2D" uid="uid://dlkt2junqe58e" path="res://Sprites/Other/Mobile/Shoot_activated.png" id="4_o03de"]
+[ext_resource type="Texture2D" uid="uid://c3tawyw051l8o" path="res://Sprites/Other/Mobile/Jump.png" id="5_io4r4"]
+[ext_resource type="Texture2D" uid="uid://vac8jew3gb5m" path="res://Sprites/Other/Mobile/Jump_activated.png" id="6_2vf22"]
+[ext_resource type="Texture2D" uid="uid://dvtxkn7r3qta4" path="res://Sprites/Other/Mobile/Weapon_change.png" id="7_cx8or"]
+[ext_resource type="Texture2D" uid="uid://cd33nr436c6ts" path="res://Sprites/Other/Mobile/Weapon_change_activated.png" id="8_a3tn0"]
+[ext_resource type="Texture2D" uid="uid://debkjewmsavek" path="res://Sprites/Other/Mobile/Activate.png" id="9_7immt"]
+[ext_resource type="Texture2D" uid="uid://w0hmbgvf8pr1" path="res://Sprites/Other/Mobile/Pause.png" id="9_f2mv3"]
+[ext_resource type="Texture2D" uid="uid://bekaimxx608ft" path="res://Sprites/Other/Mobile/Pause_activated.png" id="10_j3xmg"]
+[ext_resource type="Texture2D" uid="uid://c5iph2w07y3f7" path="res://Sprites/Other/Mobile/Activate_activated.png" id="10_jwyxe"]
+[ext_resource type="Texture2D" uid="uid://3ddo4jv8tuim" path="res://Sprites/Other/Mobile/HP_refill.png" id="13_hmvd3"]
+[ext_resource type="Texture2D" uid="uid://ci2p3geuugywn" path="res://Sprites/Other/Mobile/HP_refill_activated.png" id="14_d2qbd"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ki4uu"]
+points = PackedVector2Array(-34, -27, 31, -27, 31, 40, -34, 40)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ev15t"]
+points = PackedVector2Array(-33, -27, 32, -27, 32, 40, -33, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pq46h"]
+radius = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hinph"]
+size = Vector2(64, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h6t7"]
+size = Vector2(52, 20)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_48e0e"]
+points = PackedVector2Array(-26, -17, 40, -17, 40, 17, -26, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfuoc"]
+size = Vector2(36, 66)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_54vnp"]
+points = PackedVector2Array(-24, -28, 32, -28, 32, 40, -24, 40)
+
+[node name="MobileControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vk4ln")
+buttons_visibility = 0.25
+activated_texture_move = ExtResource("2_8o6h4")
+activated_texture_shoot = ExtResource("4_o03de")
+activated_texture_jump = ExtResource("6_2vf22")
+activated_texture_activate = ExtResource("10_jwyxe")
+activated_texture_weapon = ExtResource("8_a3tn0")
+activated_texture_pause = ExtResource("10_j3xmg")
+activated_texture_hp_refill = ExtResource("14_d2qbd")
+metadata/_edit_lock_ = true
+
+[node name="Right_controls" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 1.012
+anchor_top = 0.947963
+anchor_right = 1.012
+anchor_bottom = 0.947963
+offset_left = -575.04
+offset_top = -343.8
+offset_right = 8.95984
+offset_bottom = 0.199951
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="TouchScreenButton_Shoot" type="TouchScreenButton" parent="Right_controls" groups=["Player_controls_mobile", "mobile_controls_for_plane_minigame"]]
+position = Vector2(104, 176)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_ap17y")
+texture_pressed = ExtResource("4_o03de")
+shape = SubResource("ConvexPolygonShape2D_ki4uu")
+passby_press = true
+action = "Shoot"
+visibility_mode = 1
+
+[node name="TouchScreenButton_Jump" type="TouchScreenButton" parent="Right_controls" groups=["Player_controls_mobile", "mobile_disable_for_plane_minigame"]]
+position = Vector2(360, 176)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_io4r4")
+texture_pressed = ExtResource("6_2vf22")
+shape = SubResource("ConvexPolygonShape2D_ev15t")
+passby_press = true
+action = "Jump"
+visibility_mode = 1
+
+[node name="TouchScreenButton_activate" type="TouchScreenButton" parent="Right_controls" groups=["activate_button_mobile", "mobile_disable_for_plane_minigame"]]
+visible = false
+position = Vector2(-152, 176)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("9_7immt")
+texture_pressed = ExtResource("10_jwyxe")
+shape = SubResource("CircleShape2D_pq46h")
+passby_press = true
+action = "Activate"
+visibility_mode = 1
+
+[node name="TouchScreenButton_next_weapon" type="TouchScreenButton" parent="Right_controls" groups=["Player_controls_mobile", "mobile_disable_for_plane_minigame"]]
+position = Vector2(360, 48)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("7_cx8or")
+texture_pressed = ExtResource("8_a3tn0")
+shape = SubResource("RectangleShape2D_hinph")
+passby_press = true
+action = "Next_weapon"
+visibility_mode = 1
+
+[node name="TouchScreenButton_previous_weapon" type="TouchScreenButton" parent="Right_controls" groups=["Player_controls_mobile", "mobile_disable_for_plane_minigame"]]
+position = Vector2(232, 48)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("7_cx8or")
+texture_pressed = ExtResource("8_a3tn0")
+shape = SubResource("RectangleShape2D_hinph")
+passby_press = true
+action = "Previous_weapon"
+visibility_mode = 1
+
+[node name="Control_pause" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.504
+anchor_right = 0.566667
+anchor_bottom = 0.096
+offset_left = -135.68
+offset_bottom = -7.68
+metadata/_edit_use_anchors_ = true
+
+[node name="TSB_pause" type="TouchScreenButton" parent="Control_pause" groups=["mobile_disable_for_plane_minigame"]]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.34902)
+position = Vector2(192, 16)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("9_f2mv3")
+texture_pressed = ExtResource("10_j3xmg")
+shape = SubResource("RectangleShape2D_1h6t7")
+passby_press = true
+action = "Pause"
+visibility_mode = 1
+
+[node name="TSB_hp_refill" type="TouchScreenButton" parent="Control_pause" groups=["Player_controls_mobile", "mobile_disable_for_plane_minigame"]]
+modulate = Color(1, 1, 1, 0.34902)
+position = Vector2(-224, 40)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("13_hmvd3")
+texture_pressed = ExtResource("14_d2qbd")
+shape = SubResource("CircleShape2D_pq46h")
+action = "Use_hp_refill"
+visibility_mode = 1
+
+[node name="Plane_minigame" type="Node2D" parent="." groups=["minigame_only", "mobile_controls_for_plane_minigame"]]
+visible = false
+
+[node name="TSB_down" type="TouchScreenButton" parent="Plane_minigame"]
+modulate = Color(1, 1, 1, 0.34902)
+position = Vector2(352, 856)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_r205v")
+texture_pressed = ExtResource("2_8o6h4")
+shape = SubResource("ConvexPolygonShape2D_48e0e")
+passby_press = true
+action = "Down"
+visibility_mode = 1
+
+[node name="TSB_up" type="TouchScreenButton" parent="Plane_minigame"]
+modulate = Color(1, 1, 1, 0.34902)
+position = Vector2(232, 808)
+rotation = -1.5708
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_r205v")
+texture_pressed = ExtResource("2_8o6h4")
+shape = SubResource("RectangleShape2D_yfuoc")
+passby_press = true
+action = "Up"
+visibility_mode = 1
+
+[node name="Left_and_right" type="Node2D" parent="." groups=["Player_controls_mobile"]]
+position = Vector2(27, 0)
+
+[node name="TouchScreenButton_left" type="TouchScreenButton" parent="Left_and_right" groups=["Player_controls_mobile"]]
+position = Vector2(165, 856)
+rotation = -3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("1_r205v")
+texture_pressed = ExtResource("2_8o6h4")
+shape = SubResource("ConvexPolygonShape2D_54vnp")
+passby_press = true
+action = "Left"
+visibility_mode = 1
+
+[node name="TouchScreenButton_right" type="TouchScreenButton" parent="Left_and_right" groups=["Player_controls_mobile"]]
+position = Vector2(357, 856)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_r205v")
+texture_pressed = ExtResource("2_8o6h4")
+shape = SubResource("ConvexPolygonShape2D_54vnp")
+passby_press = true
+action = "Right"
+visibility_mode = 1
+
+[connection signal="pressed" from="Control_pause/TSB_pause" to="." method="_on_tsb_pause_pressed"]

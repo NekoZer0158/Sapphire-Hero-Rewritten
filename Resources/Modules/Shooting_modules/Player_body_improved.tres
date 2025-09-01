@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Shooting_module" load_steps=4 format=3 uid="uid://e1itc2y3stmb"]
+
+[ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="1_sdywf"]
+[ext_resource type="Resource" uid="uid://bmmt2jt6crsrh" path="res://Resources/Weapons/Improved_weapon.tres" id="2_krj2m"]
+[ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="2_mq6vw"]
+
+[resource]
+script = ExtResource("1_sdywf")
+weapons = Array[ExtResource("2_mq6vw")]([ExtResource("2_krj2m")])
+module_name = "No_name"

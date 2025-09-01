@@ -1,0 +1,615 @@
+[gd_scene load_steps=29 format=3 uid="uid://drkwbg6xx3j41"]
+
+[ext_resource type="Script" uid="uid://cxdtxsctr2tt0" path="res://Scripts/Bodies/Moving_body_extended.gd" id="1_wnrxd"]
+[ext_resource type="Shader" uid="uid://d1by08iiw3b3f" path="res://Resources/Shaders/Change_specific_color.gdshader" id="5_a7whe"]
+[ext_resource type="Texture2D" uid="uid://bclnqo4wsrmkq" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Body.png" id="6_vqklj"]
+[ext_resource type="Texture2D" uid="uid://ddet5k66wnaih" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Head.png" id="7_h33mu"]
+[ext_resource type="Texture2D" uid="uid://cvi6ec4ucoqf8" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Arm.png" id="8_pj4qm"]
+[ext_resource type="Texture2D" uid="uid://df8fhi0rl7i4i" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Hand.png" id="9_fnxl7"]
+[ext_resource type="Texture2D" uid="uid://w63r6e6kavj8" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Hand_shoot.png" id="10_30320"]
+[ext_resource type="Texture2D" uid="uid://bw7ninpeporsh" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Arm_left.png" id="10_fvon1"]
+[ext_resource type="Texture2D" uid="uid://bann4udd48m5d" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Leg_up.png" id="11_o3d4e"]
+[ext_resource type="Texture2D" uid="uid://bejbh824p8cfx" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Leg_down.png" id="12_8qyls"]
+[ext_resource type="Texture2D" uid="uid://bkiimlc2k2gla" path="res://Sprites/Boss/Black_Baron/Phase_3_destroyed/Leg_down_destroyed.png" id="13_1byt4"]
+[ext_resource type="Animation" uid="uid://ch42uahfaurma" path="res://Resources/Animations/Moving_bodies/Legs/in_air.res" id="13_2ndip"]
+[ext_resource type="Animation" uid="uid://csojjxghapq7d" path="res://Resources/Animations/Moving_bodies/Black_Baron/moving.res" id="14_1l41u"]
+[ext_resource type="Animation" uid="uid://dxp7sywxlu4a" path="res://Resources/Animations/Moving_bodies/Legs/nothing.res" id="15_g4uji"]
+[ext_resource type="Script" uid="uid://c14phe1kgdy8u" path="res://Scripts/Bodies/Extra/Vision.gd" id="16_wvivc"]
+[ext_resource type="Script" uid="uid://dymytd0vhiva2" path="res://Scripts/Bodies/Extra/Ground_check.gd" id="17_8tov1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwdqo"]
+size = Vector2(12, 35.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5olb"]
+shader = ExtResource("5_a7whe")
+shader_parameter/color = Color(0.05, 0.05, 0.05, 1)
+shader_parameter/change_this = Color(0.94902, 0, 0.521569, 1)
+
+[sub_resource type="Animation" id="Animation_rhiva"]
+resource_name = "in_air"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_left/Hand_shoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Arm_left:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Arm_left:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Arm_left:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Arm_left/Hand_shoot:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yiu5s"]
+resource_name = "moving"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_left/Hand_shoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, -1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Arm_left:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Arm_left:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Arm_left:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Arm_left/Hand_shoot:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_1d1ao"]
+resource_name = "nothing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_left/Hand_shoot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Arm_left:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Arm_left:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Arm_left:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Arm_left/Hand_shoot:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sobtm"]
+resource_name = "shoot"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_left/Hand_shoot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Arm_left:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Arm_left:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Arm_left/Hand_shoot:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Arm_left:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djs2s"]
+_data = {
+&"in_air": SubResource("Animation_rhiva"),
+&"moving": SubResource("Animation_yiu5s"),
+&"nothing": SubResource("Animation_1d1ao"),
+&"shoot": SubResource("Animation_sobtm")
+}
+
+[sub_resource type="Animation" id="Animation_og3cy"]
+resource_name = "in_air"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_right/Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_3d2ja"]
+resource_name = "moving"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.523599]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_right/Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_q4avw"]
+resource_name = "nothing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Arm_right/Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arm_right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgew8"]
+_data = {
+&"in_air": SubResource("Animation_og3cy"),
+&"moving": SubResource("Animation_3d2ja"),
+&"nothing": SubResource("Animation_q4avw")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cm6pe"]
+_data = {
+&"in_air": ExtResource("13_2ndip"),
+&"moving": ExtResource("14_1l41u"),
+&"nothing": ExtResource("15_g4uji")
+}
+
+[node name="Boss_body" type="CharacterBody2D" node_paths=PackedStringArray("timer_jump", "timer_fall", "left_arm_anim", "right_arm_anim", "legs_anim", "markers", "body_sprite", "timer_reload", "timer_immortality_frames")]
+z_index = 45
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_wnrxd")
+jump_velocity = -900.0
+timer_jump = NodePath("Timer_jump")
+timer_fall = NodePath("Timer_fall")
+left_arm_anim = NodePath("Left_arm_anim")
+right_arm_anim = NodePath("Right_arm_anim")
+legs_anim = NodePath("Legs_anim")
+inertia = false
+hp = 15
+def = 1
+speed = 1600.0
+reload_time = 0.6
+markers = [NodePath("Marker2D")]
+body_sprite = NodePath("Body")
+timer_reload = NodePath("Timer_reload")
+timer_immortality_frames = NodePath("Timer_immortality")
+infinite_ammo = true
+immortality_frames = true
+can_change_color = true
+immortal = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -2
+position = Vector2(1, -17.75)
+shape = SubResource("RectangleShape2D_pwdqo")
+metadata/_edit_lock_ = true
+
+[node name="Timer_jump" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_fall" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_immortality" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(19.0463, -23.6993)
+
+[node name="Body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_j5olb")
+position = Vector2(0, -20)
+texture = ExtResource("6_vqklj")
+
+[node name="Head" type="Sprite2D" parent="Body"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("7_h33mu")
+
+[node name="Arm_right" type="Sprite2D" parent="Body"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("8_pj4qm")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="Body/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("9_fnxl7")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("10_fvon1")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="Body/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("10_30320")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("11_o3d4e")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Body/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("13_1byt4")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("11_o3d4e")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="Body/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("12_8qyls")
+offset = Vector2(0, 3)
+
+[node name="Left_arm_anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_djs2s")
+}
+
+[node name="Right_arm_anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rgew8")
+}
+
+[node name="Legs_anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cm6pe")
+}
+
+[node name="Vision" type="Node2D" parent="." node_paths=PackedStringArray("raycasts", "raycast_legs", "parent_body")]
+script = ExtResource("16_wvivc")
+raycasts = [NodePath("Eyes"), NodePath("Body"), NodePath("Legs")]
+raycast_legs = NodePath("Legs_jump")
+parent_body = NodePath("..")
+detect_this_type_of_bodies = Array[int]([0])
+
+[node name="Eyes" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -31)
+target_position = Vector2(500, 0)
+collision_mask = 74
+
+[node name="Body" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -20)
+target_position = Vector2(250, 0)
+collision_mask = 74
+
+[node name="Legs" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -2)
+target_position = Vector2(250, 0)
+collision_mask = 74
+
+[node name="Legs_jump" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -5)
+target_position = Vector2(30, 0)
+collision_mask = 8
+
+[node name="Ground_check" type="Node2D" parent="." node_paths=PackedStringArray("raycasts")]
+script = ExtResource("17_8tov1")
+raycasts = [NodePath("Left"), NodePath("Right")]
+
+[node name="Left" type="RayCast2D" parent="Ground_check"]
+position = Vector2(-6, 0)
+target_position = Vector2(0, 12)
+collision_mask = 8
+
+[node name="Right" type="RayCast2D" parent="Ground_check"]
+position = Vector2(8, 0)
+target_position = Vector2(0, 12)
+collision_mask = 8
+
+[node name="Timer" type="Timer" parent="Ground_check"]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer_jump" to="." method="_on_timer_jump_timeout"]
+[connection signal="timeout" from="Timer_fall" to="." method="_on_timer_fall_timeout"]
+[connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
+[connection signal="timeout" from="Timer_immortality" to="." method="_on_timer_immortality_timeout"]
+[connection signal="animation_finished" from="Left_arm_anim" to="." method="_on_left_arm_anim_animation_finished"]
+[connection signal="detected_a_robot_body" from="Vision" to="." method="_on_vision_detected_a_robot_body"]
+[connection signal="nearby_tile" from="Vision" to="." method="_on_nearby_tile"]
+[connection signal="no_ground" from="Ground_check" to="." method="_on_ground_check_no_ground"]
+[connection signal="timeout" from="Ground_check/Timer" to="Ground_check" method="_on_timer_timeout"]

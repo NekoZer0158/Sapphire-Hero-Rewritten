@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=4 uid="uid://2kwu6f0vstta"]
+
+[ext_resource type="Script" uid="uid://c2ol41wnvt2mj" path="res://Scripts/UI/Level_preview.gd" id="1_rwbts"]
+[ext_resource type="TileSet" uid="uid://cfjs1bni846ln" path="res://Resources/Tilesets/Kostyanoy.tres" id="2_x4uiy"]
+[ext_resource type="PackedScene" uid="uid://exretkwtgtmh" path="res://Scenes/Objects/Background/Trees/Trees_Kostyanoy_preview.tscn" id="6_8w8p4"]
+[ext_resource type="Texture2D" uid="uid://cb4uqlabphi5h" path="res://Sprites/Enemies/Moving/Riding_robot/body.png" id="6_dogp4"]
+[ext_resource type="Texture2D" uid="uid://gjdyjx8vhwn0" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_spiked.png" id="6_mydap"]
+[ext_resource type="Texture2D" uid="uid://ctatyo4q5mdsu" path="res://Sprites/Enemies/Moving/Riding_robot/head.png" id="7_4ghmn"]
+[ext_resource type="Texture2D" uid="uid://x03pjv40avdn" path="res://Sprites/Effects/Flying_robot_flame_orange.png" id="7_lswsl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a58yd"]
+
+[node name="Level_preview" type="Node2D"]
+z_index = 90
+script = ExtResource("1_rwbts")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+process_mode = 4
+z_index = 15
+tile_map_data = PackedByteArray("AAD6//7/BAAAAAAAAAD7////BAAAAAAAAAD8/wAABAAAAAAAAAD9/wAABAAAAAAAAAD+////BAAAAAAAAAD//wAABAAAAAAAAAD6////BAABAAEAAAD6/wAABAABAAEAAAD6/wEABAABAAEAAAD7/wEABAABAAEAAAD7/wAABAABAAEAAAD8/wEABAABAAEAAAD9/wEABAABAAEAAAD+/wEABAABAAEAAAD//wEABAABAAEAAAD7/wIABAACAAAAAAD+/wIABAACAAAAAAD7/wMABAACAAEAAAD8/wMABAACAAEAAAD6/wIABAACAAEAAAD9/wIABAACAAEAAAD+/wMABAACAAEAAAD//wIABAACAAEAAAD6/wMABAADAAEAAAD9/wMABAADAAEAAAD//wMABAADAAAAAAD8/wIABAADAAAAAAD+/wAABAABAAEAAAA=")
+tile_set = ExtResource("2_x4uiy")
+
+[node name="TileMapLayerBackground" type="TileMapLayer" parent="."]
+z_index = 15
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAABAAAAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAACAAAAAwAAAAAAAAACAAEAAwAAAAAAAAACAAIAAwAAAAAAAAACAAMAAwAAAAAAAAADAAAAAwAAAAAAAAADAAEAAwAAAAAAAAADAAIAAwAAAAAAAAADAAMAAwAAAAAAAAAEAAAAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAIAAwAAAAAAAAAEAAMAAwAAAAAAAAAFAAAAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAFAAMAAwAAAAAAAAA=")
+tile_set = ExtResource("2_x4uiy")
+
+[node name="Sky" type="Sprite2D" parent="."]
+modulate = Color(0.431373, 0.568627, 0.921569, 1)
+z_index = 10
+position = Vector2(-7.62939e-06, -16)
+scale = Vector2(192, 96)
+texture = SubResource("CanvasTexture_a58yd")
+
+[node name="Trees_Kostyanoy" parent="." instance=ExtResource("6_8w8p4")]
+z_index = 10
+position = Vector2(-272, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 45
+position = Vector2(40, 24)
+texture = ExtResource("6_mydap")
+hframes = 4
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-14, 9)
+texture = ExtResource("7_lswsl")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(11, 9)
+texture = ExtResource("7_lswsl")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 60
+position = Vector2(-48, -12)
+texture = ExtResource("6_dogp4")
+hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(-48, -32)
+texture = ExtResource("7_4ghmn")
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D3"]
+position = Vector2(-3, 4)
+texture = ExtResource("7_lswsl")
+offset = Vector2(1.5, 1.5)
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D3"]
+position = Vector2(0, 4)
+texture = ExtResource("7_lswsl")
+offset = Vector2(1.5, 1.5)
+hframes = 2

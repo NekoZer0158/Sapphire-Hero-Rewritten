@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://77wnmhldhupb"]
+
+[ext_resource type="Script" uid="uid://bjkvo02hs0jc6" path="res://Scripts/AI/Boss/Black_Baron_phase_3.gd" id="1_mtybd"]
+[ext_resource type="PackedScene" uid="uid://disaf3o15d2hb" path="res://Scenes/Bodies/Boss/Black_Baron_phase_3.tscn" id="2_frflw"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_nfomo"]
+
+[node name="Black_Baron_phase_3" type="Node2D"]
+script = ExtResource("1_mtybd")
+
+[node name="Boss_body" parent="." instance=ExtResource("2_frflw")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Boss_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(32.4, 14.6)
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Boss_UI" parent="Boss_UI" instance=ExtResource("3_nfomo")]
+visible = false
+use_boss_UI = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="now_dead" from="Boss_body" to="." method="_boss_death"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://km4t6p44lut2"]
+
+[ext_resource type="Script" uid="uid://boc46be221usg" path="res://Scripts/AI/Enemies/Flying/Flying_head_Unknown.gd" id="1_v3wa7"]
+[ext_resource type="PackedScene" uid="uid://hbx2d1yswijg" path="res://Scenes/Bodies/Enemies/Flying/Flying_head_Unknown.tscn" id="2_50dxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j27o"]
+size = Vector2(900, 500)
+
+[node name="Flying_robot_Unknown" type="Node2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_v3wa7")
+timer = NodePath("Timer")
+
+[node name="Robot_body" parent="." instance=ExtResource("2_50dxg")]
+position = Vector2(0, -8)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Robot_body"]
+position = Vector2(0, 8)
+scale = Vector2(48.05, 27.3)
+enable_node_path = NodePath("../..")
+
+[node name="RayCast2D" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(0, -15)
+collision_mask = 8
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3j27o")
+
+[connection signal="now_dead" from="Robot_body" to="." method="_on_robot_body_now_dead"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

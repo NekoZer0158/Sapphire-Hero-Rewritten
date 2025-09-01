@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmx7j3be5qg6s"]
+
+[ext_resource type="Script" uid="uid://dsjst81c2oxmv" path="res://Scripts/Player/Player.gd" id="1_l8q7k"]
+[ext_resource type="PackedScene" uid="uid://dedgw45ycee0b" path="res://Scenes/Player/Player_body.tscn" id="2_h21fa"]
+[ext_resource type="AudioStream" uid="uid://cibm53tn0gnfe" path="res://Audio/Sound/Laser_Shoot.wav" id="2_rtucp"]
+[ext_resource type="AudioStream" uid="uid://cac723nclwjif" path="res://Audio/Sound/Laser_Shoot_alt.wav" id="3_i6gtm"]
+[ext_resource type="PackedScene" uid="uid://ctbq18ipo4hje" path="res://Scenes/UI/Button_UI.tscn" id="3_kond2"]
+[ext_resource type="PackedScene" uid="uid://dcixur6fqo43g" path="res://Scenes/UI/Pause_UI.tscn" id="4_5t0ei"]
+[ext_resource type="PackedScene" uid="uid://cle5aclnyr280" path="res://Scenes/UI/Player_UI.tscn" id="4_ijkqd"]
+[ext_resource type="AudioStream" uid="uid://bpfr252bmmlse" path="res://Audio/Sound/Laser_Shoot_alt_2.wav" id="4_nyyd6"]
+[ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="4_u0eov"]
+[ext_resource type="Resource" uid="uid://byjwl1edalc6s" path="res://Resources/Weapons/Default_weapon.tres" id="5_7y1h0"]
+[ext_resource type="AudioStream" uid="uid://eeumyiri7e6g" path="res://Audio/Sound/Laser_Shoot_alt_3.wav" id="5_lfkwm"]
+[ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="5_pqca5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n4f5e"]
+random_pitch = 1.1
+random_volume_offset_db = 0.25
+streams_count = 4
+stream_0/stream = ExtResource("2_rtucp")
+stream_1/stream = ExtResource("3_i6gtm")
+stream_2/stream = ExtResource("4_nyyd6")
+stream_3/stream = ExtResource("5_lfkwm")
+
+[sub_resource type="Resource" id="Resource_80loi"]
+resource_local_to_scene = true
+script = ExtResource("4_u0eov")
+weapons = Array[ExtResource("5_pqca5")]([ExtResource("5_7y1h0")])
+module_name = "No_name"
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("player_body", "player_UI", "player_camera", "activation_button", "timer_after_death")]
+script = ExtResource("1_l8q7k")
+player_body = NodePath("PlayerBody")
+player_UI = NodePath("UI/Player_UI")
+player_camera = NodePath("PlayerBody/Camera2D")
+activation_button = NodePath("PlayerBody/Button_UI")
+timer_after_death = NodePath("Timer_after_death")
+time_before_restart = 2.0
+transition_time = 0.5
+sounds = Array[AudioStream]([SubResource("AudioStreamRandomizer_n4f5e")])
+
+[node name="PlayerBody" parent="." instance=ExtResource("2_h21fa")]
+amount_of_jumps = 2
+hp = 15
+shooting_module = SubResource("Resource_80loi")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+drag_vertical_enabled = true
+drag_bottom_margin = 0.7
+editor_draw_limits = true
+
+[node name="Button_UI" parent="PlayerBody" instance=ExtResource("3_kond2")]
+visible = false
+position = Vector2(0, -48)
+cur_button = "R"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Player_UI" parent="UI" node_paths=PackedStringArray("pause_UI") instance=ExtResource("4_ijkqd")]
+process_mode = 3
+anchors_preset = -1
+pause_UI = NodePath("../Pause_UI")
+
+[node name="Teleport_transition" type="ColorRect" parent="UI"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -600.0
+offset_top = -48.0
+offset_right = 2720.0
+offset_bottom = 1112.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Pause_UI" parent="UI" instance=ExtResource("4_5t0ei")]
+visible = false
+
+[node name="Timer_after_death" type="Timer" parent="."]
+one_shot = true
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 7
+
+[node name="Transition" type="ColorRect" parent="Transition"]
+z_index = 1470
+anchors_preset = -1
+anchor_top = -0.377778
+anchor_bottom = 0.155556
+offset_left = -1432.0
+offset_top = -24.0
+offset_right = 3624.0
+offset_bottom = 1136.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer_sound" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[connection signal="ammo_changed" from="PlayerBody" to="UI/Player_UI" method="_set_ammo"]
+[connection signal="got_hit" from="PlayerBody" to="UI/Player_UI" method="_set_hp"]
+[connection signal="hp_refill_change" from="PlayerBody" to="UI/Player_UI" method="_on_player_body_hp_refill_change"]
+[connection signal="now_dead" from="PlayerBody" to="." method="_on_player_body_now_dead"]
+[connection signal="use_weapon" from="PlayerBody" to="." method="_on_player_body_use_weapon"]
+[connection signal="weapon_changed" from="PlayerBody" to="UI/Player_UI" method="_on_player_body_weapon_changed"]
+[connection signal="timeout" from="Timer_after_death" to="." method="_on_timer_after_death_timeout"]

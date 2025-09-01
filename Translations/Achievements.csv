@@ -1,0 +1,19 @@
+keys,ru,en
+Elevator_no_damage,Лифт без урона,Elevator no damage
+Elevator_no_damage_desc,Пройдите этап с лифтом на уровне Костяного не получая урон (без улучшения),Complete elevator part in Kostyanoy level without getting any damage (no upgrade)
+HP_refills_master,Повелитель хилок,HP refills master
+HP_refills_master_desc,Соберите все хилки,Collect all HP refills
+Fastest,Быстрейший,The fastest
+"Fastest_desc","Пройдите уровень Цеппелина менее, чем за 1:40 (без улучшения)","Complete Zeppelin level less than 1:40 (no upgrade)"
+Unknown_head,Безголовый робот,Unknown head
+Unknown_head_desc,Уничтожьте голову неизвестного,Destroy unknown head
+No_turrets,Без турелей,Turret-free zone
+No_turrets_desc,Уничтожьте все турели на уровне Ледяного (без чекпоинтов),Destroy all turrets on Ledyanoy level (without checkpoints)
+FASTER_FASTER_FASTER,БЫСТРЕЕ БЫСТРЕЕ,FASTER FASTER
+"FASTER_FASTER_FASTER_desc","Пройдите уровень Ледяного менее, чем за 1:20","Complete Ledyanoy level less than 1:20" 
+Spikes,Частично пацифист,Partially pacifist
+"Spikes_desc","Дойдите до босса на уровне Костяного, уничтожая только шипастых роботов (без улучшения, без чекпоинтов)","Get to the boss of Kostyanoy level, destroying only robot with spikes (no upgrade, without checkpoints)"
+"Moon_achievement","Не синяя вовсе","Not blue at all"
+"Moon_achievement_desc","Ночью она прекраснее всего","It's the most beautiful at night"
+Black_baron_achievement,Смертный бой,Last fight
+"Black_baron_achievement_desc","Одолейте финального босса не получая урон","Defeat final boss without getting any damage"

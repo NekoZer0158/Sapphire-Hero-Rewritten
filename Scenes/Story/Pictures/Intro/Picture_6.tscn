@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://fue1ras7w1kr"]
+
+[ext_resource type="Texture2D" uid="uid://bocentrs370bc" path="res://Sprites/Story/Picture_6.png" id="1_buwot"]
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 70
+texture = ExtResource("1_buwot")

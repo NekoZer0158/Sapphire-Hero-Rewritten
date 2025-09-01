@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8s0wygswfgvw"]
+
+[ext_resource type="Script" uid="uid://5w00pkftrdlq" path="res://Scripts/AI/Boss/Core.gd" id="1_6g05u"]
+[ext_resource type="Texture2D" uid="uid://b8a21y4yxqomy" path="res://Sprites/Boss/Core/Core.png" id="1_jfex6"]
+[ext_resource type="Script" uid="uid://h83eof6jq2ar" path="res://Scripts/Bodies/Robot_body.gd" id="2_86ge2"]
+[ext_resource type="Texture2D" uid="uid://co1eleomh4xf6" path="res://Sprites/Boss/Core/Core_two_parts.png" id="3_482o5"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_e0ejn"]
+[ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="3_k5lwp"]
+[ext_resource type="Resource" uid="uid://d1cyftuiwsqid" path="res://Resources/Weapons/Core_weapon.tres" id="4_c2vrj"]
+[ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="6_5q7n2"]
+
+[sub_resource type="Resource" id="Resource_q3p81"]
+script = ExtResource("3_k5lwp")
+weapons = Array[ExtResource("6_5q7n2")]([ExtResource("4_c2vrj")])
+module_name = "No_name"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0y02"]
+size = Vector2(18, 18)
+
+[node name="Core" type="Node2D" node_paths=PackedStringArray("timer_shoot_time")]
+script = ExtResource("1_6g05u")
+timer_shoot_time = NodePath("Timer_shoot_time")
+
+[node name="Destryoed_core_sprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("1_jfex6")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="Last_core_sprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("3_482o5")
+vframes = 2
+
+[node name="Boss_body" type="CharacterBody2D" parent="." node_paths=PackedStringArray("markers", "body_sprite", "death_effect_marker", "timer_reload")]
+collision_layer = 2
+script = ExtResource("2_86ge2")
+hp = 15
+def = 2
+speed = 0.0
+reload_time = 0.6
+shooting_module = SubResource("Resource_q3p81")
+markers = [NodePath("Marker_shoot")]
+body_sprite = NodePath("Sprite2D")
+death_effect_marker = NodePath("Marker_death_effect")
+timer_reload = NodePath("Timer_reload")
+infinite_ammo = true
+mirror_sprite = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Boss_body"]
+texture = ExtResource("1_jfex6")
+hframes = 4
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_body"]
+position = Vector2(0, 42)
+shape = SubResource("RectangleShape2D_f0y02")
+
+[node name="Timer_reload" type="Timer" parent="Boss_body"]
+
+[node name="Marker_death_effect" type="Marker2D" parent="Boss_body"]
+position = Vector2(0, 42)
+
+[node name="Marker_shoot" type="Marker2D" parent="Boss_body"]
+position = Vector2(0, 42)
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+
+[node name="Boss_UI" parent="Boss_UI" node_paths=PackedStringArray("boss_body") instance=ExtResource("3_e0ejn")]
+visible = false
+boss_HP_color = Color(0.890196, 0.878431, 0.160784, 1)
+boss_body = NodePath("../../Boss_body")
+
+[node name="Timer_shoot_time" type="Timer" parent="."]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(27.85, 11.9)
+metadata/_edit_lock_ = true
+
+[node name="Timer_frame_change" type="Timer" parent="."]
+
+[connection signal="got_hit" from="Boss_body" to="Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]
+[connection signal="now_dead" from="Boss_body" to="." method="_on_boss_body_now_dead"]
+[connection signal="timeout" from="Boss_body/Timer_reload" to="Boss_body" method="_on_timer_reload_timeout"]
+[connection signal="timeout" from="Timer_shoot_time" to="." method="_on_timer_shoot_time_timeout"]
+[connection signal="timeout" from="Timer_frame_change" to="." method="_on_timer_frame_change_timeout"]

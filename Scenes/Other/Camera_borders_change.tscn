@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bephpqly016r3"]
+
+[ext_resource type="Script" uid="uid://lxo7a2dl6d01" path="res://Scripts/Other/Camera_borders_change.gd" id="1_iqruf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ims3b"]
+size = Vector2(5664, 1080)
+
+[node name="Camera_borders_change" type="Node2D"]
+script = ExtResource("1_iqruf")
+
+[node name="Top" type="Marker2D" parent="."]
+
+[node name="Bottom" type="Marker2D" parent="."]
+position = Vector2(0, 1080)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2832, 540)
+shape = SubResource("RectangleShape2D_ims3b")
+debug_color = Color(0, 0.596078, 0.701961, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=4 uid="uid://bobuo8vmmml1e"]
+
+[ext_resource type="Script" uid="uid://c2ol41wnvt2mj" path="res://Scripts/UI/Level_preview.gd" id="1_38auw"]
+[ext_resource type="TileSet" uid="uid://kbhknmobpgug" path="res://Resources/Tilesets/Zeppelin.tres" id="2_vci1k"]
+[ext_resource type="PackedScene" uid="uid://btotgjnn6c0hn" path="res://Scenes/Objects/Doors/Door_Zeppelin.tscn" id="3_7k6e1"]
+[ext_resource type="Texture2D" uid="uid://dmrsq3tpscyub" path="res://Sprites/Enemies/Flying/golden_33/Flying_robot_bomber.png" id="5_u32km"]
+[ext_resource type="Texture2D" uid="uid://657h34yfvr7x" path="res://Sprites/Effects/Flying_robot_flame_white.png" id="6_aw53d"]
+[ext_resource type="Texture2D" uid="uid://bubgtilvh7gpb" path="res://Sprites/Objects/Computer.png" id="6_h3lua"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a58yd"]
+
+[node name="Level_preview" type="Node2D"]
+z_index = 90
+script = ExtResource("1_38auw")
+
+[node name="TileMap" type="Node2D" parent="."]
+z_index = 50
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+process_mode = 4
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD6/wMABAAAAAAAAAD7/wMABAAAAAAAAAD8/wMABAACAAAAAAACAAMABAAAAAIAAAADAAMABAAFAAAAAAAEAAMABAAFAAAAAAAFAAMABAAAAAIAAAD//wMABAAAAAIAAAAAAAMABAAAAAIAAAABAAMABAAAAAIAAAD9/wMABAACAAAAAAD+/wMABAACAAAAAAADAAIABAAFAAEAAAAEAAIABAAFAAEAAAAEAAEABAAAAAIAAAADAAEABAAAAAIAAAD///7/BAAFAAAAADD///3/BAAFAAEAAAD///z/BAAFAAEAAAAAAPz/BAAFAAAAADABAPz/BAAFAAEAAAACAPz/BAAFAAAAADADAPz/BAAFAAAAADAEAPz/BAAFAAAAADAFAPz/BAAFAAEAAAABAP7/BAAFAAAAADAFAP7/BAAFAAAAADABAP3/BAAFAAEAAAAFAP3/BAAFAAEAAAA=")
+tile_set = ExtResource("2_vci1k")
+
+[node name="Background" type="TileMapLayer" parent="TileMap"]
+z_index = -25
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD//wIAAwACAAAAAAD//wEAAwACAAAAAAD//wAAAwACAAAAAAD/////AwACAAAAAAD///7/AwACAAAAAAD///3/AwACAAAAAAD///z/AwACAAAAAAAAAPz/AwACAAAAAAABAPz/AwACAAAAAAACAPz/AwACAAAAAAADAPz/AwACAAAAAAAEAPz/AwACAAAAAAAFAPz/AwACAAAAAAAFAP3/AwACAAAAAAAFAP7/AwACAAAAAAAFAP//AwACAAAAAAAFAAAAAwACAAAAAAAFAAEAAwACAAAAAAAFAAIAAwACAAAAAAAEAAIAAwACAAAAAAADAAIAAwACAAAAAAACAAIAAwACAAAAAAABAAIAAwACAAAAAAAAAAEAAwACAAAAAAAAAAAAAwACAAAAAAAAAP//AwACAAAAAAAAAP7/AwACAAAAAAAAAP3/AwACAAAAAAABAP3/AwACAAAAAAACAP3/AwACAAAAAAADAP3/AwACAAAAAAAEAP7/AwACAAAAAAAEAP//AwACAAAAAAAEAAAAAwACAAAAAAADAAAAAwACAAAAAAADAAEAAwACAAAAAAACAAEAAwACAAAAAAABAAEAAwACAAAAAAABAAAAAwACAAAAAAAAAAIAAwACAAAAAAACAAAAAwACAAAAAAADAP//AwACAAAAAAADAP7/AwACAAAAAAAEAAEAAwACAAAAAAABAP//AwACAAAAAAABAP7/AwACAAAAAAACAP7/AwACAAAAAAACAP//AwACAAAAAAAEAP3/AwACAAAAAAD+/wIAAwACAAMAAAD9/wIAAwACAAMAAAD8/wIAAwADAAQAAAD7/wIAAwADAAQAAAD6/wIAAwADAAQAAAD6/wEAAwACAAMAAAD7/wEAAwACAAMAAAD8/wEAAwACAAMAAAA=")
+tile_set = ExtResource("2_vci1k")
+
+[node name="Foreground" type="TileMapLayer" parent="TileMap"]
+z_index = 120
+use_parent_material = true
+tile_set = ExtResource("2_vci1k")
+
+[node name="Sky" type="Sprite2D" parent="."]
+modulate = Color(0.431373, 0.568627, 0.921569, 1)
+z_index = 10
+position = Vector2(-7.62939e-06, -8)
+scale = Vector2(192, 112)
+texture = SubResource("CanvasTexture_a58yd")
+
+[node name="Door_Zeppelin" parent="." instance=ExtResource("3_7k6e1")]
+z_index = 90
+position = Vector2(-8, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 55
+position = Vector2(55, -37)
+texture = ExtResource("5_u32km")
+
+[node name="Flame_left" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-12, 10)
+texture = ExtResource("6_aw53d")
+hframes = 2
+
+[node name="Flame_right" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(13, 10)
+texture = ExtResource("6_aw53d")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 60
+position = Vector2(-42, 24)
+texture = ExtResource("6_h3lua")
+hframes = 2

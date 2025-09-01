@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqyvnr7ae2kfw"]
+
+[ext_resource type="Script" uid="uid://05hfhc6xqh0g" path="res://Scripts/AI/Enemies/Flying/Flying_robot_straight_AI.gd" id="1_jad3u"]
+[ext_resource type="PackedScene" uid="uid://f4bw2p0c3ksj" path="res://Scenes/Bodies/Enemies/Flying/Flying_robot_straight.tscn" id="2_sgkuc"]
+
+[node name="Flying_robot_straight" type="Node2D"]
+script = ExtResource("1_jad3u")
+
+[node name="Robot_body" parent="." instance=ExtResource("2_sgkuc")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Robot_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(28.63, 14.6)
+enable_node_path = NodePath("../..")
+
+[node name="RayCast_Up" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(0, -300)
+collision_mask = 74
+
+[node name="RayCast_Right" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(300, 0)
+collision_mask = 74
+
+[node name="RayCast_Down" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(0, 300)
+collision_mask = 74
+
+[node name="RayCast_Left" type="RayCast2D" parent="Robot_body"]
+target_position = Vector2(-300, 0)
+collision_mask = 74
+
+[node name="Near_raycasts" type="Node2D" parent="Robot_body"]
+
+[node name="RayCast_Up" type="RayCast2D" parent="Robot_body/Near_raycasts"]
+target_position = Vector2(0, -20)
+collision_mask = 72
+
+[node name="RayCast_Right" type="RayCast2D" parent="Robot_body/Near_raycasts"]
+target_position = Vector2(20, 0)
+collision_mask = 72
+
+[node name="RayCast_Down" type="RayCast2D" parent="Robot_body/Near_raycasts"]
+target_position = Vector2(0, 20)
+collision_mask = 72
+
+[node name="RayCast_Left" type="RayCast2D" parent="Robot_body/Near_raycasts"]
+target_position = Vector2(-20, 0)
+collision_mask = 72
+
+[connection signal="spikes_deactivated" from="Robot_body" to="." method="_on_robot_body_spikes_deactivated"]

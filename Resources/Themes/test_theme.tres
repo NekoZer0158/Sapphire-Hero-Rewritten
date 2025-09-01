@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b3os6jye00tyf"]
+
+[ext_resource type="Texture2D" uid="uid://bqxw0rsr138nq" path="res://Sprites/UI/Player/HP.png" id="2_ww7c2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq5eq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wvbl"]
+texture = ExtResource("2_ww7c2")
+axis_stretch_horizontal = 1
+
+[resource]
+ProgressBar/fonts/font = null
+ProgressBar/styles/background = SubResource("StyleBoxFlat_wq5eq")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_7wvbl")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdpysuyqcby5p"]
+
+[ext_resource type="Script" uid="uid://cqok0kibxu8em" path="res://Scripts/AI/Enemies/Moving/Default_enemy_AI.gd" id="1_qsibv"]
+[ext_resource type="PackedScene" uid="uid://d0y7og1dxpcw7" path="res://Scenes/Bodies/Enemies/Moving/Enemy_body_bronze.tscn" id="2_i2j2p"]
+
+[node name="Default_enemy" type="Node2D"]
+script = ExtResource("1_qsibv")
+
+[node name="Enemy_body" parent="." groups=["Enemy_soldier", "Without_spikes"] instance=ExtResource("2_i2j2p")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemy_body"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -125
+scale = Vector2(32, 22)
+enable_node_path = NodePath("../..")
+
+[node name="Timer_attacking" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_change_idle_state" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_check_everywhere" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="detected_a_body" from="Enemy_body" to="." method="_on_enemy_body_detected_a_body"]
+[connection signal="got_hit" from="Enemy_body" to="." method="_on_enemy_body_got_hit"]
+[connection signal="nearby_tile" from="Enemy_body" to="." method="_on_enemy_body_nearby_tile"]
+[connection signal="no_ground" from="Enemy_body" to="." method="_on_enemy_body_no_ground"]
+[connection signal="now_dead" from="Enemy_body" to="." method="_on_enemy_body_now_dead"]
+[connection signal="timeout" from="Timer_attacking" to="." method="_on_timer_attacking_timeout"]
+[connection signal="timeout" from="Timer_change_idle_state" to="." method="_on_timer_change_idle_state_timeout"]
+[connection signal="timeout" from="Timer_check_everywhere" to="." method="_on_timer_check_everywhere_timeout"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=3 uid="uid://tka35hbmjoyq"]
+
+[ext_resource type="Script" uid="uid://bqiov1k4u4ski" path="res://Scripts/Story/Cutscene.gd" id="1_bfxrs"]
+[ext_resource type="PackedScene" uid="uid://xo5nwporsnah" path="res://Scenes/Story/Pictures/Intro/Picture_1.tscn" id="2_ijl7u"]
+[ext_resource type="PackedScene" uid="uid://dof56tx4kb0rh" path="res://Scenes/Story/Pictures/Intro/Picture_2.tscn" id="3_3b5qf"]
+[ext_resource type="PackedScene" uid="uid://bxbsgbxv1r8u6" path="res://Scenes/Story/Pictures/Intro/Picture_3_real.tscn" id="4_hmfbu"]
+[ext_resource type="PackedScene" uid="uid://dp7u3fqqpjpc" path="res://Scenes/Story/Pictures/Intro/Picture_3.tscn" id="4_t3nyv"]
+[ext_resource type="PackedScene" uid="uid://b5qdo7y8cd151" path="res://Scenes/Story/Pictures/Intro/Picture_4.tscn" id="5_2epjj"]
+[ext_resource type="PackedScene" uid="uid://d4is227kbaes6" path="res://Scenes/Story/Pictures/Intro/Picture_5.tscn" id="6_x3mcy"]
+[ext_resource type="PackedScene" uid="uid://fue1ras7w1kr" path="res://Scenes/Story/Pictures/Intro/Picture_6.tscn" id="7_ad46l"]
+[ext_resource type="PackedScene" uid="uid://b82fharlkxdg8" path="res://Scenes/Story/Pictures/Intro/Picture_7.tscn" id="8_cgxqw"]
+[ext_resource type="PackedScene" uid="uid://rhme2p7p3okq" path="res://Scenes/Story/Pictures/Intro/Picture_8.tscn" id="9_5gmxt"]
+[ext_resource type="PackedScene" uid="uid://373sp1apyklp" path="res://Scenes/Story/Pictures/Intro/Picture_9.tscn" id="10_7pej8"]
+[ext_resource type="PackedScene" uid="uid://dmv8cfs30a55r" path="res://Scenes/Story/Pictures/Intro/Picture_10.tscn" id="11_tetck"]
+[ext_resource type="Theme" uid="uid://c74bxhe62fcnp" path="res://Resources/Themes/Cutscene.tres" id="13_e700c"]
+
+[node name="Intro" type="Control" node_paths=PackedStringArray("pictures_marker")]
+z_index = 1165
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bfxrs")
+all_pictures = Array[PackedScene]([ExtResource("2_ijl7u"), ExtResource("3_3b5qf"), ExtResource("4_hmfbu"), ExtResource("4_t3nyv"), ExtResource("5_2epjj"), ExtResource("6_x3mcy"), ExtResource("7_ad46l"), ExtResource("8_cgxqw"), ExtResource("9_5gmxt"), ExtResource("10_7pej8"), ExtResource("11_tetck")])
+pictures_marker = NodePath("Pictures_pos")
+text_first_word = "intro"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -7
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Pictures_pos" type="Marker2D" parent="."]
+position = Vector2(960, 340)
+scale = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 644.0
+offset_right = 1904.0
+offset_bottom = 1080.0
+theme = ExtResource("13_e700c")
+text = "some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 320
+layout_mode = 0
+offset_left = -1787.0
+offset_top = -44.0
+offset_right = 3804.0
+offset_bottom = 1163.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true

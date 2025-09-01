@@ -1,0 +1,196 @@
+[gd_scene load_steps=9 format=3 uid="uid://d15vccsjlbavr"]
+
+[ext_resource type="Script" uid="uid://45rtj0ukaem3" path="res://Scripts/Other/Mobile/Mobile_settings.gd" id="1_53kju"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_dv0cc"]
+[ext_resource type="Texture2D" uid="uid://dsftn6u81cus0" path="res://Sprites/Other/Mobile/Customization/Left_and_right.png" id="3_2tnf2"]
+[ext_resource type="Texture2D" uid="uid://62aywls08cyj" path="res://Sprites/Other/Mobile/Customization/Left_and_right_activated.png" id="4_flyxj"]
+[ext_resource type="Theme" uid="uid://b3os6jye00tyf" path="res://Resources/Themes/test_theme.tres" id="5_16q48"]
+[ext_resource type="Texture2D" uid="uid://bn5c2eslhw5iw" path="res://Sprites/Other/Mobile/Checkbox/Checkbox_unchecked.png" id="6_xamcb"]
+[ext_resource type="Texture2D" uid="uid://c40hj3loo0nd3" path="res://Sprites/Other/Mobile/Checkbox/Checkbox_checked.png" id="7_4kav2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8m8xy"]
+radius = 15.0
+
+[node name="Mobile" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_53kju")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Back" type="Button" parent="."]
+process_mode = 3
+z_index = 590
+layout_mode = 2
+offset_left = 1360.0
+offset_top = 968.0
+offset_right = 1664.0
+offset_bottom = 1016.0
+focus_mode = 0
+theme = ExtResource("2_dv0cc")
+text = "Back"
+flat = true
+
+[node name="Settings_options" type="VBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+offset_top = 568.0
+offset_right = 480.0
+offset_bottom = 1072.0
+mouse_filter = 2
+theme_override_constants/separation = 125
+alignment = 1
+
+[node name="Language" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_dv0cc")
+text = "Language:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cur_Language" type="Label" parent="Settings_options/Language"]
+layout_mode = 2
+anchor_left = 1.22917
+anchor_top = 0.1
+anchor_right = 2.8
+anchor_bottom = 1.225
+theme = ExtResource("2_dv0cc")
+text = "English"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TSB_right" type="TouchScreenButton" parent="Settings_options/Language"]
+position = Vector2(1344, -27)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_2tnf2")
+texture_pressed = ExtResource("4_flyxj")
+shape = SubResource("CircleShape2D_8m8xy")
+action = "Language_right"
+visibility_mode = 1
+
+[node name="TSB_left" type="TouchScreenButton" parent="Settings_options/Language"]
+position = Vector2(600, -28)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("3_2tnf2")
+texture_pressed = ExtResource("4_flyxj")
+shape = SubResource("CircleShape2D_8m8xy")
+action = "Language_left"
+visibility_mode = 1
+
+[node name="Music" type="Label" parent="Settings_options"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_dv0cc")
+text = "Music:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar_Music" type="ProgressBar" parent="Settings_options/Music"]
+modulate = Color(0.278431, 0.482353, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.3
+anchor_right = 0.596
+anchor_bottom = 0.3
+offset_left = 381.152
+offset_right = 501.152
+offset_bottom = 10.0
+scale = Vector2(4, 4)
+mouse_filter = 2
+theme = ExtResource("5_16q48")
+max_value = 15.0
+step = 1.0
+show_percentage = false
+
+[node name="TSB_right" type="TouchScreenButton" parent="Settings_options/Music"]
+position = Vector2(1216, -28)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_2tnf2")
+texture_pressed = ExtResource("4_flyxj")
+shape = SubResource("CircleShape2D_8m8xy")
+action = "Music_right"
+visibility_mode = 1
+
+[node name="TSB_left" type="TouchScreenButton" parent="Settings_options/Music"]
+position = Vector2(600, -28)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("3_2tnf2")
+texture_pressed = ExtResource("4_flyxj")
+shape = SubResource("CircleShape2D_8m8xy")
+action = "Music_left"
+visibility_mode = 1
+
+[node name="CheckBox" type="CheckBox" parent="Settings_options/Music"]
+process_mode = 3
+z_index = 850
+layout_mode = 0
+offset_left = 1392.0
+offset_top = -48.0
+offset_right = 1432.0
+offset_bottom = -8.0
+scale = Vector2(4, 4)
+focus_mode = 0
+theme_override_icons/checked = ExtResource("6_xamcb")
+theme_override_icons/unchecked = ExtResource("7_4kav2")
+button_pressed = true
+flat = true
+
+[node name="Sound" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_dv0cc")
+text = "Sound:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar_Sound" type="ProgressBar" parent="Settings_options/Sound"]
+modulate = Color(0.278431, 0.482353, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.592
+anchor_top = 0.125
+anchor_right = 0.592
+anchor_bottom = 0.125
+offset_left = 388.832
+offset_top = 8.0
+offset_right = 508.832
+offset_bottom = 18.0
+scale = Vector2(4, 4)
+mouse_filter = 2
+theme = ExtResource("5_16q48")
+max_value = 15.0
+step = 1.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TSB_right" type="TouchScreenButton" parent="Settings_options/Sound"]
+position = Vector2(1216, -28)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_2tnf2")
+texture_pressed = ExtResource("4_flyxj")
+shape = SubResource("CircleShape2D_8m8xy")
+action = "Sound_right"
+visibility_mode = 1
+
+[node name="TSB_left" type="TouchScreenButton" parent="Settings_options/Sound"]
+position = Vector2(600, -28)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture_normal = ExtResource("3_2tnf2")
+texture_pressed = ExtResource("4_flyxj")
+shape = SubResource("CircleShape2D_8m8xy")
+action = "Sound_left"
+visibility_mode = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Settings_options/Music/CheckBox" to="." method="_on_check_box_toggled"]

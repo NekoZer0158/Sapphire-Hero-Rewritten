@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dr60q5lgsafh2"
+path="res://.godot/imported/1_Begin Hero_BPM150.ogg-2f05180e083afefa2a64be984d067dff.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Music/1_Begin Hero_BPM150.ogg"
+dest_files=["res://.godot/imported/1_Begin Hero_BPM150.ogg-2f05180e083afefa2a64be984d067dff.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,167 @@
+[gd_scene load_steps=15 format=3 uid="uid://b82fharlkxdg8"]
+
+[ext_resource type="Texture2D" uid="uid://dgjii6gwu0nr5" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Body.png" id="1_loerm"]
+[ext_resource type="Texture2D" uid="uid://buaue17pjyspt" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Head.png" id="2_fkhsr"]
+[ext_resource type="Texture2D" uid="uid://dwt34kwwxrwji" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Arm.png" id="3_73g6e"]
+[ext_resource type="Texture2D" uid="uid://davwfnvgb6aai" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Hand.png" id="4_uvkha"]
+[ext_resource type="Texture2D" uid="uid://8bn26yn0rj3d" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Hand_shoot.png" id="5_h5f3j"]
+[ext_resource type="Texture2D" uid="uid://bxseb1wvs3nbr" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Leg_up.png" id="6_i8u82"]
+[ext_resource type="Texture2D" uid="uid://cmsg8cbnuy1lq" path="res://Sprites/Enemies/Moving/Soldiers/Healthier/Leg_down.png" id="7_c6c3i"]
+[ext_resource type="Texture2D" uid="uid://67jdkly16yvq" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Body.png" id="8_yvfof"]
+[ext_resource type="Texture2D" uid="uid://b1cm0ttuyl0yx" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Head.png" id="9_pg131"]
+[ext_resource type="Texture2D" uid="uid://cs2xncivyuqa0" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Arm.png" id="10_p2kso"]
+[ext_resource type="Texture2D" uid="uid://coowga76jnh20" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Hand.png" id="11_wjhii"]
+[ext_resource type="Texture2D" uid="uid://b0hsm5nk33oci" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Hand_shoot.png" id="12_b2dx3"]
+[ext_resource type="Texture2D" uid="uid://33bb8hrp2m2f" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Leg_up.png" id="13_2gyku"]
+[ext_resource type="Texture2D" uid="uid://c41ydmxqd3fpm" path="res://Sprites/Enemies/Moving/Soldiers/Bronze/Leg_down.png" id="14_4jd4i"]
+
+[node name="Picture" type="Node2D"]
+z_index = 90
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -74.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = 49.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body" type="Sprite2D" parent="ColorRect2"]
+z_index = 145
+position = Vector2(32, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("1_loerm")
+
+[node name="Head" type="Sprite2D" parent="ColorRect2/Body"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("2_fkhsr")
+
+[node name="Arm_right" type="Sprite2D" parent="ColorRect2/Body"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("3_73g6e")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="ColorRect2/Body/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("4_uvkha")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="ColorRect2/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("3_73g6e")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="ColorRect2/Body/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("5_h5f3j")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="ColorRect2/Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("6_i8u82")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="ColorRect2/Body/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_c6c3i")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="ColorRect2/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("6_i8u82")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="ColorRect2/Body/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("7_c6c3i")
+offset = Vector2(0, 3)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 10.0
+offset_top = -47.0
+offset_right = 74.0
+offset_bottom = 49.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Body" type="Sprite2D" parent="ColorRect3"]
+z_index = 120
+position = Vector2(32, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("8_yvfof")
+
+[node name="Head" type="Sprite2D" parent="ColorRect3/Body"]
+use_parent_material = true
+position = Vector2(1, -13)
+texture = ExtResource("9_pg131")
+
+[node name="Arm_right" type="Sprite2D" parent="ColorRect3/Body"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, -4)
+texture = ExtResource("10_p2kso")
+offset = Vector2(0, 6)
+
+[node name="Hand" type="Sprite2D" parent="ColorRect3/Body/Arm_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("11_wjhii")
+offset = Vector2(0, 1)
+
+[node name="Arm_left" type="Sprite2D" parent="ColorRect3/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(6, -4)
+texture = ExtResource("10_p2kso")
+offset = Vector2(0, 6)
+
+[node name="Hand_shoot" type="Sprite2D" parent="ColorRect3/Body/Arm_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("12_b2dx3")
+offset = Vector2(0, 1)
+
+[node name="Leg_right" type="Sprite2D" parent="ColorRect3/Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 7)
+texture = ExtResource("13_2gyku")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="ColorRect3/Body/Leg_right"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("14_4jd4i")
+offset = Vector2(0, 3)
+
+[node name="Leg_left" type="Sprite2D" parent="ColorRect3/Body"]
+z_index = -2
+use_parent_material = true
+position = Vector2(4, 7)
+texture = ExtResource("13_2gyku")
+offset = Vector2(0, 3)
+
+[node name="Leg_down" type="Sprite2D" parent="ColorRect3/Body/Leg_left"]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("14_4jd4i")
+offset = Vector2(0, 3)

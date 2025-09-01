@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl7oaa3ioigbr"]
+
+[ext_resource type="Script" uid="uid://bqiov1k4u4ski" path="res://Scripts/Story/Cutscene.gd" id="1_7o5it"]
+[ext_resource type="PackedScene" uid="uid://cnubh8aangwo" path="res://Scenes/Story/Pictures/Epilogue_start/Picture_1_epilogue.tscn" id="2_fxitc"]
+[ext_resource type="PackedScene" uid="uid://tu3xpe1cyj36" path="res://Scenes/Story/Pictures/Epilogue_start/Picture_2_epilogue.tscn" id="3_y8am4"]
+[ext_resource type="Theme" uid="uid://c74bxhe62fcnp" path="res://Resources/Themes/Cutscene.tres" id="4_vkx1w"]
+
+[node name="Epilogue_start" type="Control" node_paths=PackedStringArray("pictures_marker")]
+z_index = 1660
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7o5it")
+all_pictures = Array[PackedScene]([ExtResource("2_fxitc"), ExtResource("3_y8am4")])
+pictures_marker = NodePath("Pictures_pos")
+text_first_word = "epilogue_start"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -52
+layout_mode = 0
+offset_left = -2235.0
+offset_top = -56.0
+offset_right = 4386.0
+offset_bottom = 1120.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Pictures_pos" type="Marker2D" parent="."]
+position = Vector2(960, 340)
+scale = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="."]
+z_index = 135
+layout_mode = 0
+offset_left = 16.0
+offset_top = 644.0
+offset_right = 1904.0
+offset_bottom = 1080.0
+theme = ExtResource("4_vkx1w")
+text = "some text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 320
+layout_mode = 0
+offset_left = -1787.0
+offset_top = -44.0
+offset_right = 3804.0
+offset_bottom = 1163.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+metadata/_edit_lock_ = true

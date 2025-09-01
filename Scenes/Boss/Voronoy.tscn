@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b46ityrhf8yup"]
+
+[ext_resource type="Script" uid="uid://fcrou2510kb0" path="res://Scripts/AI/Boss/Voronoy_AI.gd" id="1_icbsm"]
+[ext_resource type="PackedScene" uid="uid://nar7v4x18v33" path="res://Scenes/Bodies/Boss/Voronoy.tscn" id="2_icbsm"]
+[ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_qqfr5"]
+
+[node name="Voronoy" type="Node2D"]
+script = ExtResource("1_icbsm")
+time_between_jumps = 1.4
+distance = 430
+metadata/_custom_type_script = "uid://bnmrv37sgxdn3"
+
+[node name="Boss_body" parent="." instance=ExtResource("2_icbsm")]
+immortality_frames = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Boss_body"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(21.3, 14.6)
+enable_node_path = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Boss_UI" type="CanvasLayer" parent="."]
+
+[node name="Boss_UI" parent="Boss_UI" node_paths=PackedStringArray("boss_body") instance=ExtResource("3_qqfr5")]
+visible = false
+boss_HP_color = Color(0.200912, 0.398063, 0.816406, 1)
+boss_body = NodePath("../../Boss_body")
+
+[node name="Timer_jump" type="Timer" parent="."]
+
+[connection signal="got_hit" from="Boss_body" to="Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]
+[connection signal="now_dead" from="Boss_body" to="." method="_boss_death"]
+[connection signal="timeout" from="Timer_jump" to="." method="_on_timer_jump_timeout"]

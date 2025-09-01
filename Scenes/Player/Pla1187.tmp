@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://dedgw45ycee0b"]
+
+[ext_resource type="Script" path="res://Scripts/Bodies/Moving_body.gd" id="1_1xex7"]
+[ext_resource type="Shader" path="res://Resources/Shaders/color_change.gdshader" id="2_gewgi"]
+[ext_resource type="Texture2D" uid="uid://bs514jh5bemd7" path="res://Sprites/Player/Body.png" id="2_scl2a"]
+[ext_resource type="Texture2D" uid="uid://dt07lpdtms7dg" path="res://Sprites/Player/Head.png" id="3_ls3aa"]
+[ext_resource type="Texture2D" uid="uid://bgcv6erhecssr" path="res://Sprites/Player/Arm.png" id="4_jid48"]
+[ext_resource type="Texture2D" uid="uid://d0mehppty1k08" path="res://Sprites/Player/Arm_shoot.png" id="5_p62dm"]
+[ext_resource type="Texture2D" uid="uid://cii7usfraw21g" path="res://Sprites/Player/Leg.png" id="6_1rswx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwdqo"]
+size = Vector2(12, 38)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhadm"]
+shader = ExtResource("2_gewgi")
+shader_parameter/color = Color(0.0745098, 0.466667, 0.831373, 1)
+
+[node name="PlayerBody" type="CharacterBody2D" node_paths=PackedStringArray("timer_jump", "timer_fall")]
+script = ExtResource("1_1xex7")
+timer_jump = NodePath("Timer_jump")
+timer_fall = NodePath("Timer_fall")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(1, -19)
+shape = SubResource("RectangleShape2D_pwdqo")
+
+[node name="Timer_jump" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_fall" type="Timer" parent="."]
+one_shot = true
+
+[node name="Body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bhadm")
+position = Vector2(0, -19)
+texture = ExtResource("2_scl2a")
+metadata/_edit_lock_ = true
+
+[node name="Head" type="Sprite2D" parent="Body"]
+use_parent_material = true
+position = Vector2(-1, -14)
+texture = ExtResource("3_ls3aa")
+metadata/_edit_lock_ = true
+
+[node name="Arm_right" type="Sprite2D" parent="Body"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-5, 0)
+texture = ExtResource("4_jid48")
+metadata/_edit_lock_ = true
+
+[node name="Arm_left" type="Sprite2D" parent="Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(6, 0)
+texture = ExtResource("5_p62dm")
+metadata/_edit_lock_ = true
+
+[node name="Leg_right" type="Sprite2D" parent="Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(-2, 11)
+texture = ExtResource("6_1rswx")
+metadata/_edit_lock_ = true
+
+[node name="Leg_left" type="Sprite2D" parent="Body"]
+z_index = -1
+use_parent_material = true
+position = Vector2(4, 11)
+texture = ExtResource("6_1rswx")
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Timer_jump" to="." method="_on_timer_jump_timeout"]
+[connection signal="timeout" from="Timer_fall" to="." method="_on_timer_fall_timeout"]

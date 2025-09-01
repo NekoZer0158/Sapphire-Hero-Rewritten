@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=3 uid="uid://clth0vstxvs73"]
+
+[ext_resource type="Script" uid="uid://dg30j4jw8ii5y" path="res://Scripts/UI/Settings.gd" id="1_hkym8"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_7g2bt"]
+[ext_resource type="AudioStream" uid="uid://cexevebo3tq4y" path="res://Audio/Music/Boss Battle #2 V1.wav" id="2_ij6p1"]
+[ext_resource type="Theme" uid="uid://b3os6jye00tyf" path="res://Resources/Themes/test_theme.tres" id="4_1rbir"]
+[ext_resource type="AudioStream" uid="uid://cibm53tn0gnfe" path="res://Audio/Sound/Laser_Shoot.wav" id="5_e0y8m"]
+[ext_resource type="PackedScene" uid="uid://d15vccsjlbavr" path="res://Scenes/UI/Mobile/Mobile_settings.tscn" id="6_kg15k"]
+
+[node name="Settings" type="Control" node_paths=PackedStringArray("settings_options", "music_progress_bar", "sound_progress_bar", "sound_stream_player", "music_stream_player")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("1_hkym8")
+active_color = Color(0.254902, 0.545098, 0.819608, 1)
+settings_options = NodePath("Settings_options")
+default_music_for_test = ExtResource("2_ij6p1")
+music_progress_bar = NodePath("Settings_options/Music/ProgressBar_Music")
+sound_progress_bar = NodePath("Settings_options/Sound/ProgressBar_Sound")
+sound_stream_player = NodePath("AudioStreamPlayer_sound")
+music_stream_player = NodePath("AudioStreamPlayer_music")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -440.0
+offset_top = 576.0
+offset_right = 2752.0
+offset_bottom = 1088.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Settings_options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.007
+anchor_bottom = 0.007
+offset_top = 568.44
+offset_right = 1920.0
+offset_bottom = 1072.44
+mouse_filter = 2
+theme_override_constants/separation = 15
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Language" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_7g2bt")
+text = "Language:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cur_Language" type="Label" parent="Settings_options/Language"]
+layout_mode = 2
+anchor_left = 0.598958
+anchor_top = 0.125
+anchor_right = 0.990625
+anchor_bottom = 1.25
+theme = ExtResource("2_7g2bt")
+text = "English"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Music" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_7g2bt")
+text = "Music:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar_Music" type="ProgressBar" parent="Settings_options/Music"]
+modulate = Color(0.278431, 0.482353, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.3
+anchor_right = 0.596
+anchor_bottom = 0.3
+offset_left = 5.67932
+offset_right = 125.679
+offset_bottom = 10.0
+scale = Vector2(4, 4)
+mouse_filter = 2
+theme = ExtResource("4_1rbir")
+max_value = 15.0
+step = 1.0
+show_percentage = false
+
+[node name="Sound" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_7g2bt")
+text = "Sound:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar_Sound" type="ProgressBar" parent="Settings_options/Sound"]
+modulate = Color(0.278431, 0.482353, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.592
+anchor_top = 0.125
+anchor_right = 0.592
+anchor_bottom = 0.125
+offset_left = 13.3594
+offset_top = 8.0
+offset_right = 133.359
+offset_bottom = 18.0
+scale = Vector2(4, 4)
+mouse_filter = 2
+theme = ExtResource("4_1rbir")
+max_value = 15.0
+step = 1.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="VSync" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_7g2bt")
+text = "VSync:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSync_on_off" type="Label" parent="Settings_options/VSync"]
+layout_mode = 2
+anchor_left = 0.566667
+anchor_top = 0.05
+anchor_right = 0.933333
+anchor_bottom = 1.05
+theme = ExtResource("2_7g2bt")
+text = "on>"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Label" parent="Settings_options"]
+layout_mode = 2
+theme = ExtResource("2_7g2bt")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_e0y8m")
+bus = &"Sound"
+
+[node name="AudioStreamPlayer_music" type="AudioStreamPlayer" parent="."]
+
+[node name="Mobile" parent="." node_paths=PackedStringArray("settings_node") instance=ExtResource("6_kg15k")]
+visible = false
+layout_mode = 1
+settings_node = NodePath("..")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt6idkrendsyv"]
+
+[ext_resource type="Texture2D" uid="uid://bove1mk6mo8ts" path="res://Sprites/UI/Main_menu/No_savedata.png" id="1_h1mfh"]
+[ext_resource type="Texture2D" uid="uid://do6m7p7lt3c8r" path="res://Sprites/UI/Main_menu/Save_slot.png" id="2_7dkhb"]
+
+[node name="No_save_data" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -46.0
+offset_top = 6.0
+offset_right = -16.0
+offset_bottom = 36.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-31, 21)
+texture = ExtResource("1_h1mfh")
+
+[node name="Main" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 5.0
+offset_right = -15.0
+offset_bottom = 37.0
+texture = ExtResource("2_7dkhb")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+metadata/_edit_lock_ = true

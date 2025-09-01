@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://4dk6fn5meobu"]
+
+[ext_resource type="Script" uid="uid://bifldt5cexhf2" path="res://Scripts/Other/Mobile/Mobile_controls_menu.gd" id="1_1l026"]
+[ext_resource type="Texture2D" uid="uid://bcaxsl678pvdk" path="res://Sprites/Other/Mobile/Move.png" id="2_o1yqk"]
+[ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="3_hd7nd"]
+[ext_resource type="Texture2D" uid="uid://w0hmbgvf8pr1" path="res://Sprites/Other/Mobile/Pause.png" id="4_canrq"]
+[ext_resource type="Texture2D" uid="uid://3ddo4jv8tuim" path="res://Sprites/Other/Mobile/HP_refill.png" id="5_d5wk7"]
+[ext_resource type="Texture2D" uid="uid://dg6l2036eihtb" path="res://Sprites/Other/Mobile/Shoot.png" id="6_2ico8"]
+[ext_resource type="Texture2D" uid="uid://c3tawyw051l8o" path="res://Sprites/Other/Mobile/Jump.png" id="7_xrvcn"]
+[ext_resource type="Texture2D" uid="uid://dvtxkn7r3qta4" path="res://Sprites/Other/Mobile/Weapon_change.png" id="8_fg8mi"]
+
+[node name="Mobile" type="Control" node_paths=PackedStringArray("parent_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1l026")
+parent_node = NodePath("")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 352.0
+offset_right = 2096.0
+offset_bottom = 1088.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(320, 640)
+scale = Vector2(4, 4)
+texture = ExtResource("2_o1yqk")
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(128, 640)
+rotation = 3.14159
+scale = Vector2(4, -4)
+texture = ExtResource("2_o1yqk")
+
+[node name="Controls_move" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 624.0
+offset_right = 1120.0
+offset_bottom = 664.0
+theme = ExtResource("3_hd7nd")
+text = "Move"
+vertical_alignment = 1
+
+[node name="Pause" type="Sprite2D" parent="."]
+position = Vector2(224, 448)
+scale = Vector2(4, 4)
+texture = ExtResource("4_canrq")
+
+[node name="Controls_pause" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 384.0
+offset_right = 1000.0
+offset_bottom = 520.0
+theme = ExtResource("3_hd7nd")
+text = "Pause"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HP_refill" type="Sprite2D" parent="."]
+position = Vector2(1216, 448)
+scale = Vector2(4, 4)
+texture = ExtResource("5_d5wk7")
+
+[node name="Controls_hp_refill" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 384.0
+offset_right = 1896.0
+offset_bottom = 520.0
+theme = ExtResource("3_hd7nd")
+text = "Use_hp_refill"
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Shoot" type="Sprite2D" parent="."]
+position = Vector2(1216, 640)
+scale = Vector2(4, 4)
+texture = ExtResource("6_2ico8")
+metadata/_edit_lock_ = true
+
+[node name="Controls_shoot" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 624.0
+offset_right = 1896.0
+offset_bottom = 664.0
+theme = ExtResource("3_hd7nd")
+text = "Shoot"
+vertical_alignment = 1
+
+[node name="Jump" type="Sprite2D" parent="."]
+position = Vector2(1216, 832)
+scale = Vector2(4, 4)
+texture = ExtResource("7_xrvcn")
+
+[node name="Controls_jump" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 816.0
+offset_right = 1896.0
+offset_bottom = 856.0
+theme = ExtResource("3_hd7nd")
+text = "Jump"
+vertical_alignment = 1
+
+[node name="Next_weapon" type="Sprite2D" parent="."]
+position = Vector2(320, 832)
+scale = Vector2(4, 4)
+texture = ExtResource("8_fg8mi")
+
+[node name="Previous_weapon" type="Sprite2D" parent="."]
+position = Vector2(120, 832)
+scale = Vector2(-4, 4)
+texture = ExtResource("8_fg8mi")
+
+[node name="Controls_weapon_change" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 816.0
+offset_right = 1120.0
+offset_bottom = 856.0
+theme = ExtResource("3_hd7nd")
+text = "Weapon_change"
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_top = 915.0
+offset_right = 1920.0
+offset_bottom = 963.0
+focus_mode = 0
+theme = ExtResource("3_hd7nd")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkes4v7rrubfa"]
+
+[ext_resource type="Script" uid="uid://dbw17el146mm" path="res://Scripts/Objects/Open_closed_platform.gd" id="1_fmq0r"]
+[ext_resource type="Texture2D" uid="uid://dlr0c4kpigso6" path="res://Sprites/Other/Final_open_closed_platform.png" id="2_ytry5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtdfk"]
+size = Vector2(312, 32)
+
+[sub_resource type="Animation" id="Animation_wrtwv"]
+resource_name = "open_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-56, 0), Vector2(-200, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 0), Vector2(328, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwmrt"]
+_data = {
+&"open_close": SubResource("Animation_wrtwv")
+}
+
+[node name="Final_boss_closed_platform" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_fmq0r")
+
+[node name="Left" type="AnimatableBody2D" parent="."]
+position = Vector2(-56, 0)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_jtdfk")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+texture = ExtResource("2_ytry5")
+metadata/_edit_lock_ = true
+
+[node name="Right" type="AnimatableBody2D" parent="."]
+position = Vector2(256, 0)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(0.5, -12.5)
+shape = SubResource("RectangleShape2D_jtdfk")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+texture = ExtResource("2_ytry5")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uwmrt")
+}

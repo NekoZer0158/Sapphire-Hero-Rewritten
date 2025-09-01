@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://03ad370s2qnw"]
+
+[ext_resource type="Script" uid="uid://da0wguameft1j" path="res://Scripts/Objects/Computer.gd" id="1_uak73"]
+[ext_resource type="Texture2D" uid="uid://bubgtilvh7gpb" path="res://Sprites/Objects/Computer.png" id="2_d6wjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp173"]
+size = Vector2(32, 48)
+
+[node name="Computer" type="Node2D" groups=["Computers"]]
+script = ExtResource("1_uak73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -24)
+texture = ExtResource("2_d6wjl")
+hframes = 2
+
+[node name="Enter_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter_area"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_gp173")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4.19617e-06, -12)
+scale = Vector2(6.4, 5.2)
+
+[connection signal="body_entered" from="Enter_area" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_exited" from="Enter_area" to="." method="_on_enter_area_body_exited"]

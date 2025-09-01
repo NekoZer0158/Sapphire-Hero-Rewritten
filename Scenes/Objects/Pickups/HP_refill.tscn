@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://k6xxx4vqsbha"]
+
+[ext_resource type="Script" uid="uid://b8mpanjoxutwd" path="res://Scripts/Objects/Pickups/HP_refill.gd" id="1_csr46"]
+[ext_resource type="Texture2D" uid="uid://cyjuuggq618rk" path="res://Sprites/UI/Player/Default/HP_refill.png" id="1_f56r7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3coxl"]
+size = Vector2(10, 16)
+
+[node name="Hp_refill" type="Node2D"]
+script = ExtResource("1_csr46")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_f56r7")
+
+[node name="Pickup_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup_area"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_3coxl")
+
+[connection signal="body_entered" from="Pickup_area" to="." method="_on_pickup_area_body_entered"]
