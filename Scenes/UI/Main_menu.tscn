@@ -117,12 +117,12 @@ mobile_parent_node = NodePath("../Mobile")
 
 [node name="Version" type="Label" parent="."]
 layout_mode = 2
-offset_left = 1728.0
+offset_left = 1664.0
 offset_top = 1024.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme = ExtResource("1_lg6fm")
-text = "2.4"
+text = "2.4.1"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
