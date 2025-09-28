@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://d1u1pnbrqlqk0"]
+
+[ext_resource type="AudioStream" uid="uid://c3k1riy0l132m" path="res://Audio/Sound/Triple/Laser_Shoot.wav" id="1_uufy3"]
+[ext_resource type="AudioStream" uid="uid://cqfxf01cbx78a" path="res://Audio/Sound/Triple/Laser_Shoot_alt.wav" id="2_row24"]
+
+[resource]
+random_pitch = 1.1
+random_volume_offset_db = 0.25
+streams_count = 2
+stream_0/stream = ExtResource("1_uufy3")
+stream_1/stream = ExtResource("2_row24")

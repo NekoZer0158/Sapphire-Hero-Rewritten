@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://142tygt4ieye"]
+[gd_scene load_steps=8 format=3 uid="uid://142tygt4ieye"]
 
 [ext_resource type="Script" uid="uid://dsjst81c2oxmv" path="res://Scripts/Player/Player.gd" id="1_yv4bl"]
-[ext_resource type="AudioStream" uid="uid://cibm53tn0gnfe" path="res://Audio/Sound/Laser_Shoot.wav" id="2_2wdhv"]
+[ext_resource type="AudioStream" uid="uid://bd31ojyudbqll" path="res://Resources/AudioStreams/Default_weapon.tres" id="2_6t7ub"]
 [ext_resource type="PackedScene" uid="uid://dg3o42nxcm1a0" path="res://Scenes/Player/Player_body_improved.tscn" id="2_108rj"]
 [ext_resource type="PackedScene" uid="uid://ctbq18ipo4hje" path="res://Scenes/UI/Button_UI.tscn" id="3_2gfn8"]
+[ext_resource type="AudioStream" uid="uid://d1u1pnbrqlqk0" path="res://Resources/AudioStreams/Triple_weapon.tres" id="3_bgsua"]
 [ext_resource type="PackedScene" uid="uid://cle5aclnyr280" path="res://Scenes/UI/Player_UI.tscn" id="3_in8md"]
 [ext_resource type="PackedScene" uid="uid://dcixur6fqo43g" path="res://Scenes/UI/Pause_UI.tscn" id="4_b472g"]
 
@@ -19,7 +20,7 @@ transition_time = 0.5
 ammo_regeneration = true
 timer_ammo = NodePath("PlayerBody/Timer_ammo")
 time_for_ammo_regeneration = 2.5
-sounds = Array[AudioStream]([ExtResource("2_2wdhv")])
+sounds = Array[AudioStream]([ExtResource("2_6t7ub"), ExtResource("3_bgsua")])
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_108rj")]
 

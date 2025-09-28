@@ -195,3 +195,8 @@ func _on_player_body_use_weapon(_new_amount_of_ammo):
 			if audio_stream_player_sound.stream != sounds[0]:
 				audio_stream_player_sound.stream = sounds[0]
 			audio_stream_player_sound.play()
+		elif player_body.shooting_module.weapons[player_body.cur_weapon].weapon_id == 4:
+			if audio_stream_player_sound.stream != sounds[1]:
+				audio_stream_player_sound.stream = sounds[1]
+			audio_stream_player_sound.play()
+		

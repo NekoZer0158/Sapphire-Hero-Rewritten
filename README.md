@@ -18,6 +18,13 @@ GPL-3.0-only
 ## Лицензия
 GPL-3.0-only
 
+## Changelog
+
+### 2.4.2
+	Added sound effect for the Unknowns weapon.
+	Added credits file.
+	Added changelog in README.
+
 # Screenshots
 ![img_01](/z_Documentation/Screenshots/01.png)
 ![img_02](/z_Documentation/Screenshots/02.png)
