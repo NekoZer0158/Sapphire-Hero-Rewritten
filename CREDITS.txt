@@ -1,0 +1,16 @@
+Engine:
+	Godot - https://godotengine.org/license/
+Music:
+	MintoDog - 1_Begin Hero_BPM150
+	MintoDog - strange_factory_bpm100
+	MIDI "Airport Attack" by Ivan Stanton (northivanastan on OpenGameArt).
+	nene - Boss Battle # 5 V1
+	nene - Boss Battle #2 V1
+	Double Impact MIDI Pack by continuum.mid, Matzu, R0rque, Korp, and ZeMystic.
+		E1M3, E4M2 - R0rque - Fight Harder...  To Obtain A Better Victory!
+		E1M8, E4M8 - continuum.mid -  Vs. The Assault Quindecapod
+		E1M9, E4M9 - continuum.mid - The Deepest Secrets
+Font:
+	GGBotNet - Public Pixel
+Sounds:
+	Made in bfxr
