@@ -5,6 +5,7 @@ extends Boss_AI
 @onready var timer_phase_1 = $Timer_phase_1
 @onready var head_position = $Boss_body/Head_position
 @onready var boss_head = $Boss_body/Body/Head
+@onready var audio_stream_player_sound: AudioStreamPlayer2D = $AudioStreamPlayer_sound
 
 const time_for_shooting : float = 1.1
 const time_for_jump : float = 1.3
@@ -76,6 +77,7 @@ func check_if_needed_to_change_state() -> void:
 func _on_timer_phase_0_timeout():
 	if is_instance_valid(boss_body):
 		boss_body.shoot()
+		audio_stream_player_sound.play()
 
 func _on_boss_body_detected_a_body(detected_body):
 	if detected_body is Moving_body:
