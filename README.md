@@ -20,6 +20,10 @@ GPL-3.0-only
 
 ## Changelog
 
+### 2.4.3
+	Added weapon sound effect for Unknown.
+	Исправлены некоторые отпечатки.
+
 ### 2.4.2
 	Added sound effect for the Unknowns weapon.
 	Added credits file.
