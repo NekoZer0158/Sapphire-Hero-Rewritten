@@ -15,6 +15,8 @@ var amount_of_pictures : int = 0
 var cur_text : int = 1
 var can_control : bool = true
 
+signal cutscene_ended()
+
 func _ready():
 	var new_pic
 	mouse_filter = MOUSE_FILTER_IGNORE
@@ -67,4 +69,5 @@ func end_intro() -> void:
 	new_tween.tween_property(transition,"modulate",Color(0.0,0.0,0.0,1.0),transition_time)
 	await new_tween.finished
 	parent_node.use_transition()
+	cutscene_ended.emit()
 	queue_free()

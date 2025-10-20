@@ -15,7 +15,11 @@ func _end_level() -> void:
 		GlobalSapphire.player.can_control_player = false
 	var spawn_this = PROLOGUE_END.instantiate()
 	spawn_this.parent_node = self
+	spawn_this.cutscene_ended.connect(_queue_free_level)
 	prologue_end_ui.add_child(spawn_this)
+
+func _queue_free_level() -> void:
+	queue_free()
 
 func use_transition() -> void:
 	var main_menu = load("res://Scenes/UI/Main_menu.tscn")
