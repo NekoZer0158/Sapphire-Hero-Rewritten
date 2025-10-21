@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://d1ioms5hiaisb" path="res://Scripts/Other/Mobile/Mobile_credits.gd" id="1_4ap2x"]
 [ext_resource type="Theme" uid="uid://shxikidpfmcj" path="res://Resources/Themes/Options_UI.tres" id="2_mwvj6"]
 
-[node name="Mobile" type="Control" node_paths=PackedStringArray("credits_node")]
-visible = false
+[node name="Mobile" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,14 +12,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_4ap2x")
-credits_node = NodePath("")
 metadata/_edit_use_anchors_ = true
 
 [node name="Container" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 88.0
 offset_top = 960.0
-offset_right = 1920.0
+offset_right = 1848.0
 offset_bottom = 1080.0
 mouse_filter = 2
 theme_override_constants/separation = 150

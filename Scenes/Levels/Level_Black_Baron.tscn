@@ -1182,6 +1182,7 @@ stream = ExtResource("28_au1ys")
 
 [connection signal="explosion_activated" from="Other/Explosive_platform" to="." method="_on_explosive_platform_explosion_activated"]
 [connection signal="player_entered" from="Areas/Camera_borders_change4" to="." method="_on_camera_borders_change_4_player_entered"]
+[connection signal="picked_up_hp" from="Hp_refill" to="." method="_on_hp_refill_picked_up_hp"]
 [connection signal="got_hit" from="Black_baron_phase_1" to="Boss_activation/Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]
 [connection signal="now_dead" from="Black_baron_phase_1" to="Boss_activation" method="_on_black_baron_phase_1_now_dead"]
 [connection signal="player_entered" from="Boss_activation" to="." method="_activated_boss"]
