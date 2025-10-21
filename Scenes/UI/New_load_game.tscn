@@ -134,27 +134,27 @@ visible = false
 layout_mode = 1
 new_load_game_menu = NodePath("..")
 
-[node name="Next_page" type="Label" parent="."]
+[node name="Next_page" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 1600.0
 offset_top = 896.0
 offset_right = 1792.0
 offset_bottom = 960.0
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/normal_font_size = 64
 text = "E>"
+autowrap_mode = 2
 horizontal_alignment = 2
 vertical_alignment = 1
-autowrap_mode = 2
 
-[node name="Previous_page" type="Label" parent="."]
+[node name="Previous_page" type="RichTextLabel" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 128.0
 offset_top = 896.0
 offset_right = 320.0
 offset_bottom = 960.0
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/normal_font_size = 64
 text = "<Q"
+autowrap_mode = 2
 horizontal_alignment = 2
 vertical_alignment = 1
-autowrap_mode = 2

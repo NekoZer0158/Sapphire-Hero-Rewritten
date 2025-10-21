@@ -12,8 +12,8 @@ extends Control
 @onready var mobile_node: Control = $Mobile
 @onready var label_legend: Label = $Legend/LabelLegend
 @onready var legend: Control = $Legend/Legend
-@onready var next_page_label: Label = $Next_page
-@onready var previous_page_label: Label = $Previous_page
+@onready var next_page_label: RichTextLabel = $Next_page
+@onready var previous_page_label: RichTextLabel = $Previous_page
 @onready var legend_description: Label = $Legend/Legend/Description
 
 enum {NEW_GAME,LOAD_GAME}
@@ -64,6 +64,7 @@ func _ready():
 
 func _input(event):
 	if visible and !GlobalSapphire.mobile_version:
+		_check_joypad()
 		if event.is_action_pressed(&"Menu_Down"):
 			if current_option < MAX_AMOUNT_OF_SLOTS_ON_PAGE:
 				current_option += 1
@@ -192,6 +193,20 @@ func set_default() -> void:
 		save_slots[0].select_border(Color.WHITE)
 	else:
 		set_color_for_cur_option(current_option)
+
+func _check_joypad() -> void:
+	if !GlobalSapphire.mobile_version:
+		if Input.get_connected_joypads().size() > 0:
+			var joy_name := Input.get_joy_name(0)
+			if "PS3" in joy_name or "PS4" in joy_name or "PS5" in joy_name or "PS6" in joy_name:
+				next_page_label.text = "R1>"
+				previous_page_label.text = "<L1"
+			else:
+				next_page_label.text = "RB>"
+				previous_page_label.text = "<LB"
+		else:
+			next_page_label.text = "E>"
+			previous_page_label.text = "<Q"
 
 func save_data(save_slot_number:int) -> void:
 	var slot_path : String = "user://Slot_"+str(save_slot_number)+".json"
