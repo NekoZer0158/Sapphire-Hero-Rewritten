@@ -20,6 +20,8 @@ GPL-3.0-only
 
 ## Changelog
 
+## 2.4.5
+	Fix Credits
 ## 2.4.4
 	Now displayed buttons will change in new/load game, depending on if you use joypad or not
 	Fixed bug after playing prologue

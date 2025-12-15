@@ -49,6 +49,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Mobile" parent="." node_paths=PackedStringArray("credits_node") instance=ExtResource("3_u63pf")]
+visible = false
 layout_mode = 1
 credits_node = NodePath("..")
 
