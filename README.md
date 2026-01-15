@@ -20,6 +20,8 @@ GPL-3.0-only
 
 ## Changelog
 
+## 2.4.6
+	A tiny change in Kostyanoy level
 ## 2.4.5
 	Fix Credits
 ## 2.4.4
