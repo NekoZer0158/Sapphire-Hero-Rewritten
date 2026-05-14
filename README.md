@@ -29,7 +29,7 @@ GPL-3.0-only
 	Add icons for: ice spider, riding robot and turret, that shoots 3 times in a row
 	Controls menu is available through pause menu.
 ### RU
-	Добавленая поддержка геймпада M30.
+	Добавлена поддержка геймпада M30.
 	Добавлена поддержка клавиатур с AZERTY раскладкой.
 	Добавлены звуки для большинства оружия.
 	Теперь вызвать легенду в меню сохранений можно и на геймпаде.
