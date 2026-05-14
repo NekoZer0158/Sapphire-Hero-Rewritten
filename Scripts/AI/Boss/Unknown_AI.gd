@@ -5,11 +5,11 @@ extends Boss_AI
 @onready var timer_phase_1 = $Timer_phase_1
 @onready var head_position = $Boss_body/Head_position
 @onready var boss_head = $Boss_body/Body/Head
-@onready var audio_stream_player_sound: AudioStreamPlayer2D = $AudioStreamPlayer_sound
+@onready var audio_stream_player_sound: AudioStreamPlayer2D = $Boss_body/AudioStreamPlayer2D
 
-const time_for_shooting : float = 1.1
-const time_for_jump : float = 1.3
-const distance : float = 680.0
+const TIME_FOR_SHOOTING : float = 1.1
+const TIME_FOR_JUMP : float = 1.3
+const DISTANCE : float = 680.0
 
 var achievement_sprite := preload("res://Sprites/UI/Achievements/Unknown_head.png")
 var cur_target : Robot_body
@@ -21,11 +21,11 @@ func check_boss_state() -> void:
 			0:
 				boss_movement()
 				if timer_phase_0.is_stopped():
-					timer_phase_0.start(time_for_shooting)
+					timer_phase_0.start(TIME_FOR_SHOOTING)
 			1:
 				boss_movement()
 				if timer_phase_1.is_stopped():
-					timer_phase_1.start(time_for_jump)
+					timer_phase_1.start(TIME_FOR_JUMP)
 			2:
 				boss_movement()
 				timer_phase_1.stop()
@@ -52,14 +52,14 @@ func boss_movement() -> void:
 		if cur_target.global_position.x > boss_body.global_position.x:
 			if boss_body.scale.y == -1:
 				boss_body.change_direction(-boss_body.scale.y)
-			if abs(cur_target.global_position.x-boss_body.global_position.x) > distance:
+			if abs(cur_target.global_position.x-boss_body.global_position.x) > DISTANCE:
 				boss_body.movement(1.0)
 			else:
 				boss_body.movement(0.0)
 		else:
 			if boss_body.scale.y == 1:
 				boss_body.change_direction(-boss_body.scale.y)
-			if abs(cur_target.global_position.x-boss_body.global_position.x) > distance:
+			if abs(cur_target.global_position.x-boss_body.global_position.x) > DISTANCE:
 				boss_body.movement(-1.0)
 			else:
 				boss_body.movement(0.0)
@@ -76,8 +76,9 @@ func check_if_needed_to_change_state() -> void:
 
 func _on_timer_phase_0_timeout():
 	if is_instance_valid(boss_body):
-		boss_body.shoot()
-		audio_stream_player_sound.play()
+		if boss_body.can_use_weapon:
+			boss_body.shoot()
+			audio_stream_player_sound.play()
 
 func _on_boss_body_detected_a_body(detected_body):
 	if detected_body is Moving_body:

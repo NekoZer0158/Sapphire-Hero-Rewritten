@@ -26,7 +26,10 @@ func spawn_player(level : Node,cur_checkpoint:int) -> void:
 			player.add_new_weapon("Power_punch")
 			player.player_UI.amount_of_weapons += 1
 		if (level.player_weapons & 1<<2) > 0: # Unknown
-			player.add_new_weapon("Triple_weapon")
+			if level.replace_unknown_weapon_with_voronoy:
+				player.add_new_weapon("Voronoy_weapon")
+			else:
+				player.add_new_weapon("Triple_weapon")
 			player.player_UI.amount_of_weapons += 1
 		if (level.player_weapons & 1<<3) > 0: # Zeppelin
 			player.add_new_weapon("Zeppelin_weapon")

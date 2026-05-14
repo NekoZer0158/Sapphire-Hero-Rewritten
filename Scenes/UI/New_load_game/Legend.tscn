@@ -9,16 +9,17 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LabelLegend" type="Label" parent="."]
+[node name="LabelLegend" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 8.0
 offset_top = 960.0
 offset_right = 512.0
 offset_bottom = 1024.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "L - legend"
-vertical_alignment = 1
 autowrap_mode = 2
+vertical_alignment = 1
 
 [node name="Legend" type="Control" parent="."]
 visible = false

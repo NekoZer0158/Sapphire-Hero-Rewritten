@@ -30,7 +30,8 @@ var player_body_position : Vector2
 var epilogue : bool = false
 var mobile_activate_button : TouchScreenButton
 
-const teleport_transition_time : float = 0.5
+const TELEPORT_TRANSITION_TIME : float = 0.5
+const WEAPON_IDS_AND_THEIR_SOUNDS : Dictionary = {4:1,7:2,10:3,20:4,120:5}
 
 signal please_restart_a_level()
 
@@ -118,27 +119,27 @@ func _physics_process(_delta):
 				activation_button.scale.y = 1
 				activation_button.rotation_degrees = 0
 		if can_control_player:
-			player_body.movement(Input.get_axis("Left", "Right"))
-			if Input.is_action_just_pressed("Jump"):
+			player_body.movement(Input.get_axis(&"Left", &"Right"))
+			if Pressed_key_check._check_if_this_button_just_pressed(&"Jump",&"Jump_M30"):
 				player_body.jump(true)
-			if Input.is_action_pressed("Shoot"):
+			if Pressed_key_check._check_if_this_button_pressed(&"Shoot",&"Shoot_M30"):
 				player_body.shoot()
-			if Input.is_action_just_pressed("Next_weapon"):
+			if Pressed_key_check._check_if_this_button_just_pressed(&"Next_weapon",&"Next_weapon_M30"):
 				player_body.change_weapon(1)
-			if Input.is_action_just_pressed("Previous_weapon"):
+			elif Pressed_key_check._check_if_this_button_just_pressed(&"Previous_weapon",&"Previous_weapon_M30"):
 				player_body.change_weapon(-1)
-			if Input.is_action_just_pressed("Use_hp_refill") and player_body.hp < 15:
+			if Pressed_key_check._check_if_this_button_just_pressed(&"Use_hp_refill",&"Use_hp_refill_M30") and player_body.hp < 15:
 				player_body.refill_hp()
 		else:
 			player_body.movement(0.0)
-		if Input.is_action_just_pressed("Activate"):
+		if Pressed_key_check._check_if_this_button_just_pressed(&"Activate",&"Activate_M30"):
 			if is_instance_valid(object_activation):
 				object_activation.activate(player_body)
 
 func use_teleport_transition(alpha:float,unique_time:float=0.0) -> bool:
 	var new_tween = get_tree().create_tween()
 	if unique_time < 0.1:
-		new_tween.tween_property(teleport_transition,"self_modulate",Color(0.0,0.0,0.0,alpha),teleport_transition_time)
+		new_tween.tween_property(teleport_transition,"self_modulate",Color(0.0,0.0,0.0,alpha),TELEPORT_TRANSITION_TIME)
 	else:
 		new_tween.tween_property(teleport_transition,"self_modulate",Color(0.0,0.0,0.0,alpha),unique_time)
 	await new_tween.finished
@@ -150,10 +151,14 @@ func enable_activation(object:Activate_object) -> void:
 	if !GlobalSapphire.mobile_version:
 		if Input.get_connected_joypads().size() > 0:
 			var joy_name := Input.get_joy_name(0)
-			if "PS3" in joy_name or "PS4" in joy_name or "PS5" in joy_name or "PS6" in joy_name:
+			if "PS3" in joy_name or "PS4" in joy_name or "PS5" in joy_name or "PS6" in joy_name or "PS2" in joy_name or "PS1" in joy_name:
 				activation_button.cur_button = "[center][img=8]Sprites/UI/Controls/Triangle.png[/img]"
 			else:
-				activation_button.cur_button = "[center]Y"
+				match GlobalSapphire.xbox_gamepad_type:
+					GlobalEnum.XboxGamepadTypes.XBOX:
+						activation_button.cur_button = "[center]Y"
+					GlobalEnum.XboxGamepadTypes.M30:
+						activation_button.cur_button = "[center]C"
 			activation_button.set_button_text()
 		else:
 			activation_button.cur_button = "[center]R"
@@ -187,7 +192,7 @@ func _on_timer_after_death_timeout():
 	var new_tween = get_tree().create_tween()
 	new_tween.tween_property(transition,"modulate",Color(0.0,0.0,0.0,1.0),transition_time)
 	await new_tween.finished
-	emit_signal("please_restart_a_level")
+	please_restart_a_level.emit()
 
 func _on_player_body_use_weapon(_new_amount_of_ammo):
 	if is_instance_valid(player_body):
@@ -195,8 +200,8 @@ func _on_player_body_use_weapon(_new_amount_of_ammo):
 			if audio_stream_player_sound.stream != sounds[0]:
 				audio_stream_player_sound.stream = sounds[0]
 			audio_stream_player_sound.play()
-		elif player_body.shooting_module.weapons[player_body.cur_weapon].weapon_id == 4:
-			if audio_stream_player_sound.stream != sounds[1]:
-				audio_stream_player_sound.stream = sounds[1]
+		elif player_body.shooting_module.weapons[player_body.cur_weapon].weapon_id in WEAPON_IDS_AND_THEIR_SOUNDS.keys():
+			if audio_stream_player_sound.stream != sounds[WEAPON_IDS_AND_THEIR_SOUNDS[player_body.shooting_module.weapons[player_body.cur_weapon].weapon_id]]:
+				audio_stream_player_sound.stream = sounds[WEAPON_IDS_AND_THEIR_SOUNDS[player_body.shooting_module.weapons[player_body.cur_weapon].weapon_id]]
 			audio_stream_player_sound.play()
 		

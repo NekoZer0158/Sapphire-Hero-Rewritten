@@ -56,7 +56,7 @@ func hit(dmg : int) -> void:
 	if dmg > def and !immortal and activated:
 		if !immortality:
 			hp -= dmg-def
-			emit_signal("got_hit",hp)
+			got_hit.emit(hp)
 			if immortality_frames and hp > 0:
 				activate_immortality_frames()
 		if hp <= 0 and !dead:
@@ -64,7 +64,7 @@ func hit(dmg : int) -> void:
 
 func death() -> void:
 	dead = true
-	emit_signal("now_dead")
+	now_dead.emit()
 	if has_death_effect:
 		if is_instance_valid(death_effect):
 			var spawn_death_effect = death_effect.instantiate()

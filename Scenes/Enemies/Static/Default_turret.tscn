@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://boe4xjas5loxs"]
+[gd_scene load_steps=4 format=3 uid="uid://boe4xjas5loxs"]
 
 [ext_resource type="PackedScene" uid="uid://beq470isdtevf" path="res://Scenes/Bodies/Enemies/Static/Default_turret.tscn" id="1_bbvc3"]
 [ext_resource type="Script" uid="uid://yh6im74dx2ho" path="res://Scripts/AI/Enemies/Static/Turret_AI.gd" id="1_mggn3"]
+[ext_resource type="AudioStream" uid="uid://bi5c6rkednaoy" path="res://Resources/AudioStreams/Default_enemy_weapon.tres" id="3_221f5"]
 
 [node name="Default_turret" type="Node2D"]
 script = ExtResource("1_mggn3")
@@ -20,5 +21,12 @@ enable_node_path = NodePath("../..")
 one_shot = true
 autostart = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_221f5")
+volume_db = 5.0
+max_distance = 1600.0
+bus = &"Sound"
+
+[connection signal="play_sound_for_shot" from="." to="AudioStreamPlayer2D" method="play"]
 [connection signal="reload_ended" from="Turret_body" to="." method="_on_reload_ended"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

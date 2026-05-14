@@ -34,9 +34,9 @@ func check_if_needed_to_change_state() -> void:
 
 func activate_boss() -> void:
 	activated = true
-	emit_signal("activated_boss")
+	activated_boss.emit()
 	boss_UI.show()
 
 func _boss_death():
-	emit_signal("end_level")
+	end_level.emit()
 	queue_free()

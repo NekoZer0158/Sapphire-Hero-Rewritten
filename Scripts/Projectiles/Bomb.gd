@@ -3,6 +3,7 @@ extends Projectile
 
 @export var explosion_sprite : AnimatedSprite2D
 @export var timer_explosion : Timer
+@export var audio_stream_player : AudioStreamPlayer2D
 @export_group("Explosion areas")
 @export var explosion_small : Area2D
 @export var explosion_medium : Area2D
@@ -26,6 +27,11 @@ func _physics_process(delta):
 
 func explosion():
 	boom = true
+	if is_instance_valid(audio_stream_player):
+		audio_stream_player.get_parent().remove_child(audio_stream_player)
+		get_parent().get_parent().add_child(audio_stream_player)
+		audio_stream_player.position = position
+		audio_stream_player.play()
 	_on_timer_explosion_timeout()
 	timer_explosion.start(explosion_time)
 

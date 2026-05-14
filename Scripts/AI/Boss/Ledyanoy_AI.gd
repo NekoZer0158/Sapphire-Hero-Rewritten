@@ -1,24 +1,26 @@
 extends Boss_AI
 
 @onready var timer_shoot = $Timer_shoot
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Boss_body/AudioStreamPlayer2D
+
 
 var cur_target : Robot_body
 
-const distance : float = 150.0
+const DISTANCE : float = 150.0
 
 func boss_moving() -> void:
 	if is_instance_valid(cur_target):
 		if cur_target.global_position.x > boss_body.global_position.x:
 			if boss_body.scale.y == -1:
 				boss_body.change_direction(-boss_body.scale.y)
-			if abs(cur_target.global_position.x-boss_body.global_position.x) > distance:
+			if abs(cur_target.global_position.x-boss_body.global_position.x) > DISTANCE:
 				boss_body.movement(1.0)
 			else:
 				boss_body.movement(0.0)
 		else:
 			if boss_body.scale.y == 1:
 				boss_body.change_direction(-boss_body.scale.y)
-			if abs(cur_target.global_position.x-boss_body.global_position.x) > distance:
+			if abs(cur_target.global_position.x-boss_body.global_position.x) > DISTANCE:
 				boss_body.movement(-1.0)
 			else:
 				boss_body.movement(0.0)
@@ -41,7 +43,10 @@ func _on_boss_body_detected_a_body(detected_body):
 			cur_target = detected_body
 
 func _on_timer_shoot_timeout():
-	boss_body.shoot()
+	if is_instance_valid(boss_body):
+		if boss_body.can_use_weapon:
+			boss_body.shoot()
+			audio_stream_player_2d.play()
 
 func _on_area_2d_area_entered(area):
 	var area_parent = area.get_parent()

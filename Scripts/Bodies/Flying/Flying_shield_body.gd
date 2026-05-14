@@ -30,7 +30,7 @@ func hit(dmg : int) -> void:
 			hp -= dmg-def
 			if cur_targets.size() == 0:
 				activate_shiled()
-			emit_signal("got_hit",hp)
+			got_hit.emit(hp)
 			if immortality_frames and hp > 0:
 				activate_immortality_frames()
 		if hp <= 0 and !dead:

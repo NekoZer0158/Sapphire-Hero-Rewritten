@@ -112,4 +112,4 @@ func load_achievements() -> void:
 				unlocked_achievements += 1
 				i.unlock_achievement()
 	if unlocked_achievements == 9:
-		emit_signal("unlocked_all_achievements")
+		unlocked_all_achievements.emit()

@@ -27,6 +27,13 @@ var sound_level : int = 12
 var current_music : AudioStream
 const min_audio_value : int = -60
 
+var keyboard_type : int = 0:
+	set(value):
+		keyboard_type = clamp(value,0,GlobalEnum.KeyboardTypes.AZERTY)
+var xbox_gamepad_type : int = 0:
+	set(value):
+		xbox_gamepad_type = clamp(value,0,GlobalEnum.XboxGamepadTypes.M30)
+
 var vsync : int = 1
 var mobile_version : bool = false
 var game_was_completed : int = 0

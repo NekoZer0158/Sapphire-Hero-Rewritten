@@ -12,7 +12,7 @@ func _physics_process(_delta):
 		for i in raycasts:
 			cur_collider = i.get_collider()
 			if cur_collider == null:
-				emit_signal("no_ground")
+				no_ground.emit()
 
 func _on_timer_timeout():
 	activated = true

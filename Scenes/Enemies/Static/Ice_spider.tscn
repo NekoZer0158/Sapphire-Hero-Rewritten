@@ -11,6 +11,7 @@ size = Vector2(16, 16)
 script = ExtResource("1_ga4sv")
 hp = 1
 type = 2
+metadata/_custom_type_script = "uid://bqr1axc88en2a"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 8)

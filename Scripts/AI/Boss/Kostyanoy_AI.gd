@@ -4,6 +4,7 @@ extends Boss_AI
 @onready var timer_change_direction = $Timer_change_direction
 @onready var timer_shoot = $Timer_shoot
 @onready var timer_jump = $Timer_jump
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Boss_body/AudioStreamPlayer2D
 
 var cur_direction : float = -1.0
 var change_direction : bool = true
@@ -13,8 +14,10 @@ func check_boss_state() -> void:
 		match phase:
 			0:
 				if timer_shoot.is_stopped():
-					boss_body.shoot()
-					timer_shoot.start(1.5)
+					if boss_body.can_use_weapon:
+						boss_body.shoot()
+						audio_stream_player_2d.play()
+						timer_shoot.start(1.5)
 				standart_boss_movement()
 			1:
 				if is_instance_valid(GlobalSapphire.player):
@@ -71,7 +74,9 @@ func _on_timer_shoot_timeout():
 func _on_timer_jump_timeout():
 	if is_instance_valid(boss_body):
 		boss_body.jump(true)
-		boss_body.shoot()
+		if boss_body.can_use_weapon:
+			boss_body.shoot()
+			audio_stream_player_2d.play()
 
 func _on_boss_body_nearby_tile():
 	if is_instance_valid(boss_body):

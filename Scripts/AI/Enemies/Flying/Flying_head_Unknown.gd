@@ -3,6 +3,7 @@ extends Flying_robot_AI
 @export var timer : Timer
 
 @onready var ray_cast_2d: RayCast2D = $Robot_body/RayCast2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Robot_body/AudioStreamPlayer2D
 
 var cur_target : Robot_body
 var boss_body : Robot_body
@@ -36,7 +37,9 @@ func _physics_process(_delta):
 
 func _on_timer_timeout():
 	if is_instance_valid(boss_body):
-		enemy_body.shoot()
+		if enemy_body.can_use_weapon:
+			enemy_body.shoot()
+			audio_stream_player_2d.play()
 	else:
 		timer.stop()
 		enemy_body.body_resources["Body_change_direction"].change_direction(-1.0,enemy_body)

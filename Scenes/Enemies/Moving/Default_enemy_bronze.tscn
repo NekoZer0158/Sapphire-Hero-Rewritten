@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdpysuyqcby5p"]
+[gd_scene load_steps=4 format=3 uid="uid://bdpysuyqcby5p"]
 
 [ext_resource type="Script" uid="uid://cqok0kibxu8em" path="res://Scripts/AI/Enemies/Moving/Default_enemy_AI.gd" id="1_qsibv"]
 [ext_resource type="PackedScene" uid="uid://d0y7og1dxpcw7" path="res://Scenes/Bodies/Enemies/Moving/Enemy_body_bronze.tscn" id="2_i2j2p"]
+[ext_resource type="AudioStream" uid="uid://bi5c6rkednaoy" path="res://Resources/AudioStreams/Default_enemy_weapon.tres" id="3_xy31j"]
 
 [node name="Default_enemy" type="Node2D"]
 script = ExtResource("1_qsibv")
@@ -14,6 +15,14 @@ z_index = -125
 scale = Vector2(32, 22)
 enable_node_path = NodePath("../..")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy_body"]
+position = Vector2(19, -24)
+stream = ExtResource("3_xy31j")
+volume_db = 5.3
+max_distance = 1600.0
+max_polyphony = 2
+bus = &"Sound"
+
 [node name="Timer_attacking" type="Timer" parent="."]
 one_shot = true
 
@@ -23,6 +32,7 @@ one_shot = true
 [node name="Timer_check_everywhere" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="play_sound_for_shot" from="." to="Enemy_body/AudioStreamPlayer2D" method="play"]
 [connection signal="detected_a_body" from="Enemy_body" to="." method="_on_enemy_body_detected_a_body"]
 [connection signal="got_hit" from="Enemy_body" to="." method="_on_enemy_body_got_hit"]
 [connection signal="nearby_tile" from="Enemy_body" to="." method="_on_enemy_body_nearby_tile"]

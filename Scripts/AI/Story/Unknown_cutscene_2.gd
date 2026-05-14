@@ -48,6 +48,6 @@ func _on_timer_short_timeout():
 	await transition(1.0,0.6)
 	robot_body.hide()
 	await get_tree().create_timer(0.6).timeout
-	emit_signal("destroy_core")
+	destroy_core.emit()
 	await transition(0.0,0.6)
 	queue_free()

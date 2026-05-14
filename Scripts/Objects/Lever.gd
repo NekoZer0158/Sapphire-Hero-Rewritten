@@ -10,4 +10,4 @@ func activate(_player:Moving_body) -> void:
 	can_be_activated = false
 
 func _on_animation_player_animation_finished(_anim_name):
-	emit_signal("lever_activation")
+	lever_activation.emit()

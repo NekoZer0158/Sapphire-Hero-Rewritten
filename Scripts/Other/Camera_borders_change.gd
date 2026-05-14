@@ -40,11 +40,11 @@ func change_camera(player_camera:Camera2D) -> void:
 			player_camera.limit_right = right_limit
 		if reset_smoothing:
 			player_camera.call_deferred("reset_smoothing")
-	emit_signal("activate_something")
+	activate_something.emit()
 
 func _on_area_2d_body_entered(body):
 	if body is Moving_body:
 		if body.type == GlobalEnum.BodyTypes.PLAYER:
 			if (!use_only_if_x_less_than_number) or (use_only_if_x_less_than_number and body.global_position.x/4 < less_than_this_number):
-				emit_signal("player_entered")
+				player_entered.emit()
 				change_camera(body.get_parent().player_camera)

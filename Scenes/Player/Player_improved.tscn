@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://142tygt4ieye"]
+[gd_scene load_steps=12 format=3 uid="uid://142tygt4ieye"]
 
 [ext_resource type="Script" uid="uid://dsjst81c2oxmv" path="res://Scripts/Player/Player.gd" id="1_yv4bl"]
 [ext_resource type="AudioStream" uid="uid://bd31ojyudbqll" path="res://Resources/AudioStreams/Default_weapon.tres" id="2_6t7ub"]
@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://d1u1pnbrqlqk0" path="res://Resources/AudioStreams/Triple_weapon.tres" id="3_bgsua"]
 [ext_resource type="PackedScene" uid="uid://cle5aclnyr280" path="res://Scenes/UI/Player_UI.tscn" id="3_in8md"]
 [ext_resource type="PackedScene" uid="uid://dcixur6fqo43g" path="res://Scenes/UI/Pause_UI.tscn" id="4_b472g"]
+[ext_resource type="AudioStream" uid="uid://5vfcdr4ryd54" path="res://Resources/AudioStreams/Kostyanoy_weapon.tres" id="4_xlx0p"]
+[ext_resource type="AudioStream" uid="uid://dyh5k0f5o08wa" path="res://Resources/AudioStreams/Ledyanoy_weapon.tres" id="5_plpca"]
+[ext_resource type="AudioStream" uid="uid://ctrtm0evdc3rd" path="res://Resources/AudioStreams/Zeppelin_weapon.tres" id="6_rht4i"]
+[ext_resource type="AudioStream" uid="uid://cot6lfid1u32n" path="res://Resources/AudioStreams/Voronoy_weapon.tres" id="7_pbvnb"]
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("player_body", "player_UI", "player_camera", "activation_button", "timer_after_death", "timer_ammo")]
 script = ExtResource("1_yv4bl")
@@ -20,7 +24,7 @@ transition_time = 0.5
 ammo_regeneration = true
 timer_ammo = NodePath("PlayerBody/Timer_ammo")
 time_for_ammo_regeneration = 2.5
-sounds = Array[AudioStream]([ExtResource("2_6t7ub"), ExtResource("3_bgsua")])
+sounds = Array[AudioStream]([ExtResource("2_6t7ub"), ExtResource("3_bgsua"), ExtResource("4_xlx0p"), ExtResource("5_plpca"), ExtResource("6_rht4i"), ExtResource("7_pbvnb")])
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_108rj")]
 

@@ -184,7 +184,7 @@ func activate_option(cur_option:int) -> void:
 			if GlobalSapphire.mobile_version:
 				mobile_parent_node.show()
 			parent_node.show()
-			emit_signal("hide_settings")
+			hide_settings.emit()
 
 func set_color_for_cur_option(cur_option:int) -> void:
 	for i in settings_options_labels:
@@ -237,6 +237,14 @@ func check_global_save_data() -> void:
 			if check_line(cur_line):
 				return
 			GlobalSapphire.vsync = int(cur_line)
+			cur_line = save_data.get_line()
+			if check_line(cur_line):
+				return
+			GlobalSapphire.xbox_gamepad_type = int(cur_line)
+			cur_line = save_data.get_line()
+			if check_line(cur_line):
+				return
+			GlobalSapphire.keyboard_type = int(cur_line)
 	else:
 		save_global_save_data()
 
@@ -253,3 +261,5 @@ func save_global_save_data() -> void:
 	save_data.store_string(str(TranslationServer.get_locale())+"\n")
 	save_data.store_string(str(GlobalSapphire.game_was_completed)+"\n")
 	save_data.store_string(str(GlobalSapphire.vsync)+"\n")
+	save_data.store_string(str(GlobalSapphire.xbox_gamepad_type)+"\n")
+	save_data.store_string(str(GlobalSapphire.keyboard_type)+"\n")

@@ -8,4 +8,4 @@ func _on_area_entered(area):
 	if area_parent != null:
 		if area_parent is Cloud:
 			area_parent.queue_free()
-			emit_signal("removed_cloud")
+			removed_cloud.emit()

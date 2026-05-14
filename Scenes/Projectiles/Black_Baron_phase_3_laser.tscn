@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkimr7tjkxgo8"]
+[gd_scene load_steps=5 format=3 uid="uid://bkimr7tjkxgo8"]
 
 [ext_resource type="Script" uid="uid://csaxpd45ftk0c" path="res://Scripts/Projectiles/Projectile_phase_3.gd" id="1_dmnke"]
 [ext_resource type="Texture2D" uid="uid://bj7oqdmy5fnj3" path="res://Sprites/Projectiles/Black_Baron_phase_3_laser.png" id="2_hptv8"]
+[ext_resource type="AudioStream" uid="uid://bi5c6rkednaoy" path="res://Resources/AudioStreams/Default_enemy_weapon.tres" id="3_qh3na"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
 size = Vector2(32, 28)
@@ -33,6 +34,13 @@ shape = SubResource("RectangleShape2D_3kn46")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-14, -12)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qh3na")
+volume_db = 6.0
+max_distance = 1600.0
+max_polyphony = 2
+bus = &"Sound"
 
 [connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

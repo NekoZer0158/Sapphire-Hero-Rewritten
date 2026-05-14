@@ -29,6 +29,8 @@ var attacking_state : int = 0:
 			attacking_state = value
 var cur_target : Robot_body
 
+signal play_sound_for_shot(from_position:float)
+
 func _ready():
 	if is_instance_valid(enemy_body):
 		enemy_body.type = GlobalEnum.BodyTypes.ENEMY
@@ -90,7 +92,9 @@ func _physics_process(_delta):
 								enemy_body.movement(1.0)
 							else:
 								enemy_body.movement(-1.0)
-						enemy_body.shoot()
+						if enemy_body.can_use_weapon:
+							enemy_body.shoot()
+							play_sound_for_shot.emit(0.0)
 			GlobalEnum.EnemyState.WORRIED:
 				moving(idle_state)
 

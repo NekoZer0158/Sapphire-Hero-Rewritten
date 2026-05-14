@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpb81nyyr1cra"]
+[gd_scene load_steps=5 format=3 uid="uid://dpb81nyyr1cra"]
 
 [ext_resource type="Script" uid="uid://b4bugdmuroemj" path="res://Scripts/AI/Boss/Zeppelin_AI.gd" id="1_0lx42"]
 [ext_resource type="PackedScene" uid="uid://tmxyd5lllbba" path="res://Scenes/Bodies/Boss/Zeppelin.tscn" id="2_tfgec"]
+[ext_resource type="AudioStream" uid="uid://ctrtm0evdc3rd" path="res://Resources/AudioStreams/Zeppelin_weapon.tres" id="3_00qf7"]
 [ext_resource type="PackedScene" uid="uid://41rkgd8r21fm" path="res://Scenes/UI/Boss_UI.tscn" id="3_qm5u8"]
 
 [node name="Zeppelin" type="Node2D"]
@@ -13,6 +14,14 @@ script = ExtResource("1_0lx42")
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(32.4, 14.6)
 enable_node_path = NodePath("../..")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Boss_body"]
+position = Vector2(19, -24)
+stream = ExtResource("3_00qf7")
+volume_db = 6.0
+max_distance = 1600.0
+max_polyphony = 2
+bus = &"Sound"
 
 [node name="Boss_UI" type="CanvasLayer" parent="."]
 

@@ -2,6 +2,7 @@ extends Boss_AI
 
 @onready var timer_shoot = $Timer_shoot
 @onready var timer_jumped = $Timer_jumped
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Boss_body/AudioStreamPlayer2D
 
 var jumped : bool = false
 
@@ -45,7 +46,10 @@ func check_if_needed_to_change_state() -> void:
 func _on_timer_shoot_timeout():
 	match phase:
 		0,2,3:
-			boss_body.shoot()
+			if is_instance_valid(boss_body):
+				if boss_body.can_use_weapon:
+					boss_body.shoot()
+					audio_stream_player_2d.play()
 
 func _on_boss_body_nearby_tile():
 	if !jumped:

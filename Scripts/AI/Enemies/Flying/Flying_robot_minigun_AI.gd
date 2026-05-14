@@ -11,6 +11,7 @@ var cur_amount_of_shoots : int = 0
 var time_for_one_shot : float = 0.13
 var time_for_change_frames : float = 0.0
 
+
 func start():
 	if is_instance_valid(timer):
 		timer.queue_free()
@@ -25,6 +26,7 @@ func start():
 func _on_timer_one_shoot_timeout():
 	if is_instance_valid(enemy_body):
 		enemy_body.shoot()
+		play_sound_for_shot.emit(0.0)
 		cur_amount_of_shoots += 1
 		if cur_amount_of_shoots >= amount_of_shoots:
 			timer_one_shoot.stop()

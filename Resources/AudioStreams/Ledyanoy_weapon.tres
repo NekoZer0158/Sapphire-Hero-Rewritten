@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://dyh5k0f5o08wa"]
+
+[ext_resource type="AudioStream" uid="uid://dggu7vblkmjr" path="res://Audio/Sound/Ledyanoy/Shoot.wav" id="1_0y84p"]
+
+[resource]
+random_pitch = 1.1
+random_volume_offset_db = 0.25
+streams_count = 1
+stream_0/stream = ExtResource("1_0y84p")

@@ -87,7 +87,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vcx82")
+&"": SubResource("AnimationLibrary_vcx82")
 }
 
 [node name="Death_effect_marker" type="Marker2D" parent="."]

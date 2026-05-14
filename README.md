@@ -20,18 +20,31 @@ GPL-3.0-only
 
 ## Changelog
 
+## 2.5
+### EN
+	Add support for M30 gamepad.
+	Add support for AZERTY keyboard.
+	Add sound effects for most weapons.
+	Legend can be open with a gamepad now.
+	Add icons for: ice spider, riding robot and turret, that shoots 3 times in a row
+	Controls menu is available through pause menu.
+### RU
+	Добавленая поддержка геймпада M30.
+	Добавлена поддержка клавиатур с AZERTY раскладкой.
+	Добавлены звуки для большинства оружия.
+	Теперь вызвать легенду в меню сохранений можно и на геймпаде.
+	Добавлены иконки для: ледяного паука, ездящего робота и турели, делающей 3 выстрела за раз.
+	Теперь можно посмотреть управление через меню паузы.
 ## 2.4.6
-	A tiny change in Kostyanoy level
+	A tiny change in Kostyanoy level.
 ## 2.4.5
 	Fix Credits
 ## 2.4.4
-	Now displayed buttons will change in new/load game, depending on if you use joypad or not
-	Fixed bug after playing prologue
-
+	Now displayed buttons will change in new/load game, depending on if you use joypad or not.
+	Fixed bug after playing prologue.
 ### 2.4.3
 	Added weapon sound effect for Unknown.
 	Исправлены некоторые отпечатки.
-
 ### 2.4.2
 	Added sound effect for the Unknowns weapon.
 	Added credits file.

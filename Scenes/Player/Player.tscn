@@ -1,15 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmx7j3be5qg6s"]
+[gd_scene load_steps=16 format=3 uid="uid://bmx7j3be5qg6s"]
 
 [ext_resource type="Script" uid="uid://dsjst81c2oxmv" path="res://Scripts/Player/Player.gd" id="1_l8q7k"]
 [ext_resource type="PackedScene" uid="uid://dedgw45ycee0b" path="res://Scenes/Player/Player_body.tscn" id="2_h21fa"]
 [ext_resource type="AudioStream" uid="uid://bd31ojyudbqll" path="res://Resources/AudioStreams/Default_weapon.tres" id="2_ji083"]
 [ext_resource type="AudioStream" uid="uid://d1u1pnbrqlqk0" path="res://Resources/AudioStreams/Triple_weapon.tres" id="3_ji083"]
 [ext_resource type="PackedScene" uid="uid://ctbq18ipo4hje" path="res://Scenes/UI/Button_UI.tscn" id="3_kond2"]
+[ext_resource type="AudioStream" uid="uid://5vfcdr4ryd54" path="res://Resources/AudioStreams/Kostyanoy_weapon.tres" id="4_0u84n"]
 [ext_resource type="PackedScene" uid="uid://dcixur6fqo43g" path="res://Scenes/UI/Pause_UI.tscn" id="4_5t0ei"]
 [ext_resource type="PackedScene" uid="uid://cle5aclnyr280" path="res://Scenes/UI/Player_UI.tscn" id="4_ijkqd"]
 [ext_resource type="Script" uid="uid://dligfwdfjh7a2" path="res://Scripts/Resources/Modules/Shooting_module.gd" id="4_u0eov"]
 [ext_resource type="Resource" uid="uid://byjwl1edalc6s" path="res://Resources/Weapons/Default_weapon.tres" id="5_7y1h0"]
+[ext_resource type="AudioStream" uid="uid://dyh5k0f5o08wa" path="res://Resources/AudioStreams/Ledyanoy_weapon.tres" id="5_esmjy"]
 [ext_resource type="Script" uid="uid://d0ysr06su7yjs" path="res://Scripts/Resources/Weapons/Weapon.gd" id="5_pqca5"]
+[ext_resource type="AudioStream" uid="uid://ctrtm0evdc3rd" path="res://Resources/AudioStreams/Zeppelin_weapon.tres" id="6_6tu5v"]
+[ext_resource type="AudioStream" uid="uid://cot6lfid1u32n" path="res://Resources/AudioStreams/Voronoy_weapon.tres" id="7_spxdj"]
 
 [sub_resource type="Resource" id="Resource_80loi"]
 resource_local_to_scene = true
@@ -26,7 +30,7 @@ activation_button = NodePath("PlayerBody/Button_UI")
 timer_after_death = NodePath("Timer_after_death")
 time_before_restart = 2.0
 transition_time = 0.5
-sounds = Array[AudioStream]([ExtResource("2_ji083"), ExtResource("3_ji083")])
+sounds = Array[AudioStream]([ExtResource("2_ji083"), ExtResource("3_ji083"), ExtResource("4_0u84n"), ExtResource("5_esmjy"), ExtResource("6_6tu5v"), ExtResource("7_spxdj")])
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_h21fa")]
 amount_of_jumps = 2

@@ -3,6 +3,7 @@ extends Boss_AI
 @export var time_between_jumps : float = 1.2
 @export var distance : int = 250
 @onready var timer_jump: Timer = $Timer_jump
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Boss_body/AudioStreamPlayer2D
 
 func check_boss_state() -> void:
 	if is_instance_valid(boss_body):
@@ -21,6 +22,7 @@ func check_boss_state() -> void:
 						boss_body.movement(0.0)
 					if boss_body.can_use_weapon:
 						boss_body.shoot()
+						audio_stream_player_2d.play()
 				else:
 					boss_body.movement(0.0)
 

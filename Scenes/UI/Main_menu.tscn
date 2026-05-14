@@ -90,11 +90,12 @@ layout_mode = 1
 parent_node = NodePath("../Menu_options")
 mobile_parent_node = NodePath("../Mobile")
 
-[node name="Controls" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("5_m41hb")]
+[node name="Controls" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node", "settings_menu") instance=ExtResource("5_m41hb")]
 visible = false
 layout_mode = 1
 parent_node = NodePath("../Menu_options")
 mobile_parent_node = NodePath("../Mobile")
+settings_menu = NodePath("../Settings")
 
 [node name="Customization_UI" parent="." node_paths=PackedStringArray("parent_node", "mobile_parent_node") instance=ExtResource("7_1p0bb")]
 visible = false
@@ -122,7 +123,7 @@ offset_top = 1024.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme = ExtResource("1_lg6fm")
-text = "2.4.6"
+text = "2.5"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

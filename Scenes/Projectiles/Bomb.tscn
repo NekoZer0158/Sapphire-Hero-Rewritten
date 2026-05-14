@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhmwjy6vc8lev"]
+[gd_scene load_steps=12 format=3 uid="uid://bhmwjy6vc8lev"]
 
 [ext_resource type="Script" uid="uid://dc3tladf4u6u0" path="res://Scripts/Projectiles/Bomb.gd" id="1_wxwdr"]
 [ext_resource type="Texture2D" uid="uid://id1mdlkjxlr0" path="res://Sprites/Projectiles/Bomb.png" id="2_hctex"]
 [ext_resource type="SpriteFrames" uid="uid://dd4w3f53fjjh3" path="res://Resources/SpriteFrames/explosion_enemy.tres" id="3_7jgtk"]
+[ext_resource type="AudioStream" uid="uid://3oapp7r7vwnm" path="res://Audio/Sound/Bomber/Boom.wav" id="4_tdca7"]
+[ext_resource type="AudioStream" uid="uid://dbhs5ud3dhq4x" path="res://Audio/Sound/Bomber/Boom_2.wav" id="5_yrbxb"]
+[ext_resource type="Script" uid="uid://buw83vjb8bujd" path="res://Scripts/Projectiles/Other/Audio_stream_player_2d_bomb.gd" id="6_yrbxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
 size = Vector2(24, 32)
@@ -16,11 +19,20 @@ radius = 64.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvu21"]
 radius = 128.0
 
-[node name="Bomb" type="Node2D" node_paths=PackedStringArray("explosion_sprite", "timer_explosion", "explosion_small", "life_timer") groups=["Projectile"]]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_11jbw"]
+random_pitch = 2.42
+random_volume_offset_db = 0.1
+streams_count = 2
+stream_0/stream = ExtResource("4_tdca7")
+stream_0/weight = 0.15
+stream_1/stream = ExtResource("5_yrbxb")
+
+[node name="Bomb" type="Node2D" node_paths=PackedStringArray("explosion_sprite", "timer_explosion", "audio_stream_player", "explosion_small", "life_timer") groups=["Projectile"]]
 process_mode = 1
 script = ExtResource("1_wxwdr")
 explosion_sprite = NodePath("Explosion_sprite")
 timer_explosion = NodePath("Timer_explosion")
+audio_stream_player = NodePath("AudioStreamPlayer2D")
 explosion_small = NodePath("Explosion_small")
 id = 3
 atk = 1
@@ -72,6 +84,12 @@ sprite_frames = ExtResource("3_7jgtk")
 
 [node name="Timer_explosion" type="Timer" parent="."]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_11jbw")
+max_distance = 1600.0
+bus = &"Sound"
+script = ExtResource("6_yrbxb")
+
 [connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Explosion_small" to="." method="_on_explosion_small_body_entered"]
@@ -81,3 +99,4 @@ sprite_frames = ExtResource("3_7jgtk")
 [connection signal="body_entered" from="Explosion_large" to="." method="_on_explosion_large_body_entered"]
 [connection signal="body_exited" from="Explosion_large" to="." method="_on_explosion_large_body_exited"]
 [connection signal="timeout" from="Timer_explosion" to="." method="_on_timer_explosion_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]

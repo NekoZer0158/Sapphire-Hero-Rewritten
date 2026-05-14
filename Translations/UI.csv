@@ -12,10 +12,14 @@ License_Godot,Лицензия (Godot),License (Godot),Άδεια (Godot),Lizenz
 save_,сохр.,save,save,save,save,save
 Customization,Внешний вид,Customization,Customization,Customization,Customization,Customization
 W_up,W - вверх,W - up,W - πάνω,W - oben,W - arriba,W - su
+Z_up,Z - вверх,Z - up,Z - πάνω,Z - oben,Z - arriba,Z - su
 A_left,A - влево,A - left,A - αριστερά,A - links,A - izquierda,A - sinistra
+Q_left,Q - влево,Q - left,Q - αριστερά,Q - links,Q - izquierda,Q - sinistra
 S_down,S - вниз,S - down,S - κάτω,S - unten,S - abajo,S - giù
 D_right,D - вправо,D - right,D - δεξί,D - rechts,D - derecha,D - destra
+d_pad_movement,d-pad - перемещение,d-pad - movement,d-pad - μετακίνηση,d-pad - bewegung,d-pad - movimiento,d-pad - movimento
 Q_previous_weapon,Q - предыдущее оружие,Q - previous weapon,Q - προηγούμενο όπλο,Q - zurück waffe,Q - anterior arma,Q - indietro arma
+A_previous_weapon,A - предыдущее оружие,A - previous weapon,A - προηγούμενο όπλο,A - zurück waffe,A - anterior arma,A - indietro arma
 E_next_weapon,E - следующее оружие,E - next weapon,E - επόμενο όπλο,E - weiter waffe,E - siguiente arma,E - avanti arma
 Mods_controls_previous_tab,Q - предыдущая вкладка,Q - previous tab,Q - προηγούμενο καρτέλα,Q - zurück tab,Q - anterior ficha,Q - indietro scheda
 Mods_controls_next_tab,E - следующая вкладка,E - next tab,E - επόμενο  καρτέλα,E - weiter tab,E - siguiente ficha,E - avanti scheda
@@ -42,6 +46,9 @@ Square_shoot,[img]"Sprites\UI\Controls\Square_white.png"[/img] - стрелят�
 X_jump,[img]"Sprites\UI\Controls\X_white.png"[/img] - прыжок,[img]"Sprites\UI\Controls\X_white.png"[/img] - jump,[img]"Sprites\UI\Controls\X_white.png"[/img] - πήδα,[img]"Sprites\UI\Controls\X_white.png"[/img] - springen,[img]"Sprites\UI\Controls\X_white.png"[/img] - saltar,[img]"Sprites\UI\Controls\X_white.png"[/img] - saltare
 F12_fullscreen,F12 - полный экран / окно,F12 - fullscreen / windowed,F12 - πλήρης οθόνη / σε παράθυρο,F12 - vollbild / fenstermodus,F12 - pantalla completa / ventana,F12 - schermo intero / a finestra
 L - legend,L - легенда,L - legend,L - υπόμνημα,L - legende,L - leyenda,L - legenda
+Y - legend,Y - легенда,Y - legend,Y - υπόμνημα,Y - legende,Y - leyenda,Y - legenda
+C - legend,C - легенда,C - legend,C - υπόμνημα,C - legende,C - leyenda,C - legenda
+Triangle - legend,[center][img]Sprites/UI/Controls/Triangle.png[/img] - легенда,[center][img]Sprites/UI/Controls/Triangle.png[/img] - legend,[center][img]Sprites/UI/Controls/Triangle.png[/img] - υπόμνημα,[center][img]Sprites/UI/Controls/Triangle.png[/img] - legende,[center][img]Sprites/UI/Controls/Triangle.png[/img] - leyenda,[center][img]Sprites/UI/Controls/Triangle.png[/img] - legenda
 "legend_description_1","M - основная вселенная","M - main universe","M - κεντρικό σύμπαν","M - haupt universum","M - principal universo","M - principale universo"
 "legend_description_2","A - альтернативная вселенная","A - alternative universe","A - παράλληλο σύμπαν","A - alternative universum","A - 
 alternativo universo","A - alternativo universo"
@@ -60,15 +67,34 @@ Language,Язык,Language,Γλώσσα,Sprache,Idioma,Lingua
 Restart_desc,R - перезапуск уровня,R - restart the level,R - επανεκκίνηση,R - neustart,R - reiniciar,R - restart
 Restart_desc_m,перезапуск уровня,restart the level,επανεκκίνηση,neustart,reiniciar,restart
 BtM_desc,[center]B - вернуться в меню,[center]B - back to the menu,[center]B - επιστροφή στο μενού,[center]B - zurück zum menü,[center]B - volver al menú,[center]B - torna al menu
-BtM_desc_PS,[center][img]Sprites/UI/Controls/Circle.png[/img] - вернуться в меню,[center][img]Sprites/UI/Controls/Circle.png[/img] - back to the menu,[center][img]Sprites/UI/Controls/Circle.png[/img] - επιστροφή στο μενού,[center][img]Sprites/UI/Controls/Circle.png[/img] - zurück zum menü,[center][img]Sprites/UI/Controls/Circle.png[/img] - volver al menú,[center][img]Sprites/UI/Controls/Circle.png[/img] - torna al menu
+BtM_desc_PS,[center][img]Sprites/UI/Controls/Circle_white.png[/img] - вернуться в меню,[center][img]Sprites/UI/Controls/Circle_white.png[/img] - back to the menu,[center][img]Sprites/UI/Controls/Circle_white.png[/img] - επιστροφή στο μενού,[center][img]Sprites/UI/Controls/Circle_white.png[/img] - zurück zum menü,[center][img]Sprites/UI/Controls/Circle_white.png[/img] - volver al menú,[center][img]Sprites/UI/Controls/Circle_white.png[/img] - torna al menu
 BtM_desc_m,[center]вернуться в меню,[center]back to the menu,[center]επιστροφή στο μενού,[center]zurück zum menü,[center]volver al menú,[center]torna al menu
 Restart_desc_G,[center]Y - перезапуск уровня,[center]Y - restart the level,[center]Y - επανεκκίνηση,[center]Y - neustart,[center]Y - reiniciar,[center]Y - restart
-Restart_desc_G_PS,[center][img]Sprites/UI/Controls/Triangle.png[/img] - перезапуск уровня,[center][img]Sprites/UI/Controls/Triangle.png[/img] - restart the level,[center][img]Sprites/UI/Controls/Triangle.png[/img] - επανεκκίνηση,[center][img]Sprites/UI/Controls/Triangle.png[/img] - neustart,[center][img]Sprites/UI/Controls/Triangle.png[/img] - reiniciar,[center][img]Sprites/UI/Controls/Triangle.png[/img] - restart
+Restart_desc_G_PS,[center][img]Sprites/UI/Controls/Triangle_white.png[/img] - перезапуск уровня,[center][img]Sprites/UI/Controls/Triangle_white.png[/img] - restart the level,[center][img]Sprites/UI/Controls/Triangle_white.png[/img] - επανεκκίνηση,[center][img]Sprites/UI/Controls/Triangle_white.png[/img] - neustart,[center][img]Sprites/UI/Controls/Triangle_white.png[/img] - reiniciar,[center][img]Sprites/UI/Controls/Triangle_white.png[/img] - restart
 R - controls,R - управление,R - controls,R - χειρισμός,R - tastenbelegung,R - controles,R - comandi
-Keyboard,Клавиатура,Keyboard,Πληκτρολόγιο,Tastatur,Teclado,Tastiera
 Gamepad_xbox,Геймпад(Xbox),Gamepad(Xbox),Gamepad(Xbox),Gamepad(Xbox),Mando(Xbox),Controller(Xbox)
 Gamepad_playstation,Геймпад(PlayStation),Gamepad(PlayStation),Gamepad(PlayStation),Gamepad(PlayStation),Mando(PlayStation),Controller(PlayStation)
 Epilogue,Эпилог,Epilogue,Επίλογος,Epilog,Epílogo,Epilogo
 Prologue,Пролог,Prologue,Πρόλογος,Prolog,Prólogo,Prologo
 Mods,Моды,Mods,Τροποποιήσεις,Modifikationen,Modificaciones,Modificazioni
 Achievements,Достижения,Achievements,Επιτευξη,Erfolge,Logros,Obiettivi
+Controls_desc,C - управление,C - controls,C - χειρισμός,C - tastenbelegung,C - controles,C - comandi
+Controls_desc_xbox_M30,X - управление,X - controls,X - χειρισμός,X - tastenbelegung,X - controles,X - comandi
+Controls_desc_PS,[img]Sprites/UI/Controls/Square_white.png[/img] - управление,[img]Sprites/UI/Controls/Square_white.png[/img] - controls,[img]Sprites/UI/Controls/Square_white.png[/img] - χειρισμός,[img]Sprites/UI/Controls/Square_white.png[/img] - tastenbelegung,[img]Sprites/UI/Controls/Square_white.png[/img] - controles,[img]Sprites/UI/Controls/Square_white.png[/img] - comandi
+Settings_desc,S - настройки,S - settings,S - επιλογές,S - optionen,S - opciones,S - opzioni
+Settings_desc_xbox_M30,A - настройки,A - settings,A - επιλογές,A - optionen,A - opciones,A - opzioni
+Settings_desc_PS,[center][img]Sprites/UI/Controls/X_white.png[/img] - настройки,[center][img]Sprites/UI/Controls/X_white.png[/img] - settings,[center][img]Sprites/UI/Controls/X_white.png[/img] - επιλογές,[center][img]Sprites/UI/Controls/X_white.png[/img] - optionen,[center][img]Sprites/UI/Controls/X_white.png[/img] - opciones,[center][img]Sprites/UI/Controls/X_white.png[/img] - opzioni
+Restart_desc_G_M30,C - перезапуск уровня,C - restart the level,C - επανεκκίνηση,C - neustart,C - reiniciar,C - restart
+Gamepad_m30,Геймпад(M30),Gamepad(M30),Gamepad(M30),Gamepad(M30),Mando(M30),Controller(M30)
+Gamepad_xbox_or_else,Геймпад Xbox,Gamepad Xbox,Gamepad Xbox,Gamepad Xbox,Mando Xbox,Controller Xbox
+Keyboard,Клавиатура (QWERTY),Keyboard (QWERTY),Πληκτρολόγιο (QWERTY),Tastatur (QWERTY),Teclado (QWERTY),Tastiera (QWERTY)
+Keyboard_azerty,Клавиатура (AZERTY),Keyboard (AZERTY),Πληκτρολόγιο (AZERTY),Tastatur (AZERTY),Teclado (AZERTY),Tastiera (AZERTY)
+Keyboard_type,Клавиатура,Keyboard,Πληκτρολόγιο,Tastatur,Teclado,Tastiera
+L_previous_weapon,L - предыдущее оружие,L - previous weapon,L - προηγούμενο όπλο,L - zurück waffe,L - anterior arma,L - indietro arma
+R_next_weapon,R - следующее оружие,R - next weapon,R - επόμενο όπλο,R - weiter waffe,R - siguiente arma,R - avanti arma
+C_activate,C - активировать,C - activate,C - ενεργοποιήσετε,C - aktivieren,C - activar,C - attivare
+A_shoot,A - стрелять,A - shoot,A - πυροβόλα,A - schieße,A - disparar,A - sparare
+B_walk,B/LSB - идти назад,B/LSB - move backwards,B/LSB - κουνήσου πίσω,B/LSB - laufen rückwärts,B/LSB - retrocediendo,B/LSB - retrocediamo
+start_m30_pause,start - пауза/пропустить,start - pause/skip,start - παύση/παράλειψη,start - pause/replay überspringen,start - pausa/saltar,start - pausa/salta
+Minus_Use_hp_refill,— - использовать восполнитель HP,— - use HP refill,— - HP επαναπλήρωσης,— - HP nachfüllgerät,— - HP rellenar,— - HP riempire
+B_jump,B - прыжок,B - jump,B - πήδα,B - springen,B - saltar,B - saltare

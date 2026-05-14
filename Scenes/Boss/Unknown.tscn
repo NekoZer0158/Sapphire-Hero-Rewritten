@@ -20,6 +20,14 @@ scale = Vector2(21.3, 14.6)
 enable_node_path = NodePath("../..")
 metadata/_edit_lock_ = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Boss_body"]
+position = Vector2(19, -24)
+stream = ExtResource("4_svn17")
+volume_db = 6.0
+max_distance = 1600.0
+max_polyphony = 2
+bus = &"Sound"
+
 [node name="Boss_UI" type="CanvasLayer" parent="."]
 
 [node name="Boss_UI" parent="Boss_UI" node_paths=PackedStringArray("boss_body") instance=ExtResource("3_348bs")]
@@ -30,10 +38,6 @@ boss_body = NodePath("../../Boss_body")
 [node name="Timer_phase_0" type="Timer" parent="."]
 
 [node name="Timer_phase_1" type="Timer" parent="."]
-
-[node name="AudioStreamPlayer_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_svn17")
-bus = &"Sound"
 
 [connection signal="detected_a_body" from="Boss_body" to="." method="_on_boss_body_detected_a_body"]
 [connection signal="got_hit" from="Boss_body" to="Boss_UI/Boss_UI" method="_on_boss_body_got_hit"]

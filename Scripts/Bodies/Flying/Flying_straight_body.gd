@@ -30,4 +30,6 @@ func _on_timer_anim_timeout():
 		if body_sprite.frame_coords.x == 0:
 			for i in collision_shapes:
 				i.set_deferred("disabled",true)
-			emit_signal("spikes_deactivated")
+			spikes_deactivated.emit()
+			body_sprite.frame = 0
+			

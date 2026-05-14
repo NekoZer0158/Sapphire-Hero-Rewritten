@@ -1,3 +1,4 @@
+@icon("res://Sprites/Icons/Ice_spider.svg")
 class_name Ice_spider
 extends Static_Robot_body
 

@@ -14,7 +14,7 @@ func explosion() -> void:
 func _on_area_2d_body_entered(body):
 	if body is Moving_body:
 		if body.type == GlobalEnum.BodyTypes.PLAYER:
-			emit_signal("explosion_activated")
+			explosion_activated.emit()
 			explosion()
 
 func spawn_boom(boom_marker:Marker2D) -> void:

@@ -10,7 +10,7 @@ extends Control
 @onready var back : Label = $Back
 @onready var transition = $Transition
 @onready var mobile_node: Control = $Mobile
-@onready var label_legend: Label = $Legend/LabelLegend
+@onready var label_legend: RichTextLabel = $Legend/LabelLegend
 @onready var legend: Control = $Legend/Legend
 @onready var next_page_label: RichTextLabel = $Next_page
 @onready var previous_page_label: RichTextLabel = $Previous_page
@@ -73,9 +73,9 @@ func _input(event):
 			if current_option > 0:
 				current_option -= 1
 				set_color_for_cur_option(current_option)
-		elif event.is_action_pressed(&"Next_weapon"):
+		if Pressed_key_check._check_if_this_button_just_pressed(&"Next_weapon",&"Next_weapon_M30"):
 			next_slots_page()
-		elif event.is_action_pressed(&"Previous_weapon"):
+		if Pressed_key_check._check_if_this_button_just_pressed(&"Previous_weapon",&"Previous_weapon_M30"):
 			previous_slots_page()
 		if event.is_action_pressed(&"Menu_Activate"):
 			if current_option != BACK:
@@ -84,7 +84,7 @@ func _input(event):
 				activate_option(current_option,true)
 		elif event.is_action_pressed(&"Back"):
 			activate_option(BACK,true)
-		elif event.is_action_pressed(&"Legend"):
+		if Pressed_key_check._check_if_this_button_just_pressed(&"Legend",&"Legend_M30"):
 			legend.visible = !legend.visible
 		if state == NEW_GAME:
 			if event.is_action_pressed(&"Menu_Left"):
@@ -198,15 +198,29 @@ func _check_joypad() -> void:
 	if !GlobalSapphire.mobile_version:
 		if Input.get_connected_joypads().size() > 0:
 			var joy_name := Input.get_joy_name(0)
-			if "PS3" in joy_name or "PS4" in joy_name or "PS5" in joy_name or "PS6" in joy_name:
+			if "PS3" in joy_name or "PS4" in joy_name or "PS5" in joy_name or "PS6" in joy_name or "PS2" in joy_name or "PS1" in joy_name:
 				next_page_label.text = "R1>"
 				previous_page_label.text = "<L1"
+				label_legend.text = "Triangle - legend"
 			else:
-				next_page_label.text = "RB>"
-				previous_page_label.text = "<LB"
+				match GlobalSapphire.xbox_gamepad_type:
+					GlobalEnum.XboxGamepadTypes.XBOX:
+						next_page_label.text = "RB>"
+						previous_page_label.text = "<LB"
+						label_legend.text = "Y - legend"
+					GlobalEnum.XboxGamepadTypes.M30:
+						next_page_label.text = "R>"
+						previous_page_label.text = "<L"
+						label_legend.text = "C - legend"
 		else:
-			next_page_label.text = "E>"
-			previous_page_label.text = "<Q"
+			match GlobalSapphire.keyboard_type:
+				GlobalEnum.KeyboardTypes.QWERTY:
+					next_page_label.text = "E>"
+					previous_page_label.text = "<Q"
+				GlobalEnum.KeyboardTypes.AZERTY:
+					next_page_label.text = "E>"
+					previous_page_label.text = "<A"
+			label_legend.text = "L - legend"
 
 func save_data(save_slot_number:int) -> void:
 	var slot_path : String = "user://Slot_"+str(save_slot_number)+".json"

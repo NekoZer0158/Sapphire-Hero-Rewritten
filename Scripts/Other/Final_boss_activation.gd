@@ -47,7 +47,7 @@ func _on_area_2d_body_entered(body):
 	if body is Moving_body:
 		if body.type == GlobalEnum.BodyTypes.PLAYER and !activated:
 			activated = true
-			emit_signal("player_entered")
+			player_entered.emit()
 			activate_boss(body.get_parent())
 
 func set_camera_limit(_camera_node:Camera2D):

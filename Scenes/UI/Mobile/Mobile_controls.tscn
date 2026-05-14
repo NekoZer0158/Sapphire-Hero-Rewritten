@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c3tawyw051l8o" path="res://Sprites/Other/Mobile/Jump.png" id="7_xrvcn"]
 [ext_resource type="Texture2D" uid="uid://dvtxkn7r3qta4" path="res://Sprites/Other/Mobile/Weapon_change.png" id="8_fg8mi"]
 
-[node name="Mobile" type="Control" node_paths=PackedStringArray("parent_node")]
+[node name="Mobile" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_1l026")
-parent_node = NodePath("")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 

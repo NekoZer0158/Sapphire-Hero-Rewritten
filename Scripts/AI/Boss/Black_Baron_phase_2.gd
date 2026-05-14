@@ -11,6 +11,7 @@ extends Boss_AI
 @onready var timer_change_direction = $Timer_change_direction
 @onready var timer_stop_shooting = $Timer_stop_shooting
 @onready var timer_shoot = $Timer_shoot
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Boss_body/AudioStreamPlayer2D
 
 var can_change_direction : bool = true
 
@@ -51,7 +52,9 @@ func check_boss_state() -> void:
 						boss_body.change_direction(-1.0)
 				boss_body.movement(0.0)
 				if can_shoot:
-					boss_body.shoot()
+					if boss_body.can_use_weapon:
+						boss_body.shoot()
+						audio_stream_player_2d.play()
 			RUSH:
 				boss_body.movement(cur_direction)
 				if ray_cast_2d_check_wall.get_collider() != null and can_change_direction:
@@ -100,5 +103,5 @@ func _on_timer_shoot_timeout():
 	can_shoot = true
 
 func _boss_death():
-	emit_signal("now_boss_dead",boss_body.global_position)
+	now_boss_dead.emit(boss_body.global_position)
 	queue_free()

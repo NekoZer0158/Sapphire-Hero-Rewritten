@@ -16,6 +16,13 @@ func spawn_bosses(level : Node) -> void:
 				boss.scale = i.scale
 				boss.rotation = i.rotation
 				i.activation_zone.boss = boss
+			if i.name.begins_with("Ledyanoy"):
+				if not "Ledyanoy" in preloaded_bosses.keys():
+					preloaded_bosses["Ledyanoy"] = preload("res://Scenes/Boss/Ledyanoy.tscn")
+				boss = preloaded_bosses["Ledyanoy"].instantiate()
+				boss.scale = i.scale
+				boss.rotation = i.rotation
+				i.activation_zone.boss = boss
 			boss.global_position = i.global_position/4
 			bosses_node.add_child(boss)
 			i.queue_free()

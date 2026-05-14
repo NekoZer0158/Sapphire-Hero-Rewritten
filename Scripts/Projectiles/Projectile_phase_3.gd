@@ -1,6 +1,8 @@
 extends Projectile
 
 @onready var marker_2d = $Marker2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _on_area_2d_body_entered(body):
 	if body is Robot_body or body is Static_Robot_body:
@@ -13,6 +15,7 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 
 func spawn_default_enemy_projectile() -> void:
+	audio_stream_player_2d.play()
 	var projectile : Projectile
 	projectile = GlobalSapphire.projectiles_database.projectiles[2].instantiate()
 	projectile.type = type
@@ -27,4 +30,7 @@ func spawn_default_enemy_projectile() -> void:
 		projectile.rotation_degrees = 15
 	projectile.scale *= scale.y
 	get_parent().call_deferred("add_child",projectile)
+	hide()
+	collision_shape_2d.set_deferred("disabled",true)
+	await audio_stream_player_2d.finished
 	queue_free()

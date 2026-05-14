@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf611fdkj4v1i"]
+[gd_scene load_steps=6 format=3 uid="uid://cf611fdkj4v1i"]
 
 [ext_resource type="Script" uid="uid://dl6m7n3sm8miw" path="res://Scripts/Projectiles/Projectile.gd" id="1_v8y21"]
 [ext_resource type="Texture2D" uid="uid://dbe1jupcp8nb0" path="res://Sprites/Projectiles/Zeppelin_weapon_2.png" id="2_sxopi"]
+[ext_resource type="AudioStream" uid="uid://crwbkska1soq5" path="res://Audio/Sound/Zeppelin/Shoot_small.wav" id="3_dja1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kn46"]
 size = Vector2(16, 24)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_efioi"]
+random_pitch = 1.2
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("3_dja1n")
 
 [node name="Zeppelin_weapon_2" type="Node2D" node_paths=PackedStringArray("life_timer") groups=["Projectile"]]
 process_mode = 1
@@ -30,6 +37,12 @@ collision_mask = 74
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3kn46")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_efioi")
+volume_db = 1.426
+autoplay = true
+bus = &"Sound"
 
 [connection signal="timeout" from="Timer_life" to="." method="_on_timer_life_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

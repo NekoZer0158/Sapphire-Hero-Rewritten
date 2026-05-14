@@ -5,6 +5,8 @@ extends Node2D
 
 var activate_enemy : bool = false
 
+signal play_sound_for_shot(from_position:float)
+
 func _ready():
 	enemy_body.type = GlobalEnum.BodyTypes.ENEMY
 	if !is_instance_valid(enemy_body):

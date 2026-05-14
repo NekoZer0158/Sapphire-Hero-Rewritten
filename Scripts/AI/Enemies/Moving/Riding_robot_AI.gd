@@ -1,3 +1,4 @@
+@icon("res://Sprites/Icons/Riding_robot.svg")
 extends Node2D
 
 @onready var riding_body : Robot_body = $Riding_robot
@@ -10,13 +11,17 @@ var can_change_direction : bool = true
 var cur_target : Moving_body
 var head_movement : Vector2
 
+signal play_sound_for_shot(from_position:float)
+
 func _ready():
 	riding_body.type = GlobalEnum.BodyTypes.ENEMY
 	riding_head.type = GlobalEnum.BodyTypes.ENEMY
 
 func _physics_process(_delta):
 	if is_instance_valid(riding_head):
-		riding_head.shoot()
+		if riding_head.can_use_weapon:
+			riding_head.shoot()
+			play_sound_for_shot.emit(0.0)
 	if is_instance_valid(riding_body):
 		riding_body.movement(cur_movement)
 		if raycast_right.get_collider() != null and can_change_direction:

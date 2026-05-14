@@ -10,3 +10,6 @@ enum BodyTypes {PLAYER,COMRADE,ENEMY}
 ##ATTACKING - атакует игрока[br]
 ##WORRIED - начинать бродить по более обширной территории, чем прежде, ведь знает, что игрок рядом
 enum EnemyState {IDLE,ATTACKING,WORRIED}
+
+enum XboxGamepadTypes {XBOX,M30}
+enum KeyboardTypes{QWERTY,AZERTY}

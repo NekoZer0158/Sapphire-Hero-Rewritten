@@ -11,7 +11,7 @@ func start_achievement(args:Array) -> void:
 func check_if_completed(args:Array) -> void:
 	if args[0] == data_to_check["HP"] and args[1] == data_to_check["HP_refills"] and not "Elevator_no_damage" in GlobalSapphire.achievements_data.unlocked_achievements:
 		GlobalSapphire.get_this_achievement_and_save(achievement_name)
-		emit_signal("got_achievement",achievement_name,achievement_texture)
+		got_achievement.emit(achievement_name,achievement_texture)
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
