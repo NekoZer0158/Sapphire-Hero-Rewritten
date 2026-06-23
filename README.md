@@ -21,7 +21,7 @@ GPL-3.0-only
 ## Changelog
 
 ## Documentation update
-#№# EN
+### EN
 	There were nothing added to the game itself, only outside of it (that's why the update isn't called 2.6).
 	Fix second screenshot to better represent the current state of the game (in the old one there was an empty space above the ceiling).
 	Small changes and improvements in Russian documentation.
@@ -31,7 +31,7 @@ GPL-3.0-only
 	Добавлен список ID всех снарядов (проджектайлов) в документации.
 	Небольшие улучшения и изменения в русской документации.
 ## 2.5
-##№ EN
+### EN
 	Add support for M30 gamepad.
 	Add support for AZERTY keyboard.
 	Add sound effects for most weapons.
