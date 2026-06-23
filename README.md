@@ -31,7 +31,7 @@ GPL-3.0-only
 	Добавлен список ID всех снарядов (проджектайлов) в документации.
 	Небольшие улучшения и изменения в русской документации.
 ## 2.5
-### EN
+##№ EN
 	Add support for M30 gamepad.
 	Add support for AZERTY keyboard.
 	Add sound effects for most weapons.
