@@ -20,6 +20,16 @@ GPL-3.0-only
 
 ## Changelog
 
+## Documentation update
+#№# EN
+	There were nothing added to the game itself, only outside of it (that's why the update isn't called 2.6).
+	Fix second screenshot to better represent the current state of the game (in the old one there was an empty space above the ceiling).
+	Small changes and improvements in Russian documentation.
+### RU
+	В игру ничего не было добавлено, только вне её (поэтому обновление не называется 2.6).
+	Исправлен второй скриншот для лучшей репрезентации текущего состояния игры (в старом было пустое пространство над потолком).
+	Добавлен список ID всех снарядов (проджектайлов) в документации.
+	Небольшие улучшения и изменения в русской документации.
 ## 2.5
 ### EN
 	Add support for M30 gamepad.
